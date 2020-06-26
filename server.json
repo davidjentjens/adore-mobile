@@ -106,6 +106,121 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "product_id": 1,
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 0
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "product_id": 1,
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 0
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "product_id": 1,
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 3
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 0
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "21.90",
+      "category": 2,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png",
+      "product_id": 2,
+      "extras": [
+        {
+          "id": 3,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 8
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "formattedPrice": "R$19,90",
+      "product_id": 1,
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 0
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 0
+        }
+      ],
+      "id": 7
     }
   ],
   "favorites": [
@@ -136,6 +251,22 @@
           "id": 2,
           "name": "Frango",
           "value": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "A la Camarón",
+      "description": "Macarrão com vegetais de primeira linha e camarão dos 7 mares.",
+      "price": "25.90",
+      "category": 3,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/camarao.png",
+      "extras": [
+        {
+          "id": 4,
+          "name": "Bacon",
+          "value": 1.5
         }
       ]
     }

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Image } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 
@@ -28,6 +29,8 @@ interface Food {
 }
 
 const Orders: React.FC = () => {
+  const navigation = useNavigation();
+
   const [orders, setOrders] = useState<Food[]>([]);
 
   useEffect(() => {
