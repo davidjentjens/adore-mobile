@@ -1,4 +1,4 @@
-<img alt="Hackathon Mobile" src="/" />
+<!--- <img alt="Hackathon Mobile" src="/" /> -->
 
 <h3 align="center">
   Hackathon Mobile
