@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { View, StatusBar } from 'react-native';
 
+import AppProvider from './hooks/index';
 import Routes from './routes';
 
 const App: React.FC = () => (
@@ -11,7 +12,9 @@ const App: React.FC = () => (
       backgroundColor="transparent"
       translucent
     />
-    <Routes />
+    <AppProvider>
+      <Routes />
+    </AppProvider>
   </View>
 );
 
