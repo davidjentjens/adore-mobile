@@ -1,6 +1,41 @@
 {
-  "foods": [
+  "restaurants": [{
+      "id": "001",
+      "name": "Cervejaria",
+      "location": "Botafogo"
+    },
     {
+      "id": "002",
+      "name": "Hamburgueria",
+      "location": "Flamengo"
+    },
+    {
+      "id": "003",
+      "name": "Pizzaria",
+      "location": "Flamengo"
+    },
+    {
+      "id": "004",
+      "name": "Gelateria",
+      "location": "Flamengo"
+    },
+    {
+      "id": "005",
+      "name": "Queijaria",
+      "location": "Flamengo"
+    },
+    {
+      "id": "006",
+      "name": "Padaria",
+      "location": "Flamengo"
+    },
+    {
+      "id": "007",
+      "name": "Cafeteria",
+      "location": "Flamengo"
+    }
+  ],
+  "foods": [{
       "id": 1,
       "name": "Ao molho",
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
@@ -8,8 +43,7 @@
       "category": 1,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5
@@ -29,13 +63,11 @@
       "category": 2,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png",
-      "extras": [
-        {
-          "id": 3,
-          "name": "Bacon",
-          "value": 1.5
-        }
-      ]
+      "extras": [{
+        "id": 3,
+        "name": "Bacon",
+        "value": 1.5
+      }]
     },
     {
       "id": 3,
@@ -45,17 +77,14 @@
       "category": 3,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/camarao.png",
-      "extras": [
-        {
-          "id": 4,
-          "name": "Bacon",
-          "value": 1.5
-        }
-      ]
+      "extras": [{
+        "id": 4,
+        "name": "Bacon",
+        "value": 1.5
+      }]
     }
   ],
-  "categories": [
-    {
+  "categories": [{
       "id": 1,
       "title": "Massas",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/massas.png"
@@ -71,8 +100,7 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/carnes.png"
     }
   ],
-  "orders": [
-    {
+  "orders": [{
       "id": 1,
       "product_id": 1,
       "name": "Ao molho",
@@ -80,14 +108,12 @@
       "price": 19.9,
       "category": 1,
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
-      "extras": [
-        {
-          "id": 4,
-          "name": "Bacon",
-          "value": 1.5,
-          "quantity": 1
-        }
-      ]
+      "extras": [{
+        "id": 4,
+        "name": "Bacon",
+        "value": 1.5,
+        "quantity": 1
+      }]
     },
     {
       "name": "A la Camarón",
@@ -97,14 +123,12 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/camarao.png",
       "product_id": 3,
-      "extras": [
-        {
-          "id": 4,
-          "name": "Bacon",
-          "value": 1.5,
-          "quantity": 2
-        }
-      ],
+      "extras": [{
+        "id": 4,
+        "name": "Bacon",
+        "value": 1.5,
+        "quantity": 2
+      }],
       "id": 2
     },
     {
@@ -115,8 +139,7 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
       "product_id": 1,
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5,
@@ -139,8 +162,7 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
       "product_id": 1,
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5,
@@ -163,8 +185,7 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
       "product_id": 1,
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5,
@@ -187,14 +208,12 @@
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png",
       "product_id": 2,
-      "extras": [
-        {
-          "id": 3,
-          "name": "Bacon",
-          "value": 1.5,
-          "quantity": 8
-        }
-      ],
+      "extras": [{
+        "id": 3,
+        "name": "Bacon",
+        "value": 1.5,
+        "quantity": 8
+      }],
       "id": 6
     },
     {
@@ -206,8 +225,7 @@
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
       "formattedPrice": "R$19,90",
       "product_id": 1,
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5,
@@ -223,8 +241,7 @@
       "id": 7
     }
   ],
-  "favorites": [
-    {
+  "favorites": [{
       "id": 2,
       "name": "Veggie",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
@@ -241,8 +258,7 @@
       "category": 1,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
-      "extras": [
-        {
+      "extras": [{
           "id": 1,
           "name": "Bacon",
           "value": 1.5
@@ -262,13 +278,11 @@
       "category": 3,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/camarao.png",
-      "extras": [
-        {
-          "id": 4,
-          "name": "Bacon",
-          "value": 1.5
-        }
-      ]
+      "extras": [{
+        "id": 4,
+        "name": "Bacon",
+        "value": 1.5
+      }]
     }
   ]
 }

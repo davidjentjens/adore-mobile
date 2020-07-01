@@ -11,12 +11,12 @@ export const Container = styled.View``;
 export const Title = styled.Text`
   font-style: normal;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 34px;
+  font-family: Roboto-Bold;
   line-height: 50px;
   color: #fff;
   margin-top: 80px;
-  width: 250px;
-  font-family: 'Poppins-Regular';
+  width: 330px;
 `;
 
 export const NavigationButton = styled.TouchableOpacity`
@@ -29,6 +29,7 @@ export const NavigationButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   font-weight: 600;
   font-size: 15px;
+  padding: 7px 7px 7px;
   line-height: 22px;
   color: #7a1818;
   flex: 1;

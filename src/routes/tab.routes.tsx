@@ -12,20 +12,25 @@ const Tab = createBottomTabNavigator();
 const TabRoutes: React.FC = () => (
   <Tab.Navigator
     tabBarOptions={{
-      labelPosition: 'beside-icon',
-      activeTintColor: '#C72828',
+      labelPosition: 'below-icon',
+      activeTintColor: '#ffffff',
       labelStyle: {
-        fontFamily: 'Poppins-Regular',
-        fontSize: 12,
+        fontFamily: 'Roboto-Regular',
+        fontSize: 10,
         fontWeight: '600',
       },
       inactiveTintColor: '#B7B7CC',
+
+      style: {
+        backgroundColor: '#2f2f2f',
+        borderTopColor: 'transparent',
+      },
     }}
   >
     <Tab.Screen
       options={{
-        tabBarIcon: ({ color }) => <Icon size={25} name="list" color={color} />,
-        title: 'Listagem',
+        tabBarIcon: ({ color }) => <Icon size={22} name="home" color={color} />,
+        title: 'Descobrir',
       }}
       name="DashboardStack"
       component={Dashboard}
@@ -34,9 +39,9 @@ const TabRoutes: React.FC = () => (
       name="Orders"
       options={{
         tabBarIcon: ({ color }) => (
-          <Icon size={25} name="shopping-bag" color={color} />
+          <Icon size={22} name="credit-card" color={color} />
         ),
-        title: 'Pedidos',
+        title: 'Assinaturas',
       }}
       component={Orders}
     />
@@ -45,7 +50,7 @@ const TabRoutes: React.FC = () => (
       name="Favorites"
       options={{
         tabBarIcon: ({ color }) => (
-          <Icon size={25} name="heart" color={color} />
+          <Icon size={22} name="heart" color={color} />
         ),
         title: 'Favoritos',
       }}

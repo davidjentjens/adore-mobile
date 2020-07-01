@@ -1,0 +1,13 @@
+{
+  "restaurants": [{
+      "id": "001",
+      "name": "Cervejaria",
+      "location": "Botafogo"
+    },
+    {
+      "id": "002",
+      "name": "Hamburgueria",
+      "location": "Flamengo"
+    }
+  ]
+}
