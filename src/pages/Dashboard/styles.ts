@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { Business } from './index';
 
@@ -11,7 +13,7 @@ export const Container = styled.View`
 // #region Header
 
 export const Header = styled.View`
-  padding: 40px 24px 10px;
+  padding: 70px 34px 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,7 +21,7 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: white;
+  color: #a58328;
   font-size: 32px;
   font-family: Roboto-Bold;
 `;
@@ -28,9 +30,9 @@ export const HeaderText = styled.Text`
 
 // #region TopCards
 
-export const TopCardContainer = styled.View`
+export const TopCardContainer = styled(LinearGradient)`
   margin: 0;
-  padding: 0px;
+  padding: 10px 0px 0px 20px;
   flex-direction: row;
   align-items: center;
 `;
@@ -46,7 +48,7 @@ export const TopCardText = styled.Text`
 export const TopCard = styled.View`
   width: 68px;
   height: 68px;
-  margin: 10px 15px 10px 0px;
+  margin: 10px 15px 40px 0px;
   background: #2f2f2f;
   border-radius: 13px;
   padding: 10px;
@@ -63,15 +65,46 @@ export const FeedContainer = styled.View`
 `;
 
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 10px 0px 0px 10px;
+  padding: 0px 0px 40px 10px;
 `;
 
-export const BusinessCard = styled.View`
-  margin: 0px 10px 10px 0px;
-  height: 200px;
+export const BusinessCardBackgroundImage = styled(ImageBackground)`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
+
+export const BusinessCard = styled(RectButton)`
+  margin: 0px 20px 20px 20px;
+  height: 212px;
   color: #fff;
-  background: #2f2f2f;
   border-radius: 13px;
+`;
+
+export const BusinessDataContainer = styled.View`
+  margin: 0;
+  padding: 0;
+`;
+
+export const BusinessText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 29px;
+  color: white;
+  margin: 10px 10px 0px 20px;
+`;
+
+export const BusinessSubtitleText = styled.Text`
+  font-family: Roboto-Regular;
+  font-size: 18px;
+  color: #a58328;
+  margin: 0px 10px 20px 20px;
+`;
+
+export const BusinessCardGradient = styled(LinearGradient)`
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  align-items: flex-end;
 `;
 
 // #endregion

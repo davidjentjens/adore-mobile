@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import TabRoutes from './tab.routes';
 
 import Home from '../pages/Home';
-import FoodDetails from '../pages/FoodDetails';
+import BusinessDetails from '../pages/BusinessDetails';
 
 const App = createStackNavigator();
 
@@ -28,8 +28,8 @@ const AppRoutes: React.FC = () => (
       }}
     />
     <App.Screen
-      name="FoodDetails"
-      component={FoodDetails}
+      name="BusinessDetails"
+      component={BusinessDetails}
       options={({ navigation }) => ({
         headerLeft: () => (
           <Icon
@@ -46,7 +46,7 @@ const AppRoutes: React.FC = () => (
         headerRightContainerStyle: {
           marginRight: 24,
         },
-        headerTitle: 'Prato - Massas',
+        headerTitle: 'Estabelecimento',
         headerTitleStyle: {
           color: '#fff',
           fontFamily: 'Poppins-Regular',

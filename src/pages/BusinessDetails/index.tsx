@@ -18,36 +18,12 @@ import {
   Container,
   Header,
   ScrollContainer,
-  FoodsContainer,
-  Food,
-  FoodImageContainer,
-  FoodContent,
-  FoodTitle,
-  FoodDescription,
-  FoodPricing,
-  AdditionalsContainer,
-  Title,
-  TotalContainer,
-  AdittionalItem,
-  AdittionalItemText,
-  AdittionalQuantity,
-  PriceButtonContainer,
-  TotalPrice,
-  QuantityContainer,
-  FinishOrderButton,
-  ButtonText,
-  IconContainer,
+  subscribersButton,
+  subscribersText,
 } from './styles';
 
 interface Params {
   id: number;
-}
-
-interface Extra {
-  id: number;
-  name: string;
-  value: number;
-  quantity: number;
 }
 
 interface Business {
@@ -66,30 +42,18 @@ const BusinessDetails: React.FC = () => {
   const routeParams = route.params as Params;
 
   useEffect(() => {
-    async function loadFood(): Promise<void> {
+    async function loadBusiness(): Promise<void> {
       const { data } = await api.get(`foods/${routeParams.id}`);
-
-      setFood({
-        ...data,
-        formattedPrice: formatValue(data.price),
-      });
-
-      setExtras(
-        data.extras.map((extra: Extra) => ({
-          ...extra,
-          quantity: 0,
-        })),
-      );
     }
 
-    loadFood();
+    loadBusiness();
   }, [routeParams.id]);
 
   const toggleFavorite = useCallback(async () => {
-    await api.post(`favorites`, food);
+    await api.post(`favorites`, business);
 
     setIsFavorite(!isFavorite);
-  }, [isFavorite, food]);
+  }, [isFavorite, business]);
 
   // Calculate the correct icon name
   const favoriteIconName = useMemo(
@@ -120,4 +84,4 @@ const BusinessDetails: React.FC = () => {
   );
 };
 
-export default FoodDetails;
+export default BusinessDetails;

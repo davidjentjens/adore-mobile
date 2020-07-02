@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ScrollView, Text } from 'react-native';
+import { Image, ScrollView, Text, ImageBackground } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -20,12 +21,19 @@ import {
   FeedContainer,
   BusinessList,
   BusinessCard,
+  BusinessDataContainer,
+  BusinessText,
+  BusinessSubtitleText,
+  BusinessCardBackgroundImage,
+  BusinessCardGradient,
+  TopCardGradient,
 } from './styles';
 
 export interface Business {
   id: string;
   name: string;
-  local: string;
+  location: string;
+  image_url: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -51,7 +59,7 @@ const Dashboard: React.FC = () => {
           onPress={() => navigate('Home')}
         />
       </Header>
-      <TopCardContainer>
+      <TopCardContainer colors={['rgba(28, 28, 28, 1)', 'rgba(28, 28, 28, 0)']}>
         <TopCardList
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -60,20 +68,30 @@ const Dashboard: React.FC = () => {
           renderItem={({ item: business }) => <TopCard />}
         />
       </TopCardContainer>
-      <FeedContainer>
-        <BusinessList
-          alwaysBounceVertical
-          showsVerticalScrollIndicator={false}
-          data={businesses}
-          keyExtractor={business => business.id}
-          renderItem={({ item: business }) => (
-            <BusinessCard>
-              <Text>{business.name}</Text>
-              <Button>Fazer Inscrição</Button>
-            </BusinessCard>
-          )}
-        />
-      </FeedContainer>
+      <BusinessList
+        alwaysBounceVertical
+        showsVerticalScrollIndicator={false}
+        data={businesses}
+        keyExtractor={business => business.id}
+        renderItem={({ item: business }) => (
+          <BusinessCard
+            onPress={() => navigate('BusinessDetails', { id: business.id })}
+          >
+            <BusinessCardBackgroundImage source={{ uri: business.image_url }}>
+              <BusinessCardGradient
+                colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.7)']}
+              >
+                <BusinessDataContainer>
+                  <BusinessText>{business.name}</BusinessText>
+                  <BusinessSubtitleText>
+                    {business.location}
+                  </BusinessSubtitleText>
+                </BusinessDataContainer>
+              </BusinessCardGradient>
+            </BusinessCardBackgroundImage>
+          </BusinessCard>
+        )}
+      />
     </Container>
   );
 };

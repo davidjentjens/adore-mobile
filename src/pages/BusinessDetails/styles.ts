@@ -171,3 +171,17 @@ export const IconContainer = styled.View`
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
+
+export const subscribersButton = styled.View`
+  width: 100px;
+  height: 30px;
+`;
+
+export const subscribersText = styled.Text`
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+`;
