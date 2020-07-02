@@ -5,20 +5,21 @@ import Icon from 'react-native-vector-icons/Feather';
 import TabRoutes from './tab.routes';
 
 import Home from '../pages/Home';
+import Dashboard from '../pages/Dashboard';
 import BusinessDetails from '../pages/BusinessDetails';
 
 const App = createStackNavigator();
 
 const AppRoutes: React.FC = () => (
-  <App.Navigator initialRouteName="Home">
-    <App.Screen
+  <App.Navigator initialRouteName="MainBottom">
+    {/* <App.Screen
       options={{
         cardStyle: { backgroundColor: '#C72828' },
         headerShown: false,
       }}
       name="Home"
       component={Home}
-    />
+    /> */}
     <App.Screen
       name="MainBottom"
       component={TabRoutes}
@@ -39,21 +40,22 @@ const AppRoutes: React.FC = () => (
             onPress={() => navigation.goBack()}
           />
         ),
+        headerShown: false,
         headerLeftContainerStyle: {
           marginLeft: 24,
         },
-        headerRight: () => <Icon name="heart" size={24} color="#FFB84D" />,
-        headerRightContainerStyle: {
-          marginRight: 24,
-        },
-        headerTitle: 'Estabelecimento',
-        headerTitleStyle: {
-          color: '#fff',
-          fontFamily: 'Poppins-Regular',
-          fontSize: 16,
-        },
+        // headerRight: () => <Icon name="heart" size={24} color="#FFB84D" />,
+        // headerRightContainerStyle: {
+        //   marginRight: 24,
+        // },
+        headerTitle: '',
+        // headerTitleStyle: {
+        //   color: '#fff',
+        //   fontFamily: 'Poppins-Regular',
+        //   fontSize: 16,
+        // },
         headerStyle: {
-          backgroundColor: '#C72828',
+          backgroundColor: 'transparent',
           elevation: 0,
           borderWidth: 0,
           shadowColor: 'transparent',
