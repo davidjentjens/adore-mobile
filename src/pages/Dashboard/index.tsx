@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ScrollView, Text, ImageBackground } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -18,7 +16,6 @@ import {
   TopCardList,
   TopCard,
   TopCardText,
-  FeedContainer,
   BusinessList,
   BusinessCard,
   BusinessDataContainer,
@@ -26,7 +23,6 @@ import {
   BusinessSubtitleText,
   BusinessCardBackgroundImage,
   BusinessCardGradient,
-  TopCardGradient,
 } from './styles';
 
 export interface Business {
@@ -44,7 +40,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     api.get('restaurants').then(response => {
       setBusinesses(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     });
   }, []);
 

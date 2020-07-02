@@ -1,18 +1,46 @@
 import styled from 'styled-components/native';
+import { ImageBackground, SafeAreaView } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+
+import Icon from 'react-native-vector-icons/Feather';
+import Button from '../../components/Button';
 
 export const Container = styled.View`
   flex: 1;
-  background: #fff;
+  background: #1c1c1c;
 `;
 
-export const Header = styled.View`
-  padding: 40px 24px 20px;
-  background: #c72828;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+// #region Header
+
+export const Header = styled(ImageBackground)`
+  padding: 0;
+  height: 200px;
 `;
+
+export const HeaderGradient = styled(LinearGradient)`
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const HeaderSafeArea = styled(SafeAreaView)`
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+`;
+
+export const HeaderBackButton = styled(Button)`
+  background: transparent;
+  padding: 0;
+  margin: 0 0 0 15px;
+`;
+
+export const HeaderBackButtonIcon = styled(Icon)`
+  color: #fff;
+`;
+
+// #endregion
 
 export const ScrollContainer = styled.ScrollView.attrs({
   contentContainerStyle: {

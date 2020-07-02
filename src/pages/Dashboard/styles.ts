@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/native';
-import { FlatList, ImageBackground, StyleSheet } from 'react-native';
+import { FlatList, ImageBackground } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -57,12 +57,6 @@ export const TopCard = styled.View`
 // #endregion
 
 // #region Business Feed
-
-export const FeedContainer = styled.View`
-  margin: 0;
-  padding: 0;
-  flex-direction: column;
-`;
 
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
   padding: 0px 0px 40px 10px;
