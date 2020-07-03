@@ -4,7 +4,8 @@
       "id": "001",
       "name": "Cervejaria",
       "location": "Botafogo",
-      "image_url": "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+      "image_url": "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+      "perks": ["Uma rodada de cervejas grátis", "Petiscos com 50% de desconto", "5 entregas com frete grátis"]
     },
     {
       "id": "002",

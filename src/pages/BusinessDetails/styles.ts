@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { ImageBackground, SafeAreaView } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -14,14 +14,13 @@ export const Container = styled.View`
 
 export const Header = styled(ImageBackground)`
   padding: 0;
-  height: 200px;
+  height: 230px;
 `;
 
 export const HeaderGradient = styled(LinearGradient)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  align-items: flex-end;
 `;
 
 export const HeaderSafeArea = styled(SafeAreaView)`
@@ -40,6 +39,90 @@ export const HeaderBackButtonIcon = styled(Icon)`
   color: #fff;
 `;
 
+export const styles = StyleSheet.create({
+  headerTitle: {
+    color: '#a58328',
+    fontSize: 32,
+    fontFamily: 'Roboto-Bold',
+    marginLeft: 20,
+  },
+  headerSubTitle: {
+    color: '#fff',
+    fontSize: 25,
+    fontFamily: 'Roboto-Regular',
+    margin: 0,
+    marginLeft: 20,
+  },
+  headerInfoView: {
+    marginTop: 15,
+    flexDirection: 'row',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    justifyContent: 'space-between',
+  },
+  headerSubCount: {
+    margin: 0,
+    marginRight: 10,
+    marginLeft: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#a58328',
+  },
+  headerSpecialty: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#2f2f2f',
+  },
+  headerInfoText: {
+    color: '#fff',
+    fontSize: 15,
+    fontFamily: 'Roboto-Medium',
+  },
+  contentSafeArea: {
+    flex: 1,
+  },
+  sectionTitle: {
+    fontFamily: 'Roboto-Bold',
+    fontSize: 25,
+    color: '#fff',
+    marginLeft: 20,
+  },
+
+  perksContainer: {
+    backgroundColor: '#2f2f2f',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
+    height: 55,
+    borderRadius: 12,
+  },
+  perkText: {
+    marginTop: 17,
+    marginLeft: 20,
+    color: '#fff',
+    alignContent: 'center',
+    fontSize: 20,
+    fontFamily: 'Roboto-Medium',
+  },
+
+  buttonSub: {
+    color: '#a58328',
+    marginLeft: 20,
+    marginRight: 20,
+    height: 56,
+    borderRadius: 12,
+  },
+});
+
 // #endregion
 
 export const ScrollContainer = styled.ScrollView.attrs({
@@ -48,6 +131,37 @@ export const ScrollContainer = styled.ScrollView.attrs({
   },
 })`
   margin-top: -40px;
+`;
+
+export const NavigationButton = styled.TouchableOpacity`
+  background: #a58328;
+  border-radius: 8px;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+`;
+
+export const ButtonText = styled.Text`
+  font-weight: 600;
+  font-size: 18px;
+  padding: 7px 7px 7px;
+  line-height: 22px;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+  font-family: Roboto-Regular;
+`;
+
+export const ButtonPrice = styled.Text`
+  background-color: #947523;
+  font-family: Roboto-Bold;
+  font-size: 18px;
+  color: #fff;
+  padding: 16px 30px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 `;
 
 export const FoodsContainer = styled.View`
@@ -182,22 +296,6 @@ export const FinishOrderButton = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   margin-top: 26px;
-`;
-
-export const ButtonText = styled.Text`
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
-  color: #fff;
-  flex: 1;
-  text-align: center;
-`;
-
-export const IconContainer = styled.View`
-  background-color: #41c900;
-  padding: 16px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
 `;
 
 export const subscribersButton = styled.View`
