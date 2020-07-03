@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SearchBar } from 'react-native-elements';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -23,7 +24,9 @@ import {
   BusinessSubtitleText,
   BusinessCardBackgroundImage,
   BusinessCardGradient,
+  styles,
 } from './styles';
+// import { styles } from '../BusinessDetails/styles';
 
 export interface Business {
   id: string;
@@ -49,13 +52,19 @@ const Dashboard: React.FC = () => {
       <Header>
         <HeaderText>Descobrir</HeaderText>
         <Icon
-          name="log-out"
+          name="search"
           size={24}
-          color="#FFB84D"
-          onPress={() => navigate('Home')}
+          color="#a58328"
+          // onPress={() => navigate('Home')}
         />
       </Header>
-      <TopCardContainer colors={['rgba(28, 28, 28, 1)', 'rgba(28, 28, 28, 0)']}>
+      <SearchBar
+        containerStyle={styles.searchBar}
+        // onChangeText={someMethod}
+        // onClearText={someMethod}
+        placeholder="Type Here..."
+      />
+      {/* <TopCardContainer colors={['rgba(28, 28, 28, 1)', 'rgba(28, 28, 28, 0)']}>
         <TopCardList
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -63,7 +72,7 @@ const Dashboard: React.FC = () => {
           keyExtractor={business => business.id}
           renderItem={({ item: business }) => <TopCard />}
         />
-      </TopCardContainer>
+      </TopCardContainer> */}
       <BusinessList
         alwaysBounceVertical
         showsVerticalScrollIndicator={false}

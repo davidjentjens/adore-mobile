@@ -104,7 +104,7 @@ const BusinessDetails: React.FC = () => {
         >
           <HeaderSafeArea>
             <HeaderBackButton onPress={() => navigation.goBack()}>
-              <HeaderBackButtonIcon name="arrow-left" size={24} />
+              <HeaderBackButtonIcon name="arrow-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{business.name}</Text>
             <Text style={styles.headerSubTitle}>{business.location}</Text>
@@ -127,6 +127,7 @@ const BusinessDetails: React.FC = () => {
           alwaysBounceVertical
           showsVerticalScrollIndicator={false}
           data={business.perks}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item: perk }) => (
             <View style={styles.perksContainer}>
               <Text style={styles.perkText}>{perk}</Text>

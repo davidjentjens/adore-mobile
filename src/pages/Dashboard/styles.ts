@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/native';
-import { FlatList, ImageBackground } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -9,6 +9,17 @@ export const Container = styled.View`
   flex: 1;
   background: #1c1c1c;
 `;
+
+export const styles = StyleSheet.create({
+  searchBar: {
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    borderColor: 'transparent',
+    padding: 0,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+});
 
 // #region Header
 
@@ -59,7 +70,8 @@ export const TopCard = styled.View`
 // #region Business Feed
 
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 0px 0px 40px 10px;
+  padding: 0px 0px 40px 0px;
+  margin-top: 15px;
 `;
 
 export const BusinessCardBackgroundImage = styled(ImageBackground)`
