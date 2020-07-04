@@ -20,7 +20,9 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation, useRoute, DarkTheme } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../../components/Button';
+
 import formatValue from '../../utils/formatValue';
+import getRankColor from '../../utils/getRankColor';
 
 import api from '../../services/api';
 
@@ -31,7 +33,6 @@ import {
   HeaderSafeArea,
   HeaderBackButton,
   HeaderBackButtonIcon,
-  ScrollContainer,
   SectionContainer,
   SectionTitle,
   TierContainer,
@@ -73,7 +74,7 @@ const BusinessDetails: React.FC = () => {
   const [business, setBusiness] = useState<Business>();
   const [tiers, setTiers] = useState<Tier[]>([]);
 
-  const { navigate } = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
 
   const routeParams = route.params as Params;
@@ -100,7 +101,7 @@ const BusinessDetails: React.FC = () => {
           colors={['rgba(10, 10, 10, 0.4)', 'rgba(10, 10, 10, 0.9)']}
         >
           <HeaderSafeArea>
-            <HeaderBackButton onPress={() => navigation.goBack()}>
+            <HeaderBackButton onPress={() => goBack()}>
               <HeaderBackButtonIcon name="chevron-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{business.name}</Text>
@@ -131,7 +132,7 @@ const BusinessDetails: React.FC = () => {
                       onPress={() => navigate('Tier', { id: tier.id })}
                     >
                       <TierTextBackground
-                        style={{ backgroundColor: '#5a5854' }}
+                        style={{ backgroundColor: getRankColor(tier.rank) }}
                       >
                         <TierText>{tier.name}</TierText>
                       </TierTextBackground>

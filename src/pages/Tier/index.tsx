@@ -9,7 +9,9 @@ import Button from '../../components/Button';
 import { Container, Header, HeaderText, SectionText, TierCard } from './styles';
 
 const Tier: React.FC = () => {
-  const navigation = useNavigation();
+  // const tier =
+
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
 
   return (
@@ -19,7 +21,7 @@ const Tier: React.FC = () => {
           name="chevron-left"
           size={30}
           color="#fff"
-          onPress={() => navigation.goBack()}
+          onPress={() => goBack()}
           style={{ marginBottom: 10 }}
         />
         <HeaderText>Cervejaria do X</HeaderText>
@@ -61,7 +63,7 @@ const Tier: React.FC = () => {
             </Text>
           </View>
         </TierCard>
-        <Button onPress={() => navigation.navigate('PaymentValidation')}>
+        <Button onPress={() => navigate('PaymentValidation')}>
           R$ 50,90/mês
         </Button>
         <SectionText>Outros Planos</SectionText>

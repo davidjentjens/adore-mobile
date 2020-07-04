@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Feather';
 import Dashboard from '../pages/Dashboard';
 import Orders from '../pages/Orders';
+import Feed from '../pages/Feed';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +30,16 @@ const TabRoutes: React.FC = () => (
     <Tab.Screen
       options={{
         tabBarIcon: ({ color }) => <Icon size={22} name="home" color={color} />,
+        title: 'Feed',
+      }}
+      name="Feed"
+      component={Feed}
+    />
+    <Tab.Screen
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Icon size={22} name="search" color={color} />
+        ),
         title: 'Descobrir',
       }}
       name="DashboardStack"
