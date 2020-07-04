@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
+import { Image, View, ActivityIndicator } from 'react-native';
+import { useNavigation, useRoute, DarkTheme } from '@react-navigation/native';
 
+import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 
@@ -8,66 +11,92 @@ import {
   Container,
   Header,
   HeaderTitle,
-  FoodsContainer,
-  FoodList,
-  Food,
-  FoodImageContainer,
-  FoodContent,
-  FoodTitle,
-  FoodDescription,
-  FoodPricing,
+  HeaderBackButton,
+  HeaderSafeArea,
+  HeaderBackButtonIcon,
+  BusinessContainer,
+  BusinessList,
+  Business,
+  BusinessImageContainer,
+  BusinessCardBackgroundImage,
+  BusinessContent,
+  BusinessTitle,
+  BusinessDescription,
+  BusinessPricing,
+  styles,
 } from './styles';
 
-interface Food {
+interface Business {
   id: number;
   name: string;
   description: string;
+  location: string;
   price: number;
-  thumbnail_url: string;
+  image_url: string;
   formattedPrice: string;
 }
 
+interface Params {
+  id: number;
+  name: string;
+}
+
 const Favorites: React.FC = () => {
-  const [favorites, setFavorites] = useState<Food[]>([]);
+  const [businesses, setBusiness] = useState<Business[]>([]);
+
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  const routeParams = route.params as Params;
 
   useEffect(() => {
-    async function loadFavorites(): Promise<void> {
-      const { data } = await api.get('favorites');
-
-      setFavorites(data);
+    async function loadBusiness(): Promise<void> {
+      const { data } = await api.post('business/type', {
+        type: routeParams.name,
+      });
+      setBusiness(data);
     }
 
-    loadFavorites();
-  }, []);
+    loadBusiness();
+  }, [routeParams.name]);
 
-  return (
+  return businesses ? (
     <Container>
       <Header>
-        <HeaderTitle>Meus favoritos</HeaderTitle>
+        <HeaderBackButton onPress={() => navigation.goBack()}>
+          <HeaderBackButtonIcon name="arrow-left" size={30} />
+        </HeaderBackButton>
+        <HeaderTitle>{routeParams.name}</HeaderTitle>
       </Header>
 
-      <FoodsContainer>
-        <FoodList
-          data={favorites}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => (
-            <Food activeOpacity={0.6}>
-              <FoodImageContainer>
-                <Image
-                  style={{ width: 88, height: 88 }}
-                  source={{ uri: item.thumbnail_url }}
-                />
-              </FoodImageContainer>
-              <FoodContent>
-                <FoodTitle>{item.name}</FoodTitle>
-                <FoodDescription>{item.description}</FoodDescription>
-                <FoodPricing>{item.formattedPrice}</FoodPricing>
-              </FoodContent>
-            </Food>
+      <BusinessContainer>
+        <BusinessList
+          data={businesses}
+          keyExtractor={business => String(business.id)}
+          renderItem={({ item: business }) => (
+            <Business activeOpacity={0.6}>
+              <BusinessContent>
+                <BusinessCardBackgroundImage
+                  source={{ uri: business.image_url }}
+                >
+                  <View style={styles.opacityView}>
+                    <BusinessTitle>{business.name}</BusinessTitle>
+                    <BusinessDescription>
+                      {business.location}
+                    </BusinessDescription>
+                    <BusinessPricing>{business.formattedPrice}</BusinessPricing>
+                  </View>
+                </BusinessCardBackgroundImage>
+              </BusinessContent>
+            </Business>
           )}
         />
-      </FoodsContainer>
+      </BusinessContainer>
     </Container>
+  ) : (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color="#666" />
+    </View>
   );
 };
 

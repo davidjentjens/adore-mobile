@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { SearchBar } from 'react-native-elements';
+import { SearchBar, Text } from 'react-native-elements';
+import Carousel from 'react-native-snap-carousel';
+import { Dimensions } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
+import { useWindowDimensions } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import Logo from '../../assets/logo-header.png';
 
 import api from '../../services/api';
 
 import Button from '../../components/Button';
+import { scrollInterpolator, animatedStyles } from '../../utils/animations';
 
 import {
   Container,
   Header,
   HeaderText,
+  SectionText,
   TopCardContainer,
   TopCardList,
   TopCard,
   TopCardText,
+  FeatureCard,
+  FeatureText,
+  FeatureDataContainer,
+  FeatureCardBackgroundImage,
   BusinessList,
   BusinessCard,
   BusinessDataContainer,
@@ -35,68 +45,101 @@ export interface Business {
   image_url: string;
 }
 
+export interface Category {
+  id: string;
+  name: string;
+  image_url: string;
+}
+
 const Dashboard: React.FC = () => {
   const { navigate } = useNavigation();
 
   const [businesses, setBusinesses] = useState<Business[]>([]);
+  const [categories, setCategory] = useState<Category[]>([]);
 
   useEffect(() => {
-    api.get('restaurants').then(response => {
-      setBusinesses(response.data);
-      // console.log(response.data);
-    });
+    const loadBusinesses = async (): Promise<void> => {
+      api.get('business').then(response => {
+        setBusinesses(response.data);
+        // console.log(response.data);
+      });
+    };
+
+    const loadCategories = async (): Promise<void> => {
+      api.get('categories').then(response => {
+        setCategory(response.data);
+      });
+    };
+
+    loadCategories();
+    loadBusinesses();
   }, []);
 
   return (
     <Container>
       <Header>
         <HeaderText>Descobrir</HeaderText>
-        <Icon
-          name="search"
-          size={24}
-          color="#a58328"
-          // onPress={() => navigate('Home')}
-        />
       </Header>
-      <SearchBar
-        containerStyle={styles.searchBar}
-        // onChangeText={someMethod}
-        // onClearText={someMethod}
-        placeholder="Type Here..."
-      />
-      {/* <TopCardContainer colors={['rgba(28, 28, 28, 1)', 'rgba(28, 28, 28, 0)']}>
-        <TopCardList
-          horizontal
-          showsHorizontalScrollIndicator={false}
+      <ScrollView>
+        {/** *******DESTAQUES******** */}
+        <Carousel
+          // ref={c => {
+          //   this._carousel = c;
+          // }}
+          slideInterpolatedStyle={animatedStyles}
+          inactiveSlideScale={1}
+          inactiveSlideOpacity={0.7}
+          layout="default"
           data={businesses}
-          keyExtractor={business => business.id}
-          renderItem={({ item: business }) => <TopCard />}
+          sliderWidth={Dimensions.get('window').width}
+          itemWidth={Dimensions.get('window').width - 50}
+          renderItem={({ item: business }) => (
+            <FeatureCard
+              onPress={() => navigate('BusinessDetails', { id: business.id })}
+            >
+              <FeatureCardBackgroundImage source={{ uri: business.image_url }}>
+                <BusinessCardGradient
+                  colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.7)']}
+                >
+                  <FeatureDataContainer>
+                    <FeatureText>{business.name}</FeatureText>
+                    <BusinessSubtitleText>
+                      {business.location}
+                    </BusinessSubtitleText>
+                  </FeatureDataContainer>
+                </BusinessCardGradient>
+              </FeatureCardBackgroundImage>
+            </FeatureCard>
+          )}
         />
-      </TopCardContainer> */}
-      <BusinessList
-        alwaysBounceVertical
-        showsVerticalScrollIndicator={false}
-        data={businesses}
-        keyExtractor={business => business.id}
-        renderItem={({ item: business }) => (
-          <BusinessCard
-            onPress={() => navigate('BusinessDetails', { id: business.id })}
-          >
-            <BusinessCardBackgroundImage source={{ uri: business.image_url }}>
-              <BusinessCardGradient
-                colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.7)']}
-              >
-                <BusinessDataContainer>
-                  <BusinessText>{business.name}</BusinessText>
-                  <BusinessSubtitleText>
-                    {business.location}
-                  </BusinessSubtitleText>
-                </BusinessDataContainer>
-              </BusinessCardGradient>
-            </BusinessCardBackgroundImage>
-          </BusinessCard>
-        )}
-      />
+        {/** *******CATEGORIAS******** */}
+        <SectionText>Categorias</SectionText>
+        <BusinessList
+          alwaysBounceVertical
+          scrollEnabled
+          style={{ height: '100%' }}
+          showsVerticalScrollIndicator={false}
+          data={categories}
+          keyExtractor={category => category.id}
+          renderItem={({ item: category }) => (
+            <BusinessCard
+              onPress={() =>
+                navigate('Favorites', { id: category.id, name: category.name })
+              }
+            >
+              <BusinessCardBackgroundImage source={{ uri: category.image_url }}>
+                <BusinessCardGradient
+                  colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.7)']}
+                >
+                  <BusinessDataContainer>
+                    <BusinessText>{category.name}</BusinessText>
+                  </BusinessDataContainer>
+                </BusinessCardGradient>
+              </BusinessCardBackgroundImage>
+            </BusinessCard>
+          )}
+        />
+      </ScrollView>
     </Container>
   );
 };

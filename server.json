@@ -304,16 +304,16 @@
   "favorites": [
     {
       "id": 2,
-      "name": "Veggie",
+      "name": "Malz Hamburgueria",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
       "price": "21.90",
       "category": 2,
-      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "image_url": "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png"
     },
     {
       "id": 1,
-      "name": "Ao molho",
+      "name": "Starbucks",
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
       "price": 19.9,
       "category": 1,
@@ -334,7 +334,7 @@
     },
     {
       "id": 3,
-      "name": "A la Camarón",
+      "name": "Steak Club",
       "description": "Macarrão com vegetais de primeira linha e camarão dos 7 mares.",
       "price": "25.90",
       "category": 3,
@@ -347,12 +347,7 @@
           "value": 1.5
         }
       ]
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
     }
+
   ]
 }

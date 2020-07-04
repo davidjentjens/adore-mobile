@@ -46,7 +46,7 @@ const TabRoutes: React.FC = () => (
       component={Orders}
     />
 
-    <Tab.Screen
+    {/* <Tab.Screen
       name="Favorites"
       options={{
         tabBarIcon: ({ color }) => (
@@ -55,7 +55,7 @@ const TabRoutes: React.FC = () => (
         title: 'Favoritos',
       }}
       component={Favorites}
-    />
+    /> */}
   </Tab.Navigator>
 );
 

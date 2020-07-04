@@ -3,7 +3,7 @@ import { FlatList, ImageBackground, StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { Business } from './index';
+import { Category, Business } from './index';
 
 export const Container = styled.View`
   flex: 1;
@@ -19,12 +19,13 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
+  carouselContainer: {},
 });
 
 // #region Header
 
 export const Header = styled.View`
-  padding: 70px 34px 10px;
+  padding: 70px 20px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +49,7 @@ export const TopCardContainer = styled(LinearGradient)`
   align-items: center;
 `;
 
-export const TopCardList = styled(FlatList as new () => FlatList<Business>)`
+export const TopCardList = styled(FlatList as new () => FlatList<Category>)`
   padding: 0px 0px 0px 10px;
 `;
 
@@ -59,7 +60,7 @@ export const TopCardText = styled.Text`
 export const TopCard = styled.View`
   width: 68px;
   height: 68px;
-  margin: 10px 15px 40px 0px;
+  margin: 10px 15px 20px 0px;
   background: #2f2f2f;
   border-radius: 13px;
   padding: 10px;
@@ -67,24 +68,57 @@ export const TopCard = styled.View`
 
 // #endregion
 
+export const FeatureCard = styled(RectButton)`
+  height: 100%;
+  color: #fff;
+  border-radius: 10px;
+  margin: 0px 8px;
+`;
+
+export const FeatureCardBackgroundImage = styled(ImageBackground)`
+  flex: 1;
+  width: 100%;
+  height: 300px;
+`;
+
+export const FeatureDataContainer = styled.View`
+  margin: 0;
+  padding: 0;
+`;
+
+export const FeatureText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 29px;
+  color: white;
+  margin: 10px 0px 0px 20px;
+`;
+
 // #region Business Feed
 
+export const SectionText = styled.Text`
+  color: #fff;
+  font-size: 25px;
+  font-family: Roboto-Medium;
+  margin-left: 20px;
+  margin-top: 40px;
+`;
+
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 0px 0px 40px 0px;
+  padding: 10px 0px 50px 0px;
   margin-top: 15px;
 `;
 
 export const BusinessCardBackgroundImage = styled(ImageBackground)`
   flex: 1;
   width: 100%;
-  height: 100%;
+  height: 100px;
 `;
 
 export const BusinessCard = styled(RectButton)`
-  margin: 0px 20px 20px 20px;
-  height: 212px;
+  margin: 0px 20px 30px 20px;
+  height: 80px;
   color: #fff;
-  border-radius: 13px;
+  border-radius: 10px;
 `;
 
 export const BusinessDataContainer = styled.View`
@@ -93,10 +127,10 @@ export const BusinessDataContainer = styled.View`
 `;
 
 export const BusinessText = styled.Text`
-  font-family: Roboto-Bold;
+  font-family: Roboto-Medium;
   font-size: 29px;
   color: white;
-  margin: 10px 10px 0px 20px;
+  margin: 10px 10px 20px 20px;
 `;
 
 export const BusinessSubtitleText = styled.Text`
