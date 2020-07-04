@@ -16,9 +16,10 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  padding: 60px 24px 24px 24px;
+  padding: 70px 20px 24px 20px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const HeaderTitle = styled.Text`
@@ -29,20 +30,43 @@ export const HeaderTitle = styled.Text`
 `;
 
 export const SubscriptionDataContainer = styled.View`
-  background: #2f2f2f;
-  height: 200px;
-  margin: 20px 20px 0px 20px;
+  background: #a58238;
+
+  margin: 10px 20px 0px 20px;
+  padding-bottom: 20px;
   border-radius: 10px;
 `;
 
 export const SubscriptionText = styled.Text`
   font-family: Roboto-Bold;
-  font-size: 30px;
+  font-size: 28px;
   color: #fff;
-  margin: 20px 0px 0px 20px;
+  margin: 20px 40px 0px 20px;
 `;
 
+export const SubscriptionSubtitleText = styled.Text`
+  font-family: Roboto-Regular;
+  font-size: 19px;
+  color: #fff;
+  margin: 10px 0px 0px 20px;
+`;
 
+export const SectionText = styled.Text`
+  color: #fff;
+  font-size: 25px;
+  font-family: Roboto-Bold;
+  margin-left: 20px;
+  margin-top: 40px;
+`;
+
+export const SectionSubtitleText = styled.Text`
+  color: #fff;
+  font-size: 17px;
+  font-family: Roboto-Regular;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+`;
 
 export const FoodsContainer = styled.View`
   flex: 1;

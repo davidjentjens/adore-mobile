@@ -20,12 +20,16 @@ export const styles = StyleSheet.create({
     marginRight: 20,
   },
   carouselContainer: {},
+  headerIcon: {
+    color: '#a58238',
+    marginRight: 0,
+  },
 });
 
 // #region Header
 
 export const Header = styled.View`
-  padding: 70px 20px 20px;
+  padding: 70px 20px 0px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -78,7 +82,7 @@ export const FeatureCard = styled(RectButton)`
 export const FeatureCardBackgroundImage = styled(ImageBackground)`
   flex: 1;
   width: 100%;
-  height: 300px;
+  height: 200px;
 `;
 
 export const FeatureDataContainer = styled.View`
@@ -96,16 +100,29 @@ export const FeatureText = styled.Text`
 // #region Business Feed
 
 export const SectionText = styled.Text`
-  color: #fff;
+  color: #a58328;
   font-size: 25px;
-  font-family: Roboto-Medium;
+  font-family: Roboto-Bold;
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
+`;
+
+export const SectionSubtitleText = styled.Text`
+  color: #fff;
+  font-size: 17px;
+  font-family: Roboto-Regular;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 `;
 
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
   padding: 10px 0px 50px 0px;
   margin-top: 15px;
+`;
+
+export const BusinessContainer = styled.View`
+  padding: 10px 0px 0px 0px;
 `;
 
 export const BusinessCardBackgroundImage = styled(ImageBackground)`
@@ -115,7 +132,7 @@ export const BusinessCardBackgroundImage = styled(ImageBackground)`
 `;
 
 export const BusinessCard = styled(RectButton)`
-  margin: 0px 20px 30px 20px;
+  margin: 0px 20px 20px 20px;
   height: 80px;
   color: #fff;
   border-radius: 10px;

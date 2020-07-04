@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { SearchBar, Text } from 'react-native-elements';
+import { SearchBar, Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions } from 'react-native';
+import { Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Logo from '../../assets/logo-header.png';
 
 import api from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 import Button from '../../components/Button';
 import { scrollInterpolator, animatedStyles } from '../../utils/animations';
@@ -19,6 +20,7 @@ import {
   Header,
   HeaderText,
   SectionText,
+  SectionSubtitleText,
   TopCardContainer,
   TopCardList,
   TopCard,
@@ -28,6 +30,7 @@ import {
   FeatureDataContainer,
   FeatureCardBackgroundImage,
   BusinessList,
+  BusinessContainer,
   BusinessCard,
   BusinessDataContainer,
   BusinessText,
@@ -42,6 +45,7 @@ export interface Business {
   id: string;
   name: string;
   location: string;
+  description: string;
   image_url: string;
 }
 
@@ -57,11 +61,12 @@ const Dashboard: React.FC = () => {
   const [businesses, setBusinesses] = useState<Business[]>([]);
   const [categories, setCategory] = useState<Category[]>([]);
 
+  const { signOut } = useAuth();
+
   useEffect(() => {
     const loadBusinesses = async (): Promise<void> => {
-      api.get('business').then(response => {
+      api.get('business/featured').then(response => {
         setBusinesses(response.data);
-        // console.log(response.data);
       });
     };
 
@@ -78,14 +83,23 @@ const Dashboard: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderText>Descobrir</HeaderText>
+        <HeaderText>Destaques</HeaderText>
+        <Icon
+          name="user"
+          size={30}
+          color="#fff"
+          onPress={() => navigate('Profile')}
+        />
       </Header>
+      <SectionSubtitleText>
+        As melhores marcas da sua região
+      </SectionSubtitleText>
       <ScrollView>
         {/** *******DESTAQUES******** */}
         <Carousel
-          // ref={c => {
-          //   this._carousel = c;
-          // }}
+          enableMomentum
+          firstItem={1}
+          initialNumToRender={3}
           slideInterpolatedStyle={animatedStyles}
           inactiveSlideScale={1}
           inactiveSlideOpacity={0.7}
@@ -95,6 +109,7 @@ const Dashboard: React.FC = () => {
           itemWidth={Dimensions.get('window').width - 50}
           renderItem={({ item: business }) => (
             <FeatureCard
+              key={business.id}
               onPress={() => navigate('BusinessDetails', { id: business.id })}
             >
               <FeatureCardBackgroundImage source={{ uri: business.image_url }}>
@@ -104,7 +119,7 @@ const Dashboard: React.FC = () => {
                   <FeatureDataContainer>
                     <FeatureText>{business.name}</FeatureText>
                     <BusinessSubtitleText>
-                      {business.location}
+                      {business.description}
                     </BusinessSubtitleText>
                   </FeatureDataContainer>
                 </BusinessCardGradient>
@@ -112,19 +127,17 @@ const Dashboard: React.FC = () => {
             </FeatureCard>
           )}
         />
+        <Divider style={{ backgroundColor: '#2f2f2f', marginTop: 25 }} />
         {/** *******CATEGORIAS******** */}
         <SectionText>Categorias</SectionText>
-        <BusinessList
-          alwaysBounceVertical
-          scrollEnabled
-          style={{ height: '100%' }}
-          showsVerticalScrollIndicator={false}
-          data={categories}
-          keyExtractor={category => category.id}
-          renderItem={({ item: category }) => (
+        <SectionSubtitleText>
+          Encontre seu próximo restaurante favorito
+        </SectionSubtitleText>
+        {categories.map(category => (
+          <BusinessContainer key={category.id}>
             <BusinessCard
               onPress={() =>
-                navigate('Favorites', { id: category.id, name: category.name })
+                navigate('Category', { id: category.id, name: category.name })
               }
             >
               <BusinessCardBackgroundImage source={{ uri: category.image_url }}>
@@ -137,8 +150,8 @@ const Dashboard: React.FC = () => {
                 </BusinessCardGradient>
               </BusinessCardBackgroundImage>
             </BusinessCard>
-          )}
-        />
+          </BusinessContainer>
+        ))}
       </ScrollView>
     </Container>
   );

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Image } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Feather';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 
@@ -11,6 +12,9 @@ import {
   HeaderTitle,
   SubscriptionDataContainer,
   SubscriptionText,
+  SubscriptionSubtitleText,
+  SectionText,
+  SectionSubtitleText,
   FoodsContainer,
   FoodList,
   Food,
@@ -49,34 +53,54 @@ const Orders: React.FC = () => {
     <Container>
       <Header>
         <HeaderTitle>Assinaturas</HeaderTitle>
-      </Header>
-
-      <SubscriptionDataContainer>
-        <SubscriptionText>12 vantagens</SubscriptionText>
-
-      </SubscriptionDataContainer>
-
-      <FoodsContainer>
-        <FoodList
-          data={orders}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => (
-            <Food key={item.id} activeOpacity={0.6}>
-              <FoodImageContainer>
-                <Image
-                  style={{ width: 88, height: 88 }}
-                  source={{ uri: item.thumbnail_url }}
-                />
-              </FoodImageContainer>
-              <FoodContent>
-                <FoodTitle>{item.name}</FoodTitle>
-                <FoodDescription>{item.description}</FoodDescription>
-                <FoodPricing>{formatValue(item.price)}</FoodPricing>
-              </FoodContent>
-            </Food>
-          )}
+        <Icon
+          name="user"
+          size={30}
+          color="#fff"
+          onPress={() => navigation.navigate('Profile')}
         />
-      </FoodsContainer>
+      </Header>
+      <ScrollView>
+        <SubscriptionDataContainer>
+          <SubscriptionText>Próxima Vantagem</SubscriptionText>
+          <SubscriptionSubtitleText>
+            <Icon name="home" size={20} />
+            {'  '}Cervejaria Lacis
+          </SubscriptionSubtitleText>
+          <SubscriptionSubtitleText>
+            <Icon name="shopping-bag" size={20} />
+            {'  '}Pack de bebidas
+          </SubscriptionSubtitleText>
+          <SubscriptionSubtitleText>
+            <Icon name="clock" size={20} />
+            {'  '}15 de julho de 2020
+          </SubscriptionSubtitleText>
+        </SubscriptionDataContainer>
+
+        <SectionText>Restaurantes</SectionText>
+
+        <FoodsContainer>
+          <FoodList
+            data={orders}
+            keyExtractor={item => String(item.id)}
+            renderItem={({ item }) => (
+              <Food key={item.id} activeOpacity={0.6}>
+                <FoodImageContainer>
+                  <Image
+                    style={{ width: 88, height: 88 }}
+                    source={{ uri: item.thumbnail_url }}
+                  />
+                </FoodImageContainer>
+                <FoodContent>
+                  <FoodTitle>{item.name}</FoodTitle>
+                  <FoodDescription>{item.description}</FoodDescription>
+                  <FoodPricing>{formatValue(item.price)}</FoodPricing>
+                </FoodContent>
+              </Food>
+            )}
+          />
+        </FoodsContainer>
+      </ScrollView>
     </Container>
   );
 };

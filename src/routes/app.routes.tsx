@@ -7,7 +7,8 @@ import TabRoutes from './tab.routes';
 import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
 import BusinessDetails from '../pages/BusinessDetails';
-import Favorites from '../pages/Favorites';
+import Category from '../pages/Category';
+import Profile from '../pages/Profile';
 
 const App = createStackNavigator();
 
@@ -24,6 +25,14 @@ const AppRoutes: React.FC = () => (
     <App.Screen
       name="MainBottom"
       component={TabRoutes}
+      options={{
+        headerShown: false,
+        gestureEnabled: false,
+      }}
+    />
+    <App.Screen
+      name="Profile"
+      component={Profile}
       options={{
         headerShown: false,
         gestureEnabled: false,
@@ -64,8 +73,8 @@ const AppRoutes: React.FC = () => (
       })}
     />
     <App.Screen
-      name="Favorites"
-      component={Favorites}
+      name="Category"
+      component={Category}
       options={({ navigation }) => ({
         headerLeft: () => (
           <Icon

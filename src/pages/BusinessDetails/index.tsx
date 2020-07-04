@@ -62,25 +62,13 @@ const BusinessDetails: React.FC = () => {
 
   useEffect(() => {
     async function loadBusiness(): Promise<void> {
-      const { data } = await api.get(`restaurants/${routeParams.id}`);
+      const { data } = await api.get(`business/${routeParams.id}`);
 
       setBusiness(data);
     }
 
     loadBusiness();
   }, [routeParams.id]);
-
-  // const toggleFavorite = useCallback(async () => {
-  //   await api.post(`favorites`, business);
-
-  //   setIsFavorite(!isFavorite);
-  // }, [isFavorite, business]);
-
-  // // Calculate the correct icon name
-  // const favoriteIconName = useMemo(
-  //   () => (isFavorite ? 'favorite' : 'favorite-border'),
-  //   [isFavorite],
-  // );
 
   // useLayoutEffect(() => {
   // Add the favorite icon on the right of the header bar
@@ -104,13 +92,13 @@ const BusinessDetails: React.FC = () => {
         >
           <HeaderSafeArea>
             <HeaderBackButton onPress={() => navigation.goBack()}>
-              <HeaderBackButtonIcon name="arrow-left" size={30} />
+              <HeaderBackButtonIcon name="chevron-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{business.name}</Text>
             <Text style={styles.headerSubTitle}>{business.location}</Text>
             <View style={styles.headerInfoView}>
               <TouchableOpacity style={styles.headerSubCount}>
-                <Text style={styles.headerInfoText}>32 inscritos</Text>
+                <Text style={styles.headerInfoText}>30 membros</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.headerSpecialty}>
                 <Text style={styles.headerInfoText}>
@@ -122,7 +110,7 @@ const BusinessDetails: React.FC = () => {
         </HeaderGradient>
       </Header>
       <SafeAreaView style={styles.contentSafeArea}>
-        <Text style={styles.sectionTitle}>Vantagens</Text>
+        <Text style={styles.sectionTitle}>Novidades</Text>
         <FlatList
           alwaysBounceVertical
           showsVerticalScrollIndicator={false}
@@ -143,8 +131,15 @@ const BusinessDetails: React.FC = () => {
       </SafeAreaView>
     </Container>
   ) : (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size="large" color="#666" />
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#1c1c1c',
+      }}
+    >
+      <ActivityIndicator size="large" color="#a58238" />
     </View>
   );
 };

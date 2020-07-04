@@ -41,10 +41,10 @@ interface Params {
   name: string;
 }
 
-const Favorites: React.FC = () => {
+const Category: React.FC = () => {
   const [businesses, setBusiness] = useState<Business[]>([]);
 
-  const navigation = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
 
   const routeParams = route.params as Params;
@@ -52,7 +52,7 @@ const Favorites: React.FC = () => {
   useEffect(() => {
     async function loadBusiness(): Promise<void> {
       const { data } = await api.post('business/type', {
-        type: routeParams.name,
+        category_id: routeParams.id,
       });
       setBusiness(data);
     }
@@ -63,8 +63,8 @@ const Favorites: React.FC = () => {
   return businesses ? (
     <Container>
       <Header>
-        <HeaderBackButton onPress={() => navigation.goBack()}>
-          <HeaderBackButtonIcon name="arrow-left" size={30} />
+        <HeaderBackButton onPress={() => goBack()}>
+          <HeaderBackButtonIcon name="chevron-left" size={30} />
         </HeaderBackButton>
         <HeaderTitle>{routeParams.name}</HeaderTitle>
       </Header>
@@ -74,7 +74,10 @@ const Favorites: React.FC = () => {
           data={businesses}
           keyExtractor={business => String(business.id)}
           renderItem={({ item: business }) => (
-            <Business activeOpacity={0.6}>
+            <Business
+              onPress={() => navigate('BusinessDetails', { id: business.id })}
+              activeOpacity={0.6}
+            >
               <BusinessContent>
                 <BusinessCardBackgroundImage
                   source={{ uri: business.image_url }}
@@ -100,4 +103,4 @@ const Favorites: React.FC = () => {
   );
 };
 
-export default Favorites;
+export default Category;

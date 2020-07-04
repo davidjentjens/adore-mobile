@@ -7,7 +7,7 @@ export const Container = styled.View`
   align-items: center;
   background: #1c1c1c;
   justify-content: center;
-  padding: 0 30px ${Platform.OS === 'android' ? 100 : 40}px;
+  padding: 0px 30px ${Platform.OS === 'android' ? 100 : 40}px;
 `;
 
 export const Title = styled.Text`
