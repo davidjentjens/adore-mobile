@@ -125,7 +125,9 @@ const BusinessDetails: React.FC = () => {
         <ScrollContainer />
         {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
         <NavigationButton>
-          <ButtonText>Tornar-se membro</ButtonText>
+          <ButtonText onPress={() => navigation.navigate('Tier')}>
+            Tornar-se membro
+          </ButtonText>
           <ButtonPrice>R$ 32,90</ButtonPrice>
         </NavigationButton>
       </SafeAreaView>

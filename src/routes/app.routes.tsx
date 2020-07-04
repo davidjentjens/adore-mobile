@@ -9,6 +9,7 @@ import Dashboard from '../pages/Dashboard';
 import BusinessDetails from '../pages/BusinessDetails';
 import Category from '../pages/Category';
 import Profile from '../pages/Profile';
+import Tier from '../pages/Tier';
 
 const App = createStackNavigator();
 
@@ -33,6 +34,14 @@ const AppRoutes: React.FC = () => (
     <App.Screen
       name="Profile"
       component={Profile}
+      options={{
+        headerShown: false,
+        gestureEnabled: false,
+      }}
+    />
+    <App.Screen
+      name="Tier"
+      component={Tier}
       options={{
         headerShown: false,
         gestureEnabled: false,

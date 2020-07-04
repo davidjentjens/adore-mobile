@@ -19,8 +19,19 @@ export const styles = StyleSheet.create({
   inputBackground: {
     backgroundColor: '#2f2f2f',
   },
-  sideBySideInputs: {
+  sideBySideInputsContainer: {
+    width: '100%',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  leftInputs: {
+    flex: 1,
+    marginRight: 4,
+  },
+  rightInputs: {
+    flex: 1,
+    marginLeft: 4,
   },
 });
 

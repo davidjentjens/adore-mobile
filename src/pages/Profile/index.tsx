@@ -240,7 +240,7 @@ const Profile: React.FC = () => {
               containerStyle={styles.inputBackground}
               onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
             />
-            <View style={styles.sideBySideInputs}>
+            <View style={styles.sideBySideInputsContainer}>
               <Input
                 ref={passwordInputRef}
                 secureTextEntry
@@ -249,7 +249,7 @@ const Profile: React.FC = () => {
                 placeholder="Complemento"
                 textContentType="newPassword"
                 returnKeyType="next"
-                containerStyle={styles.inputBackground}
+                containerStyle={[styles.inputBackground, styles.leftInputs]}
                 onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
               />
               <Input
@@ -260,7 +260,7 @@ const Profile: React.FC = () => {
                 placeholder="Número"
                 textContentType="newPassword"
                 returnKeyType="next"
-                containerStyle={styles.inputBackground}
+                containerStyle={[styles.inputBackground, styles.rightInputs]}
                 onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
               />
             </View>
@@ -275,6 +275,32 @@ const Profile: React.FC = () => {
               containerStyle={styles.inputBackground}
               onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
             />
+            <View style={styles.sideBySideInputsContainer}>
+              <Input
+                ref={passwordInputRef}
+                secureTextEntry
+                name="password"
+                icon="map"
+                placeholder="País"
+                textContentType="newPassword"
+                returnKeyType="next"
+                containerStyle={[styles.inputBackground, styles.leftInputs]}
+                onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
+              />
+
+              <Input
+                ref={passwordInputRef}
+                secureTextEntry
+                name="password"
+                icon="map"
+                placeholder="Estado"
+                textContentType="newPassword"
+                returnKeyType="next"
+                containerStyle={[styles.inputBackground, styles.rightInputs]}
+                onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
+              />
+            </View>
+
             <Input
               ref={passwordInputRef}
               secureTextEntry
@@ -286,29 +312,6 @@ const Profile: React.FC = () => {
               containerStyle={styles.inputBackground}
               onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
             />
-            <Input
-              ref={passwordInputRef}
-              secureTextEntry
-              name="password"
-              icon="map"
-              placeholder="Estado"
-              textContentType="newPassword"
-              returnKeyType="next"
-              containerStyle={styles.inputBackground}
-              onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
-            />
-            <Input
-              ref={passwordInputRef}
-              secureTextEntry
-              name="password"
-              icon="map"
-              placeholder="País"
-              textContentType="newPassword"
-              returnKeyType="next"
-              containerStyle={styles.inputBackground}
-              onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
-            />
-
             <View>
               <Title>Alterar senha</Title>
             </View>

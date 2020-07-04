@@ -95,7 +95,10 @@ const SignUp: React.FC = () => {
           contentContainerStyle={{ flex: 1 }}
         >
           <Container>
-            <Image source={logoImg} />
+            <Image
+              source={logoImg}
+              style={{ width: '80%', resizeMode: 'contain' }}
+            />
 
             <View>
               <Title>Crie sua conta</Title>
@@ -108,6 +111,7 @@ const SignUp: React.FC = () => {
                 icon="user"
                 placeholder="Nome"
                 returnKeyType="next"
+                containerStyle={{ width: '100%' }}
                 onSubmitEditing={() => emailInputRef.current?.focus()}
               />
 
@@ -120,6 +124,7 @@ const SignUp: React.FC = () => {
                 icon="mail"
                 placeholder="E-mail"
                 returnKeyType="next"
+                containerStyle={{ width: '100%' }}
                 onSubmitEditing={() => passwordInputRef.current?.focus()}
               />
 
@@ -131,6 +136,7 @@ const SignUp: React.FC = () => {
                 placeholder="Senha"
                 textContentType="newPassword"
                 returnKeyType="send"
+                containerStyle={{ width: '100%' }}
                 onSubmitEditing={() => formRef.current?.submitForm()}
               />
 
