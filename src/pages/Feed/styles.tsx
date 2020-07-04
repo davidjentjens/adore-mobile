@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { Category, Business } from './index';
 
@@ -134,8 +135,8 @@ export const PostContainer = styled.View`
 export const PostCardBackgroundImage = styled(ImageBackground)`
   flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -149,30 +150,59 @@ export const PostCardGradient = styled(LinearGradient)`
 
 export const PostCard = styled(RectButton)`
   margin: 0px 20px 20px 20px;
-  height: ${Math.round(Dimensions.get('window').width * 0.75)};
+  height: ${Math.round(Dimensions.get('window').width * 0.75)}px;
   color: #fff;
   border-radius: 10px;
 `;
 
 export const PostDataContainer = styled.View`
+  width: 100%;
+  margin: 0;
+  padding: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const LikeIcon = styled(Icon)`
+  color: #fff;
   margin: 0;
   padding: 0;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const PostDescription = styled.Text`
   font-family: Roboto-Medium;
   font-size: 15px;
   color: white;
-  margin: 10px;
 `;
 
 export const PostAuthor = styled(LinearGradient)`
   height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0 0 10px;
 `;
 
-export const AuthorAvatar = styled(Image)``;
+export const AuthorAvatar = styled(Image)`
+  border-radius: 18px;
+  height: 35px;
+  width: 35px;
+`;
 
-export const AuthorName = styled.Text``;
+export const AuthorName = styled.Text`
+  color: #fff;
+  font-family: Roboto-Regular;
+  font-size: 16px;
+  margin-left: 10px;
+`;
 
 export const BusinessSubtitleText = styled.Text`
   font-family: Roboto-Regular;
