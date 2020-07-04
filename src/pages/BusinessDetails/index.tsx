@@ -12,6 +12,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -31,6 +32,14 @@ import {
   HeaderBackButton,
   HeaderBackButtonIcon,
   ScrollContainer,
+  SectionContainer,
+  SectionTitle,
+  TierContainer,
+  TierList,
+  TierCard,
+  PriceText,
+  TierTextBackground,
+  TierText,
   subscribersButton,
   subscribersText,
   NavigationButton,
@@ -38,6 +47,7 @@ import {
   ButtonText,
   styles,
 } from './styles';
+import Tier from '../Tier';
 
 interface Params {
   id: number;
@@ -109,28 +119,59 @@ const BusinessDetails: React.FC = () => {
           </HeaderSafeArea>
         </HeaderGradient>
       </Header>
-      <SafeAreaView style={styles.contentSafeArea}>
-        <Text style={styles.sectionTitle}>Novidades</Text>
-        <FlatList
-          alwaysBounceVertical
-          showsVerticalScrollIndicator={false}
-          data={business.perks}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item: perk }) => (
-            <View style={styles.perksContainer}>
-              <Text style={styles.perkText}>{perk}</Text>
-            </View>
-          )}
-        />
-        <ScrollContainer />
-        {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
-        <NavigationButton>
+      <ScrollView>
+        <SafeAreaView style={styles.contentSafeArea}>
+          <SectionContainer>
+            <TierContainer>
+              <SectionTitle>Planos</SectionTitle>
+              <ScrollView
+                horizontal="true"
+                showsHorizontalScrollIndicator="false"
+              >
+                <TierList>
+                  <TierCard>
+                    <TierTextBackground>
+                      <TierText>Ouro</TierText>
+                    </TierTextBackground>
+                    <PriceText>R$ 50,90</PriceText>
+                  </TierCard>
+                  <TierCard>
+                    <TierTextBackground style={{ backgroundColor: '#5a5854' }}>
+                      <TierText>Prata</TierText>
+                    </TierTextBackground>
+                    <PriceText>R$ 40,90</PriceText>
+                  </TierCard>
+                  <TierCard>
+                    <TierTextBackground style={{ backgroundColor: '#65511b' }}>
+                      <TierText>Bronze</TierText>
+                    </TierTextBackground>
+                    <PriceText>R$ 30,90</PriceText>
+                  </TierCard>
+                </TierList>
+              </ScrollView>
+            </TierContainer>
+          </SectionContainer>
+          <FlatList
+            alwaysBounceVertical
+            showsVerticalScrollIndicator={false}
+            data={business.perks}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item: perk }) => (
+              <View style={styles.perksContainer}>
+                <Text style={styles.perkText}>{perk}</Text>
+              </View>
+            )}
+          />
+          <ScrollContainer />
+          {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
+        </SafeAreaView>
+        {/* <NavigationButton>
           <ButtonText onPress={() => navigation.navigate('Tier')}>
             Tornar-se membro
           </ButtonText>
           <ButtonPrice>R$ 32,90</ButtonPrice>
-        </NavigationButton>
-      </SafeAreaView>
+        </NavigationButton> */}
+      </ScrollView>
     </Container>
   ) : (
     <View

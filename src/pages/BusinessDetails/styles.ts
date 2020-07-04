@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
-import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
+
+import { Category, Business } from './index';
 
 export const Container = styled.View`
   flex: 1;
@@ -164,8 +166,60 @@ export const ButtonPrice = styled.Text`
   border-bottom-right-radius: 8px;
 `;
 
-export const FoodsContainer = styled.View`
-  padding: 0 24px;
+export const SectionContainer = styled.View`
+  padding: 0 0px;
+`;
+
+export const SectionTitle = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 25px;
+  color: white;
+`;
+
+export const TierContainer = styled.View`
+  margin: 0;
+  padding: 10px 0px 0px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const TierList = styled.View`
+  padding: 15px 0px 30px 0px;
+  flex-direction: row;
+`;
+
+export const TierText = styled.Text`
+  color: #fff;
+  font-size: 20px;
+  margin-top: 7px;
+  font-family: Roboto-Medium;
+`;
+
+export const TierTextBackground = styled.View`
+  background: #a58238;
+  width: 100%
+  height: 40px;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+`;
+
+export const PriceText = styled.Text`
+  color: #fff;
+  font-size: 25px;
+  margin-top: 20px;
+  font-family: Roboto-Bold;
+`;
+
+
+export const TierCard = styled.View`
+  width: 120px;
+  height: 110px;
+  margin: 10px 20px 0px 0px;
+  background: #2f2f2f;
+  border-radius: 10px;
+  padding: 0px;
+  align-items: center;
 `;
 
 export const Food = styled.View`
@@ -269,7 +323,7 @@ export const PriceButtonContainer = styled.View`
 `;
 
 export const TotalPrice = styled.Text`
-  font-family: 'Poppins';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
