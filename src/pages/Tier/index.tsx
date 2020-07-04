@@ -61,7 +61,9 @@ const Tier: React.FC = () => {
             </Text>
           </View>
         </TierCard>
-        <Button>R$ 50,90/mês</Button>
+        <Button onPress={() => navigation.navigate('PaymentValidation')}>
+          R$ 50,90/mês
+        </Button>
         <SectionText>Outros Planos</SectionText>
       </ScrollView>
     </Container>

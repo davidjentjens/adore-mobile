@@ -10,6 +10,7 @@ import BusinessDetails from '../pages/BusinessDetails';
 import Category from '../pages/Category';
 import Profile from '../pages/Profile';
 import Tier from '../pages/Tier';
+import PaymentValidation from '../pages/PaymentValidation';
 
 const App = createStackNavigator();
 
@@ -42,6 +43,14 @@ const AppRoutes: React.FC = () => (
     <App.Screen
       name="Tier"
       component={Tier}
+      options={{
+        headerShown: false,
+        gestureEnabled: false,
+      }}
+    />
+    <App.Screen
+      name="PaymentValidation"
+      component={PaymentValidation}
       options={{
         headerShown: false,
         gestureEnabled: false,

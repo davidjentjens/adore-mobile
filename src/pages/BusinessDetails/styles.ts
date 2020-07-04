@@ -217,7 +217,7 @@ export const PriceText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
-export const TierCard = styled.View`
+export const TierCard = styled.TouchableOpacity`
   width: 120px;
   height: 110px;
   margin: 10px 0px 0px 20px;

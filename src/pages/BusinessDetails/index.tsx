@@ -129,7 +129,7 @@ const BusinessDetails: React.FC = () => {
                 showsHorizontalScrollIndicator="false"
               >
                 <TierList>
-                  <TierCard>
+                  <TierCard onPress={() => navigation.navigate('Tier')}>
                     <TierTextBackground>
                       <TierText>Ouro</TierText>
                     </TierTextBackground>
