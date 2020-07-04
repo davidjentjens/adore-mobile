@@ -1,5 +1,10 @@
 import styled from 'styled-components/native';
-import { ImageBackground, SafeAreaView, StyleSheet, FlatList } from 'react-native';
+import {
+  ImageBackground,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -174,11 +179,12 @@ export const SectionTitle = styled.Text`
   font-family: Roboto-Bold;
   font-size: 25px;
   color: white;
+  margin-left: 20px;
 `;
 
 export const TierContainer = styled.View`
   margin: 0;
-  padding: 10px 0px 0px 20px;
+  padding: 10px 0px 0px 0px;
   flex-direction: column;
   align-items: flex-start;
 `;
@@ -211,11 +217,10 @@ export const PriceText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
-
 export const TierCard = styled.View`
   width: 120px;
   height: 110px;
-  margin: 10px 20px 0px 0px;
+  margin: 10px 0px 0px 20px;
   background: #2f2f2f;
   border-radius: 10px;
   padding: 0px;
