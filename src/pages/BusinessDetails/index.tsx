@@ -54,45 +54,44 @@ interface Params {
 }
 
 interface Business {
-  id: number;
+  id: string;
   name: string;
   location: string;
   image_url: string;
   perks: [string];
 }
 
+interface Tier {
+  id: number;
+  name: string;
+  desc: string;
+  rank: number;
+  value: number;
+}
+
 const BusinessDetails: React.FC = () => {
   const [business, setBusiness] = useState<Business>();
-  // const [isFavorite, setIsFavorite] = useState(false);
+  const [tiers, setTiers] = useState<Tier[]>([]);
 
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const route = useRoute();
 
   const routeParams = route.params as Params;
 
   useEffect(() => {
     async function loadBusiness(): Promise<void> {
-      const { data } = await api.get(`business/${routeParams.id}`);
+      const { data: businessData } = await api.get(
+        `business/${routeParams.id}`,
+      );
 
-      setBusiness(data);
+      const { data: tiersData } = await api.get(`tiers/${businessData.id}`);
+
+      setBusiness(businessData);
+      setTiers(tiersData);
     }
 
     loadBusiness();
   }, [routeParams.id]);
-
-  // useLayoutEffect(() => {
-  // Add the favorite icon on the right of the header bar
-  // navigation.setOptions({
-  //   headerRight: () => (
-  //     <MaterialIcon
-  //       name={favoriteIconName}
-  //       size={24}
-  //       color="#FFB84D"
-  //       onPress={() => toggleFavorite()}
-  //     />
-  //   ),
-  // });
-  // }, [navigation]);
 
   return business ? (
     <Container>
@@ -119,50 +118,30 @@ const BusinessDetails: React.FC = () => {
           </HeaderSafeArea>
         </HeaderGradient>
       </Header>
-      <ScrollView>
+      <ScrollView horizontal={false}>
         <SafeAreaView style={styles.contentSafeArea}>
           <SectionContainer>
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
-              <ScrollView
-                horizontal="true"
-                showsHorizontalScrollIndicator="false"
-              >
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <TierList>
-                  <TierCard>
-                    <TierTextBackground>
-                      <TierText>Ouro</TierText>
-                    </TierTextBackground>
-                    <PriceText>R$ 50,90</PriceText>
-                  </TierCard>
-                  <TierCard>
-                    <TierTextBackground style={{ backgroundColor: '#5a5854' }}>
-                      <TierText>Prata</TierText>
-                    </TierTextBackground>
-                    <PriceText>R$ 40,90</PriceText>
-                  </TierCard>
-                  <TierCard>
-                    <TierTextBackground style={{ backgroundColor: '#65511b' }}>
-                      <TierText>Bronze</TierText>
-                    </TierTextBackground>
-                    <PriceText>R$ 30,90</PriceText>
-                  </TierCard>
+                  {tiers.map(tier => (
+                    <TierCard
+                      key={tier.id}
+                      onPress={() => navigate('Tier', { id: tier.id })}
+                    >
+                      <TierTextBackground
+                        style={{ backgroundColor: '#5a5854' }}
+                      >
+                        <TierText>{tier.name}</TierText>
+                      </TierTextBackground>
+                      <PriceText>{formatValue(tier.value)}</PriceText>
+                    </TierCard>
+                  ))}
                 </TierList>
               </ScrollView>
             </TierContainer>
           </SectionContainer>
-          <FlatList
-            alwaysBounceVertical
-            showsVerticalScrollIndicator={false}
-            data={business.perks}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item: perk }) => (
-              <View style={styles.perksContainer}>
-                <Text style={styles.perkText}>{perk}</Text>
-              </View>
-            )}
-          />
-          <ScrollContainer />
           {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
         </SafeAreaView>
         {/* <NavigationButton>

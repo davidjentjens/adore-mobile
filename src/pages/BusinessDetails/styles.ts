@@ -132,14 +132,6 @@ export const styles = StyleSheet.create({
 
 // #endregion
 
-export const ScrollContainer = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    paddingBottom: 40,
-  },
-})`
-  margin-top: -40px;
-`;
-
 export const NavigationButton = styled.TouchableOpacity`
   background: #a58328;
   border-radius: 8px;
@@ -203,7 +195,7 @@ export const TierText = styled.Text`
 
 export const TierTextBackground = styled.View`
   background: #a58238;
-  width: 100%
+  width: 100%;
   height: 40px;
   align-items: center;
   border-top-right-radius: 10px;
@@ -217,7 +209,7 @@ export const PriceText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
-export const TierCard = styled.View`
+export const TierCard = styled.TouchableOpacity`
   width: 120px;
   height: 110px;
   margin: 10px 0px 0px 20px;
