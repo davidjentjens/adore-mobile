@@ -13,6 +13,8 @@ import {
   FlatList,
   TouchableOpacity,
   ScrollView,
+  useWindowDimensions,
+  Dimensions,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -125,7 +127,7 @@ const BusinessDetails: React.FC = () => {
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <TierList>
+                <TierList style={{ width: Dimensions.get('window').width }}>
                   {tiers.map(tier => (
                     <TierCard
                       key={tier.id}

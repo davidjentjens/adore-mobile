@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Image, ScrollView } from 'react-native';
+import { Divider } from 'react-native-elements';
 
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
@@ -15,6 +16,14 @@ import {
   SubscriptionSubtitleText,
   SectionText,
   SectionSubtitleText,
+  AllDetailsContainer,
+  MemberContainer,
+  MemberInfoView,
+  MemberInfoText,
+  MemberInfoSubtitleText,
+  MemberStatusView,
+  MemberText,
+  MemberStatusText,
   FoodsContainer,
   FoodList,
   Food,
@@ -49,7 +58,7 @@ const Orders: React.FC = () => {
     loadOrders();
   }, []);
 
-  return (
+  return orders ? (
     <Container>
       <Header>
         <HeaderTitle>Assinaturas</HeaderTitle>
@@ -77,31 +86,26 @@ const Orders: React.FC = () => {
           </SubscriptionSubtitleText>
         </SubscriptionDataContainer>
 
-        <SectionText>Restaurantes</SectionText>
+        {/* <SectionText>Locais</SectionText> */}
 
-        <FoodsContainer>
-          <FoodList
-            data={orders}
-            keyExtractor={item => String(item.id)}
-            renderItem={({ item }) => (
-              <Food key={item.id} activeOpacity={0.6}>
-                <FoodImageContainer>
-                  <Image
-                    style={{ width: 88, height: 88 }}
-                    source={{ uri: item.thumbnail_url }}
-                  />
-                </FoodImageContainer>
-                <FoodContent>
-                  <FoodTitle>{item.name}</FoodTitle>
-                  <FoodDescription>{item.description}</FoodDescription>
-                  <FoodPricing>{formatValue(item.price)}</FoodPricing>
-                </FoodContent>
-              </Food>
-            )}
-          />
-        </FoodsContainer>
+        <Divider style={{ backgroundColor: '#2f2f2f', marginTop: 25 }} />
+
+        <AllDetailsContainer>
+          <MemberContainer>
+            <MemberInfoView>
+              <MemberInfoText>Cafeteria Tranjan</MemberInfoText>
+              <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
+            </MemberInfoView>
+            <MemberStatusView>
+              <MemberText>Membro</MemberText>
+              <MemberStatusText>Ouro</MemberStatusText>
+            </MemberStatusView>
+          </MemberContainer>
+        </AllDetailsContainer>
       </ScrollView>
     </Container>
+  ) : (
+    <Container />
   );
 };
 

@@ -164,7 +164,8 @@ export const ButtonPrice = styled.Text`
 `;
 
 export const SectionContainer = styled.View`
-  padding: 0 0px;
+  padding: 0;
+  margin: 0;
 `;
 
 export const SectionTitle = styled.Text`
@@ -176,7 +177,8 @@ export const SectionTitle = styled.Text`
 
 export const TierContainer = styled.View`
   margin: 0;
-  padding: 10px 0px 0px 0px;
+  padding: 0;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
 `;
@@ -184,6 +186,17 @@ export const TierContainer = styled.View`
 export const TierList = styled.View`
   padding: 15px 0px 30px 0px;
   flex-direction: row;
+`;
+
+
+export const TierCard = styled.TouchableOpacity`
+  width: 120px;
+  height: 110px;
+  margin: 10px 0px 0px 20px;
+  background: #2f2f2f;
+  border-radius: 10px;
+  padding: 0px;
+  align-items: center;
 `;
 
 export const TierText = styled.Text`
@@ -209,15 +222,6 @@ export const PriceText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
-export const TierCard = styled.TouchableOpacity`
-  width: 120px;
-  height: 110px;
-  margin: 10px 0px 0px 20px;
-  background: #2f2f2f;
-  border-radius: 10px;
-  padding: 0px;
-  align-items: center;
-`;
 
 export const Food = styled.View`
   display: flex;
