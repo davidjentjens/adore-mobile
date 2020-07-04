@@ -74,7 +74,7 @@ export const AllDetailsContainer = styled.View`
 `;
 
 export const MemberContainer = styled.View`
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 30px;
   flex-direction: row;
 `;

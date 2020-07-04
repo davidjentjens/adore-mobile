@@ -86,9 +86,8 @@ const Orders: React.FC = () => {
           </SubscriptionSubtitleText>
         </SubscriptionDataContainer>
 
-        {/* <SectionText>Locais</SectionText> */}
 
-        <Divider style={{ backgroundColor: '#2f2f2f', marginTop: 25 }} />
+        <SectionText>Tudo</SectionText>
 
         <AllDetailsContainer>
           <MemberContainer>

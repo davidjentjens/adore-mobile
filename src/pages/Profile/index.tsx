@@ -222,7 +222,7 @@ const Profile: React.FC = () => {
               onPress={signOut}
               style={{ backgroundColor: '#742635', marginTop: 10 }}
             >
-              Sair da Conta
+              Finalizar Sessão
             </Button>
 
             <View>
@@ -321,7 +321,7 @@ const Profile: React.FC = () => {
               secureTextEntry
               name="old_password"
               icon="lock"
-              placeholder="Senha atual"
+              placeholder="Senha Atual"
               textContentType="newPassword"
               returnKeyType="next"
               containerStyle={[{ marginTop: 16 }, styles.inputBackground]}
