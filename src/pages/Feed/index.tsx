@@ -18,6 +18,7 @@ import { scrollInterpolator, animatedStyles } from '../../utils/animations';
 import logoImg from '../../assets/logo-feed-header.png';
 
 import {
+  LikeIcon,
   PostAuthor,
   AuthorAvatar,
   AuthorName,
@@ -106,22 +107,22 @@ const Feed: React.FC = () => {
           <PostContainer key={category.id}>
             <PostCard
               onPress={() =>
-                navigate('Category', { id: category.id, name: category.name })
-              }
+                navigate('Category', { id: category.id, name: category.name })}
             >
               <PostCardBackgroundImage source={{ uri: category.image_url }}>
+                {/* * * Autor * * */}
                 <PostAuthor
-                  colors={['rgba(10, 10, 10, 1)', 'rgba(10, 10, 10, 0)']}
+                  colors={['rgba(10, 10, 10, 0.8)', 'rgba(10, 10, 10, 0)']}
                 >
                   <AuthorAvatar
                     source={{
                       uri:
-                        'https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=30',
+                        'https://avatars0.githubusercontent.com/u/1776118?s=400&u=6adcf808eca5fa3e5f864c90c4555f86d9a552a8&v=4',
                     }}
                   />
-                  <AuthorName />
+                  <AuthorName>Mr. Jentjens</AuthorName>
                 </PostAuthor>
-
+                {/* * * Descricao * * */}
                 <PostCardGradient
                   colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 1)']}
                 >
@@ -130,6 +131,7 @@ const Feed: React.FC = () => {
                       Descricao da foto. Lorem ipsum dolor ipsum blablabla
                       lelele lilili lololo lululu.
                     </PostDescription>
+                    <LikeIcon name="heart" size={35} />
                   </PostDataContainer>
                 </PostCardGradient>
               </PostCardBackgroundImage>
