@@ -9,6 +9,8 @@ import {
   Container,
   Header,
   HeaderTitle,
+  SubscriptionDataContainer,
+  SubscriptionText,
   FoodsContainer,
   FoodList,
   Food,
@@ -46,8 +48,13 @@ const Orders: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderTitle>Meus pedidos</HeaderTitle>
+        <HeaderTitle>Assinaturas</HeaderTitle>
       </Header>
+
+      <SubscriptionDataContainer>
+        <SubscriptionText>12 vantagens</SubscriptionText>
+
+      </SubscriptionDataContainer>
 
       <FoodsContainer>
         <FoodList

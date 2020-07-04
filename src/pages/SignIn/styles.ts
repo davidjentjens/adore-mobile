@@ -5,6 +5,7 @@ import { getBottomSpace } from 'react-native-iphone-x-helper';
 export const Container = styled.View`
   flex: 1;
   align-items: center;
+  background: #1c1c1c;
   justify-content: center;
   padding: 0 30px ${Platform.OS === 'android' ? 100 : 40}px;
 `;
@@ -31,7 +32,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
   left: 0;
   bottom: 0;
   right: 0;
-  background: #312e38;
+  background: #2f2f2f;
   border-top-width: 1px;
   border-color: #232129;
   padding: 16px 0 ${16 + getBottomSpace()}px;
@@ -42,7 +43,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
 `;
 
 export const CreateAccountButtonText = styled.Text`
-  color: #ff9000;
+  color: #a58238;
   font-size: 18px;
   font-family: 'Roboto-Regular';
   margin-left: 16px;

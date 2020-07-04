@@ -12,25 +12,37 @@ interface Product {
 
 export const Container = styled.View`
   flex: 1;
-  background: #fff;
+  background: #1c1c1c;
 `;
 
 export const Header = styled.View`
-  padding: 60px 24px 60px;
-  background: #c72828;
-
+  padding: 60px 24px 24px 24px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const HeaderTitle = styled.Text`
-  color: #fff;
-  font-family: 'Poppins-Regular';
+  color: #a58328;
+  font-family: 'Roboto-Bold';
   font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 32px;
 `;
+
+export const SubscriptionDataContainer = styled.View`
+  background: #2f2f2f;
+  height: 200px;
+  margin: 20px 20px 0px 20px;
+  border-radius: 10px;
+`;
+
+export const SubscriptionText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 30px;
+  color: #fff;
+  margin: 20px 0px 0px 20px;
+`;
+
+
 
 export const FoodsContainer = styled.View`
   flex: 1;
