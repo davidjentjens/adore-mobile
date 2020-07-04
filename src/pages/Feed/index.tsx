@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SearchBar, Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, TouchableOpacity } from 'react-native';
+import { Dimensions, TouchableOpacity, Image } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -14,6 +14,8 @@ import { useAuth } from '../../hooks/auth';
 
 import Button from '../../components/Button';
 import { scrollInterpolator, animatedStyles } from '../../utils/animations';
+
+import logoImg from '../../assets/logo-feed-header.png';
 
 import {
   PostAuthor,
@@ -86,7 +88,11 @@ const Feed: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderText>Feed</HeaderText>
+        {/* <HeaderText>Feed</HeaderText> */}
+          <Image
+            source={logoImg}
+            style={{ width: '35%', resizeMode: 'contain' }}
+          />
         <Icon
           name="user"
           size={30}
