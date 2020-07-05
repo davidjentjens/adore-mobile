@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
     margin: 0,
     marginLeft: 20,
     marginRight: 40,
+    marginBottom: 30,
   },
   headerInfoView: {
     marginTop: 5,

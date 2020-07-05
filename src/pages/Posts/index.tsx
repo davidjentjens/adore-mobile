@@ -56,6 +56,7 @@ const Posts: React.FC = () => {
 
   return post ? (
     <Container>
+      <ScrollView>
       <Header source={{ uri: post.image_url }}>
         <HeaderGradient
           colors={['rgba(10, 10, 10, 0.4)', 'rgba(10, 10, 10, 0.9)']}
@@ -71,7 +72,7 @@ const Posts: React.FC = () => {
           </HeaderSafeArea>
         </HeaderGradient>
       </Header>
-      <ScrollView>
+
         <View style={styles.longDescTextContainer}>
           <Text style={styles.longDescText}>{post.desc}</Text>
         </View>
