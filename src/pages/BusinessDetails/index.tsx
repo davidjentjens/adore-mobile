@@ -88,7 +88,7 @@ const BusinessDetails: React.FC = () => {
         `tiers/business/${businessData.id}`,
       );
 
-      const { data: postsData } = await api.get(`/posts/${businessData.id}`);
+      const { data: postsData } = await api.get(`/posts/business/${businessData.id}`);
 
       setBusiness(businessData);
       setTiers(tiersData);
