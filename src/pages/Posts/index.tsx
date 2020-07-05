@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { View, ActivityIndicator, Text, ScrollView } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -39,6 +39,7 @@ interface Post {
 const Posts: React.FC = () => {
   // API
   const [post, setPost] = useState<Post>();
+  const [isLiked, setIsLiked] = useState(false);
 
   // Navigation
   const { navigate, goBack } = useNavigation();
@@ -49,11 +50,16 @@ const Posts: React.FC = () => {
     async function loadBusiness(): Promise<void> {
       const { data: postData } = await api.get(`/posts/${routeParams.id}`);
 
+      setIsLiked(postData.liked);
       setPost(postData);
     }
 
     loadBusiness();
   }, [routeParams.id]);
+
+  const toggleLike = useCallback(async () => {
+    await api.post(`likes`, { business_post_id: routeParams.id });
+  }, []);
 
   return post ? (
     <Container>
@@ -77,7 +83,15 @@ const Posts: React.FC = () => {
         <View style={styles.longDescTextContainer}>
           <Text style={styles.longDescText}>{post.desc}</Text>
         </View>
-        <ButtonLikePost><Text style={styles.headerInfoText}>Curtir Publicação</Text></ButtonLikePost>
+        <ButtonLikePost
+          onPress={() =>
+            navigate('Posts', {
+              id: post.id,
+            })
+          }
+        >
+          <Text style={styles.headerInfoText}>Curtir Publicação</Text>
+        </ButtonLikePost>
       </ScrollView>
     </Container>
   ) : (

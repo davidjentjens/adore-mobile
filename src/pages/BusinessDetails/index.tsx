@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -133,7 +133,7 @@ const BusinessDetails: React.FC = () => {
           <SectionContainer>
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
-              <TierSubscribedContainer>
+              {/* <TierSubscribedContainer>
                 <TierSubscribedText>Seu status de assinante</TierSubscribedText>
                 <TierStatusText>Membro</TierStatusText>
                 <View style={styles.headerOptionsView}>
@@ -159,9 +159,9 @@ const BusinessDetails: React.FC = () => {
                     </Text>
                   </TouchableOpacity>
                 </View>
-              </TierSubscribedContainer>
+              </TierSubscribedContainer> */}
 
-              {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <TierList style={{ width: Dimensions.get('window').width }}>
                   {tiers.map(tier => (
                     <TierCard
@@ -170,7 +170,8 @@ const BusinessDetails: React.FC = () => {
                         navigate('Tier', {
                           id: tier.id,
                           business,
-                        })}
+                        })
+                      }
                     >
                       <TierTextBackground
                         style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -181,7 +182,7 @@ const BusinessDetails: React.FC = () => {
                     </TierCard>
                   ))}
                 </TierList>
-              </ScrollView> */}
+              </ScrollView>
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
             {posts.map(post => (
@@ -194,7 +195,8 @@ const BusinessDetails: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })}
+                      })
+                    }
                   >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
