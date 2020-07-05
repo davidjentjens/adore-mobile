@@ -151,7 +151,7 @@ const BusinessDetails: React.FC = () => {
                 </TierList>
               </ScrollView>
             </TierContainer>
-            <SectionTitle>Feed</SectionTitle>
+            <SectionTitle>Novidades</SectionTitle>
             <PostListContainer>
               <ImagePost source={{ uri: business.image_url }} />
               <TextPostContainer>

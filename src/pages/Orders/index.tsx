@@ -99,7 +99,7 @@ const Orders: React.FC = () => {
         </SubscriptionDataContainer>
 
 
-        <SectionText>Tudo</SectionText>
+        <SectionText>Últimos 6 meses</SectionText>
 
         <AllDetailsContainer>
           <MemberContainer>
