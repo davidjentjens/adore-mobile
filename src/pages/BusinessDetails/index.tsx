@@ -103,6 +103,7 @@ const BusinessDetails: React.FC = () => {
       setTiers(tiersData);
       setPosts(postsData);
 
+
     }
 
     const loadSubs = async (): Promise<void> => {
@@ -129,7 +130,7 @@ const BusinessDetails: React.FC = () => {
             {/* <Text style={styles.headerSubTitle}>{business.location}</Text> */}
             <View style={styles.headerInfoView}>
               <View style={styles.headerSubCount}>
-                <Text style={styles.headerInfoText}>30 membros</Text>
+                <Text style={styles.headerInfoText}>35 membros</Text>
               </View>
               <View style={styles.headerSpecialty}>
                 <Text style={styles.headerInfoText}>
