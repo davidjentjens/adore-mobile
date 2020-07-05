@@ -170,7 +170,7 @@ export const MemberStatusView = styled.View`
   border-radius: 9px;
   flex: 1;
   margin-left: 10px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 `;
 
@@ -193,7 +193,8 @@ export const MemberInfoSubtitleText = styled.Text`
 `;
 
 export const MemberText = styled.Text`
-  padding-top: 17px;
+  padding-top: 0px;
+  margin-left: 13px;
   font-family: Roboto-Regular;
   font-size: 20px;
   color: white;

@@ -4,6 +4,7 @@ import { Divider } from 'react-native-elements';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 
@@ -37,7 +38,6 @@ import {
   FoodPricing,
   styles,
 } from './styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Business {
   id: string;
@@ -45,6 +45,10 @@ interface Business {
   location: string;
   description: string;
   image_url: string;
+}
+
+interface Subscriptions {
+  business: Business;
 }
 
 interface Tier {
@@ -56,22 +60,36 @@ interface Tier {
   desc: string;
 }
 
-const Orders: React.FC = () => {
+interface Perk {
+  title: string;
+  desc: string;
+  image_url: string;
+  day: number;
+}
 
+const Orders: React.FC = () => {
   const { navigate, goBack } = useNavigation();
 
+  const [nextPerk, setNextPerk] = useState<Perk>();
+  const [subscriptions, setSubs] = useState<Subscriptions[]>([]);
   const [business, setBusinesses] = useState<Business[]>([]);
 
   const route = useRoute();
 
   useEffect(() => {
-    const loadBusinesses = async (): Promise<void> => {
-      api.get('business').then(response => {
-        setBusinesses(response.data);
+    const loadNextPerk = async (): Promise<void> => {
+      api.get('perks/next').then(response => {
+        setNextPerk(response.data);
+      });
+    };
+    const loadSubs = async (): Promise<void> => {
+      api.get('subscriptions').then(response => {
+        setSubs(response.data);
       });
     };
 
-    loadBusinesses();
+    loadNextPerk();
+    loadSubs();
   }, []);
 
   return business ? (
@@ -87,47 +105,67 @@ const Orders: React.FC = () => {
         />
       </Header>
       <ScrollView>
-        <TierSubscribedContainer>
-          <TierSubscribedText>Você ainda não tem assinaturas ativas</TierSubscribedText>
-          <View style={styles.headerOptionsView}>
-            <TouchableOpacity style={styles.headerSubCount} onPress={() =>
-                      navigate('DashboardStack')}>
-              <Text style={styles.headerInfoText}>Conheça restaurante da sua região</Text>
-            </TouchableOpacity>
-          </View>
-        </TierSubscribedContainer>
+        {nextPerk ? (
+          <SubscriptionDataContainer>
+            <SubscriptionText>Próxima Vantagem</SubscriptionText>
+            <SubscriptionSubtitleText>
+              <Icon name="shopping-bag" size={20} />
+              {nextPerk.title}
+            </SubscriptionSubtitleText>
+            <SubscriptionSubtitleText>
+              <Icon name="clock" size={20} />
+              {nextPerk.day}
+            </SubscriptionSubtitleText>
+          </SubscriptionDataContainer>
+        ) : (
+          <TierSubscribedContainer>
+            <TierSubscribedText>
+              Você ainda não tem assinaturas ativas
+            </TierSubscribedText>
+            <View style={styles.headerOptionsView}>
+              <TouchableOpacity
+                style={styles.headerSubCount}
+                onPress={() => navigate('DashboardStack')}
+              >
+                <Text style={styles.headerInfoText}>
+                  Conheça restaurantes da sua região
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TierSubscribedContainer>
+        )}
 
-        {/* <SubscriptionDataContainer>
-          <SubscriptionText>Próxima Vantagem</SubscriptionText>
-          <SubscriptionSubtitleText>
-            <Icon name="home" size={20} />
-            {'  '}Cervejaria Lacis
-          </SubscriptionSubtitleText>
-          <SubscriptionSubtitleText>
-            <Icon name="shopping-bag" size={20} />
-            {'  '}Pack de bebidas
-          </SubscriptionSubtitleText>
-          <SubscriptionSubtitleText>
-            <Icon name="clock" size={20} />
-            {'  '}15 de julho de 2020
-          </SubscriptionSubtitleText>
-        </SubscriptionDataContainer>
-
-
-        <SectionText>Últimos 6 meses</SectionText>
-
-        <AllDetailsContainer>
-          <MemberContainer>
-            <MemberInfoView>
-              <MemberInfoText>Cervejaria Lacis</MemberInfoText>
-              <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
-            </MemberInfoView>
-            <MemberStatusView>
-              <MemberText>Membro</MemberText>
-              <MemberStatusText>Ouro</MemberStatusText>
-            </MemberStatusView>
-          </MemberContainer>
-        </AllDetailsContainer> */}
+        {subscriptions ? (
+          <AllDetailsContainer>
+            {subscriptions.map(subscription => (
+              <MemberContainer>
+                <MemberInfoView>
+                  <MemberInfoText>{subscription.business.name}</MemberInfoText>
+                  <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
+                </MemberInfoView>
+                <MemberStatusView>
+                  <MemberText>Membro</MemberText>
+                </MemberStatusView>
+              </MemberContainer>
+            ))}
+          </AllDetailsContainer>
+        ) : (
+          <TierSubscribedContainer>
+            <TierSubscribedText>
+              Você ainda não tem assinaturas ativas
+            </TierSubscribedText>
+            <View style={styles.headerOptionsView}>
+              <TouchableOpacity
+                style={styles.headerSubCount}
+                onPress={() => navigate('DashboardStack')}
+              >
+                <Text style={styles.headerInfoText}>
+                  Conheça restaurantes da sua região
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TierSubscribedContainer>
+        )}
       </ScrollView>
     </Container>
   ) : (

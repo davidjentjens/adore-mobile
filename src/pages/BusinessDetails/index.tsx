@@ -55,6 +55,10 @@ interface Business {
   perks: [string];
 }
 
+interface Subscriptions {
+  business: Business;
+}
+
 interface Tier {
   id: number;
   name: string;
@@ -73,6 +77,7 @@ interface Post {
 
 const BusinessDetails: React.FC = () => {
   const [business, setBusiness] = useState<Business>();
+  const [subscriptions, setSubs] = useState<Subscriptions[]>([]);
   const [tiers, setTiers] = useState<Tier[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -94,13 +99,20 @@ const BusinessDetails: React.FC = () => {
       const { data: postsData } = await api.get(
         `/posts/business/${businessData.id}`,
       );
-
       setBusiness(businessData);
       setTiers(tiersData);
       setPosts(postsData);
+
     }
 
+    const loadSubs = async (): Promise<void> => {
+      api.get(`subscriptions/${routeParams.id}`).then(response => {
+        setSubs(response.data);
+      });
+    };
+
     loadBusiness();
+    loadSubs();
   }, [routeParams.id]);
 
   return business ? (
@@ -133,51 +145,55 @@ const BusinessDetails: React.FC = () => {
           <SectionContainer>
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
-              {/* <TierSubscribedContainer>
-                <TierSubscribedText>Seu status de assinante</TierSubscribedText>
-                <TierStatusText>Membro</TierStatusText>
-                <View style={styles.headerOptionsView}>
-                  <TouchableOpacity
-                    style={styles.headerSubCount}
-                    onPress={() => navigate('Perks')}
-                  >
-                    <Text style={styles.headerInfoText}>Vantagens</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-style={styles.headerCancel} onPress={() =>
-                      navigate('Profile', {
-                        id: business.id,
-                        business,
-                      })}
-                  >
-                  >
-                    <Text style={styles.headerInfoText}>Alterar Dados</Text>
-                  </TouchableOpacity>
-                </View>
-              </TierSubscribedContainer> */}
-
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <TierList style={{ width: Dimensions.get('window').width }}>
-                  {tiers.map(tier => (
-                    <TierCard
-                      key={tier.id}
+              {subscriptions ? (
+                <TierSubscribedContainer>
+                  <TierSubscribedText>
+                    Seu status de assinante
+                  </TierSubscribedText>
+                  <TierStatusText>Membro</TierStatusText>
+                  <View style={styles.headerOptionsView}>
+                    <TouchableOpacity
+                      style={styles.headerSubCount}
+                      onPress={() => navigate('Perks')}
+                    >
+                      <Text style={styles.headerInfoText}>Vantagens</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.headerCancel}
                       onPress={() =>
-                        navigate('Tier', {
-                          id: tier.id,
+                        navigate('Profile', {
+                          id: business.id,
                           business,
                         })
                       }
                     >
-                      <TierTextBackground
-                        style={{ backgroundColor: getRankColor(tier.rank) }}
+                      <Text style={styles.headerInfoText}>Alterar Dados</Text>
+                    </TouchableOpacity>
+                  </View>
+                </TierSubscribedContainer>
+              ) : (
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                  <TierList style={{ width: Dimensions.get('window').width }}>
+                    {tiers.map(tier => (
+                      <TierCard
+                        key={tier.id}
+                        onPress={() =>
+                          navigate('Tier', {
+                            id: tier.id,
+                            business,
+                          })}
                       >
-                        <TierText>{tier.name}</TierText>
-                      </TierTextBackground>
-                      <PriceText>{formatValue(tier.value)}</PriceText>
-                    </TierCard>
-                  ))}
-                </TierList>
-              </ScrollView>
+                        <TierTextBackground
+                          style={{ backgroundColor: getRankColor(tier.rank) }}
+                        >
+                          <TierText>{tier.name}</TierText>
+                        </TierTextBackground>
+                        <PriceText>{formatValue(tier.value)}</PriceText>
+                      </TierCard>
+                    ))}
+                  </TierList>
+                </ScrollView>
+              )}
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
             {posts.map(post => (
