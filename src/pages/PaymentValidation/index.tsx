@@ -1,16 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { Image, ScrollView, Dimensions } from 'react-native';
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Feather';
-import api from '../../services/api';
-import formatValue from '../../utils/formatValue';
-import { Category } from '../Dashboard';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import Button from '../../components/Button';
 
 import {
   Container,
   Header,
   HeaderText,
+  HeaderSubText,
   AllDetailsContainer,
   MemberContainer,
   MemberInfoView,
@@ -21,7 +19,6 @@ import {
   MemberStatusText,
   DescriptionInfoView,
   DescriptionText,
-  styles,
 } from './styles';
 
 interface Business {
@@ -32,70 +29,60 @@ interface Business {
   image_url: string;
 }
 
+interface Tier {
+  id: string;
+  name: string;
+  image_url: string;
+  rank: number;
+  value: number;
+  desc: string;
+}
+
+interface Params {
+  tier: Tier;
+  business: Business;
+}
+
 const PaymentValidation: React.FC = () => {
-  const { navigate, goBack } = useNavigation();
+  const { navigate } = useNavigation();
 
-  const [business, setBusinesses] = useState<Business[]>([]);
+  const route = useRoute();
+  const routeParams = route.params as Params;
 
-  useEffect(() => {
-    const loadBusinesses = async (): Promise<void> => {
-      api.get('business/featured').then(response => {
-        setBusinesses(response.data);
-      });
-    };
-
-    loadBusinesses();
-  }, []);
-
-  return business ? (
+  return (
     <Container>
       <Header>
-        <Icon
-          name="chevron-left"
-          size={30}
-          color="#fff"
-          onPress={() => goBack()}
-          style={{ marginBottom: 10 }}
-        />
-        <HeaderText>Sua assinatura</HeaderText>
+        <HeaderText>Parabéns!</HeaderText>
+        <HeaderSubText>Assinatura feira com sucesso!</HeaderSubText>
       </Header>
       <ScrollView>
         <AllDetailsContainer>
           <MemberContainer>
             <MemberInfoView>
-              <MemberInfoText>Cafeteria Tranjan</MemberInfoText>
-              <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
+              <MemberInfoText>{routeParams.business.name}</MemberInfoText>
+              <MemberInfoSubtitleText>
+                {routeParams.business.location}
+              </MemberInfoSubtitleText>
             </MemberInfoView>
             <MemberStatusView>
-              <MemberText>Membro</MemberText>
-              <MemberStatusText>Ouro</MemberStatusText>
+              <MemberText />
+              <MemberStatusText>{routeParams.tier.name}</MemberStatusText>
             </MemberStatusView>
           </MemberContainer>
           <DescriptionInfoView>
             <MemberInfoText>Descrição</MemberInfoText>
-            <DescriptionText>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed
-            </DescriptionText>
+            <DescriptionText>{routeParams.tier.desc}</DescriptionText>
           </DescriptionInfoView>
+          <Button
+            onPress={() => {
+              navigate('Orders');
+            }}
+          >
+            Gerenciar suas assinaturas
+          </Button>
         </AllDetailsContainer>
       </ScrollView>
     </Container>
-  ) : (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#1c1c1c',
-      }}
-    >
-      <ActivityIndicator size="large" color="#a58238" />
-    </View>
   );
 };
 

@@ -1,9 +1,5 @@
-import styled, { css } from 'styled-components/native';
-import { FlatList, ImageBackground, StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
-import LinearGradient from 'react-native-linear-gradient';
-
-import { Category, Business } from './index';
+import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -40,6 +36,14 @@ export const HeaderText = styled.Text`
   color: #a58328;
   font-size: 32px;
   font-family: Roboto-Bold;
+  width: 100%;
+`;
+
+export const HeaderSubText = styled.Text`
+  color: #a58328;
+  font-size: 25px;
+  font-family: Roboto-Bold;
+  width: 100%;
 `;
 
 // #endregion
@@ -102,10 +106,11 @@ export const MemberText = styled.Text`
 
 export const MemberStatusText = styled.Text`
   font-family: Roboto-Bold;
-  font-size: 30px;
+  font-size: 20px;
   color: white;
+  width: 100%;
+  text-align: center;
 `;
-
 
 export const DescriptionInfoView = styled.View`
   background-color: #2f2f2f;

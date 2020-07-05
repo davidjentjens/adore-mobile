@@ -35,3 +35,41 @@ export const TierCard = styled(View)`
   overflow: hidden;
   background: #2f2f2f;
 `;
+
+export const TierList = styled.View`
+  padding: 15px 0px 30px 0px;
+  flex-direction: row;
+`;
+
+export const OtherTiersCard = styled.TouchableOpacity`
+  width: 120px;
+  height: 110px;
+  margin: 10px 0px 0px 20px;
+  background: #2f2f2f;
+  border-radius: 10px;
+  padding: 0px;
+  align-items: center;
+`;
+
+export const TierText = styled.Text`
+  color: #fff;
+  font-size: 20px;
+  margin-top: 7px;
+  font-family: Roboto-Medium;
+`;
+
+export const TierTextBackground = styled.View`
+  background: #a58238;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+`;
+
+export const PriceText = styled.Text`
+  color: #fff;
+  font-size: 25px;
+  margin-top: 20px;
+  font-family: Roboto-Bold;
+`;

@@ -1,17 +1,10 @@
 import styled from 'styled-components/native';
-import {
-  ImageBackground,
-  SafeAreaView,
-  StyleSheet,
-  FlatList,
-} from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
-import Button from '../../components/Button';
-
-import { Category, Business } from './index';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Button from '../../components/Button';
 
 export const Container = styled.View`
   flex: 1;
@@ -188,7 +181,6 @@ export const TierList = styled.View`
   padding: 15px 0px 30px 0px;
   flex-direction: row;
 `;
-
 
 export const TierCard = styled.TouchableOpacity`
   width: 120px;

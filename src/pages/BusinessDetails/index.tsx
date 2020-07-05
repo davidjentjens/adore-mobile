@@ -1,27 +1,15 @@
-import React, {
-  useEffect,
-  useState,
-  useCallback,
-  useMemo,
-  useLayoutEffect,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
-  Image,
   ActivityIndicator,
   Text,
-  FlatList,
   TouchableOpacity,
   ScrollView,
-  useWindowDimensions,
   Dimensions,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Feather';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import { useNavigation, useRoute, DarkTheme } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Button from '../../components/Button';
 
 import formatValue from '../../utils/formatValue';
 import getRankColor from '../../utils/getRankColor';
@@ -49,14 +37,8 @@ import {
   TitlePost,
   DescPost,
   ButtonPost,
-  subscribersButton,
-  subscribersText,
-  NavigationButton,
-  ButtonPrice,
-  ButtonText,
   styles,
 } from './styles';
-import Tier from '../Tier';
 
 interface Params {
   id: number;
@@ -154,7 +136,7 @@ const BusinessDetails: React.FC = () => {
                       onPress={() =>
                         navigate('Tier', {
                           id: tier.id,
-                          business_name: business.name,
+                          business,
                         })
                       }
                     >
@@ -174,10 +156,12 @@ const BusinessDetails: React.FC = () => {
               <ImagePost source={{ uri: business.image_url }} />
               <TextPostContainer>
                 <TitlePost>{business.name}</TitlePost>
-                <DescPost>
-                  Confira nossa nova cerveja doce
-                </DescPost>
-                <ButtonPost><Text style={{color: 'white', fontFamily: 'Roboto-Medium'}}>Ver post completo</Text></ButtonPost>
+                <DescPost>Confira nossa nova cerveja doce</DescPost>
+                <ButtonPost>
+                  <Text style={{ color: 'white', fontFamily: 'Roboto-Medium' }}>
+                    Ver post completo
+                  </Text>
+                </ButtonPost>
               </TextPostContainer>
             </PostListContainer>
           </SectionContainer>
