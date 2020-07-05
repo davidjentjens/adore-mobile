@@ -88,6 +88,24 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
   },
+  headerOptionsView: {
+    marginTop: 20,
+    marginBottom: 20,
+    flexDirection: 'row',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+  },
+  headerCancel: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#742635',
+  },
   contentSafeArea: {
     flex: 1,
   },
@@ -213,6 +231,32 @@ export const PriceText = styled.Text`
   font-size: 25px;
   margin-top: 20px;
   font-family: Roboto-Bold;
+`;
+
+export const TierSubscribedContainer = styled.View`
+  margin: 20px;
+  width: 90%;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  align-items: flex-start;
+`;
+
+export const TierSubscribedText = styled.Text`
+  font-family: Roboto-Regular;
+  font-size: 25px;
+  width: 80%;
+  margin: 20px 20px 0px 20px;
+  color: #fff;
+`;
+
+export const TierStatusText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 30px;
+  width: 80%;
+  margin: 10px 20px 0px 20px;
+  color: #a58238;
 `;
 
 export const PostListContainer = styled.View`

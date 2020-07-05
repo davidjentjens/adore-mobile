@@ -31,6 +31,9 @@ import {
   PriceText,
   TierTextBackground,
   TierText,
+  TierSubscribedContainer,
+  TierSubscribedText,
+  TierStatusText,
   PostListContainer,
   ImagePost,
   TextPostContainer,
@@ -113,14 +116,14 @@ const BusinessDetails: React.FC = () => {
             <Text style={styles.headerTitle}>{business.name}</Text>
             {/* <Text style={styles.headerSubTitle}>{business.location}</Text> */}
             <View style={styles.headerInfoView}>
-              <TouchableOpacity style={styles.headerSubCount}>
+              <View style={styles.headerSubCount}>
                 <Text style={styles.headerInfoText}>30 membros</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.headerSpecialty}>
+              </View>
+              <View style={styles.headerSpecialty}>
                 <Text style={styles.headerInfoText}>
                   Especialista em Cervejas
                 </Text>
-              </TouchableOpacity>
+              </View>
             </View>
           </HeaderSafeArea>
         </HeaderGradient>
@@ -130,7 +133,26 @@ const BusinessDetails: React.FC = () => {
           <SectionContainer>
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <TierSubscribedContainer>
+                <TierSubscribedText>
+                  Seu status de assinante
+                </TierSubscribedText>
+                <TierStatusText>
+                  Membro
+                </TierStatusText>
+                <View style={styles.headerOptionsView}>
+                  <View style={styles.headerSubCount}>
+                    <Text style={styles.headerInfoText}>Alterar Dados</Text>
+                  </View>
+                  <View style={styles.headerCancel}>
+                    <Text style={styles.headerInfoText}>
+                      Cancelar
+                    </Text>
+                  </View>
+                </View>
+              </TierSubscribedContainer>
+
+              {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <TierList style={{ width: Dimensions.get('window').width }}>
                   {tiers.map(tier => (
                     <TierCard
@@ -150,7 +172,7 @@ const BusinessDetails: React.FC = () => {
                     </TierCard>
                   ))}
                 </TierList>
-              </ScrollView>
+              </ScrollView> */}
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
             {posts.map(post => (
