@@ -137,26 +137,21 @@ const BusinessDetails: React.FC = () => {
                 <TierSubscribedText>Seu status de assinante</TierSubscribedText>
                 <TierStatusText>Membro</TierStatusText>
                 <View style={styles.headerOptionsView}>
-                  <View style={styles.headerSubCount}>
-                    <Text
-                      style={styles.headerInfoText}
-                      onPress={() => navigate('Perks')}
-                    >
-                      Vantagens
-                    </Text>
-                  </View>
-                  <TouchableOpacity style={styles.headerCancel}>
-                    <Text
-                      style={styles.headerInfoText}
-                      onPress={() =>
-                        navigate('Profile', {
-                          id: business.id,
-                          business,
-                        })
-                      }
-                    >
-                      Alterar Dados
-                    </Text>
+                  <TouchableOpacity
+                    style={styles.headerSubCount}
+                    onPress={() => navigate('Perks')}
+                  >
+                    <Text style={styles.headerInfoText}>Vantagens</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+style={styles.headerCancel} onPress={() =>
+                      navigate('Profile', {
+                        id: business.id,
+                        business,
+                      })}
+                  >
+                  >
+                    <Text style={styles.headerInfoText}>Alterar Dados</Text>
                   </TouchableOpacity>
                 </View>
               </TierSubscribedContainer> */}
