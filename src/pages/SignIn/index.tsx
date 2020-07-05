@@ -98,7 +98,7 @@ const SignIn: React.FC = () => {
               style={{ width: '80%', resizeMode: 'contain' }}
             />
             <View>
-              <Title>Faça seu logon</Title>
+              <Title>Entre com sua conta</Title>
             </View>
 
             <Form ref={formRef} onSubmit={handleSignIn}>

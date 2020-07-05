@@ -106,7 +106,7 @@ const Dashboard: React.FC = () => {
           layout="default"
           data={businesses}
           sliderWidth={Dimensions.get('window').width}
-          itemWidth={Dimensions.get('window').width - 50}
+          itemWidth={Dimensions.get('window').width - 30}
           renderItem={({ item: business }) => (
             <FeatureCard
               key={business.id}
