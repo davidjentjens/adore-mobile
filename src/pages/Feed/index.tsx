@@ -39,6 +39,8 @@ import {
   PostContainer,
   PostCard,
   PostDataContainer,
+  PostTextContainer,
+  PostTitle,
   PostDescription,
   BusinessSubtitleText,
   PostCardBackgroundImage,
@@ -61,11 +63,20 @@ export interface Category {
   image_url: string;
 }
 
+interface Post {
+  id: string;
+  title: string;
+  short_desc: string;
+  desc: string;
+  image_url: string;
+}
+
 const Feed: React.FC = () => {
   const { navigate } = useNavigation();
 
   const [businesses, setBusinesses] = useState<Business[]>([]);
   const [categories, setCategory] = useState<Category[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const { signOut } = useAuth();
 
@@ -82,8 +93,15 @@ const Feed: React.FC = () => {
       });
     };
 
+    const loadPosts = async (): Promise<void> => {
+      api.get('posts').then(response => {
+        setPosts(response.data);
+      });
+    };
+
     loadCategories();
     loadBusinesses();
+    loadPosts();
   }, []);
 
   return (
@@ -109,13 +127,13 @@ const Feed: React.FC = () => {
       </Header>
       {/* * * FEED * * */}
       <ScrollView>
-        {categories.map(category => (
-          <PostContainer key={category.id}>
+        {posts.map(post => (
+          <PostContainer key={post.id}>
             <PostCard
               onPress={() =>
-                navigate('Category', { id: category.id, name: category.name })}
+                navigate('Category', { id: post.id, name: post.title })}
             >
-              <PostCardBackgroundImage source={{ uri: category.image_url }}>
+              <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
                 <PostAuthor
                   colors={['rgba(10, 10, 10, 0.8)', 'rgba(10, 10, 10, 0)']}
@@ -130,13 +148,13 @@ const Feed: React.FC = () => {
                 </PostAuthor>
                 {/* * * Descricao * * */}
                 <PostCardGradient
-                  colors={['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 1)']}
+                  colors={['rgba(10, 10, z, 0)', 'rgba(5, 5, 5, 1)']}
                 >
                   <PostDataContainer>
-                    <PostDescription>
-                      Descricao da foto. Lorem ipsum dolor ipsum blablabla
-                      lelele lilili lololo lululu.
-                    </PostDescription>
+                    <PostTextContainer>
+                      <PostTitle>{post.title}</PostTitle>
+                      <PostDescription>{post.short_desc}</PostDescription>
+                    </PostTextContainer>
                     <LikeIcon name="heart" size={35} />
                   </PostDataContainer>
                 </PostCardGradient>

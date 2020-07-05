@@ -165,7 +165,7 @@ export const PostCard = styled(RectButton)`
 export const PostDataContainer = styled.View`
   width: 100%;
   margin: 0;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 20px 20px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -183,9 +183,25 @@ export const LikeIcon = styled(Icon)`
   justify-content: center;
 `;
 
+export const PostTextContainer = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 5px;
+`;
+
+
+export const PostTitle = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 25px;
+  color: #fff;
+  padding-bottom: 5px;
+`;
+
 export const PostDescription = styled.Text`
   font-family: Roboto-Medium;
   font-size: 15px;
+  width: 60%;
   color: white;
 `;
 

@@ -152,18 +152,22 @@ const BusinessDetails: React.FC = () => {
               </ScrollView>
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
-            <PostListContainer>
-              <ImagePost source={{ uri: business.image_url }} />
-              <TextPostContainer>
-                <TitlePost>{business.name}</TitlePost>
-                <DescPost>Confira nossa nova cerveja doce</DescPost>
-                <ButtonPost>
-                  <Text style={{ color: 'white', fontFamily: 'Roboto-Medium' }}>
-                    Ver post completo
-                  </Text>
-                </ButtonPost>
-              </TextPostContainer>
-            </PostListContainer>
+            {posts.map(post => (
+              <PostListContainer>
+                <ImagePost source={{ uri: post.image_url }} />
+                <TextPostContainer>
+                  <TitlePost>{post.title}</TitlePost>
+                   <DescPost>{post.short_desc}</DescPost>
+                  <ButtonPost>
+                    <Text
+                      style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
+                    >
+                      Ver post completo
+                    </Text>
+                  </ButtonPost>
+                </TextPostContainer>
+              </PostListContainer>
+            ))}
           </SectionContainer>
           {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
         </SafeAreaView>
