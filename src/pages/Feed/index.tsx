@@ -55,6 +55,7 @@ export interface Business {
   location: string;
   description: string;
   image_url: string;
+  logo_url: string;
 }
 
 export interface Category {
