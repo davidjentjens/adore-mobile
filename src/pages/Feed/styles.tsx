@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     opacity: 0.8,
     padding: 5,
     borderRadius: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 
@@ -149,7 +149,7 @@ export const PostCardBackgroundImage = styled(ImageBackground)`
 
 export const PostCardGradient = styled(LinearGradient)`
   width: 100%;
-  height: 100px;
+
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
@@ -164,8 +164,7 @@ export const PostCard = styled(RectButton)`
 
 export const PostDataContainer = styled.View`
   width: 100%;
-  margin: 0;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 10px 10px 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -178,9 +177,6 @@ export const LikeIcon = styled(Icon)`
   padding: 0;
   width: 35px;
   height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const PostTextContainer = styled.View`
@@ -188,8 +184,8 @@ export const PostTextContainer = styled.View`
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 5px;
+  width: 100%;
 `;
-
 
 export const PostTitle = styled.Text`
   font-family: Roboto-Bold;
@@ -211,7 +207,15 @@ export const PostAuthor = styled(LinearGradient)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px 0 0 10px;
+  justify-content: space-between;
+  padding: 10px 10px 0 10px;
+`;
+
+export const AuthorInfo = styled.View`
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const AuthorAvatar = styled(Image)`

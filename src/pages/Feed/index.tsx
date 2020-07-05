@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { SearchBar, Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, TouchableOpacity, Image } from 'react-native';
+import {
+  Dimensions,
+  TouchableOpacity,
+  Image,
+  ViewPagerAndroidComponent,
+} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { useWindowDimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { ConfigAPI } from '@babel/core';
 import Logo from '../../assets/logo-header.png';
 
 import api from '../../services/api';
@@ -22,6 +28,7 @@ import {
   PostAuthor,
   AuthorAvatar,
   AuthorName,
+  AuthorInfo,
   Container,
   Header,
   HeaderText,
@@ -70,6 +77,8 @@ interface Post {
   short_desc: string;
   desc: string;
   image_url: string;
+  business_id: string;
+  business: Business;
 }
 
 const Feed: React.FC = () => {
@@ -82,26 +91,21 @@ const Feed: React.FC = () => {
   const { signOut } = useAuth();
 
   useEffect(() => {
-    const loadBusinesses = async (): Promise<void> => {
-      api.get('business/featured').then(response => {
-        setBusinesses(response.data);
-      });
-    };
-
-    const loadCategories = async (): Promise<void> => {
-      api.get('categories').then(response => {
-        setCategory(response.data);
-      });
-    };
-
     const loadPosts = async (): Promise<void> => {
-      api.get('posts').then(response => {
-        setPosts(response.data);
-      });
+      const { data: postData } = await api.get<Post[]>('posts');
+
+      // postData.forEach((element: Post) => {
+      //   api.get(`business/${element.business_id}`).then(response => {
+      //     // eslint-disable-next-line no-param-reassign
+      //     element.business = response.data;
+      //   });
+      // });
+
+      // console.log(postData);
+
+      setPosts(postData);
     };
 
-    loadCategories();
-    loadBusinesses();
     loadPosts();
   }, []);
 
@@ -132,20 +136,25 @@ const Feed: React.FC = () => {
           <PostContainer key={post.id}>
             <PostCard
               onPress={() =>
-                navigate('Category', { id: post.id, name: post.title })}
+                navigate('Posts', {
+                  id: post.id,
+                })}
             >
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
                 <PostAuthor
                   colors={['rgba(10, 10, 10, 0.8)', 'rgba(10, 10, 10, 0)']}
                 >
-                  <AuthorAvatar
-                    source={{
-                      uri:
-                        'https://avatars0.githubusercontent.com/u/1776118?s=400&u=6adcf808eca5fa3e5f864c90c4555f86d9a552a8&v=4',
-                    }}
-                  />
-                  <AuthorName>Mr. Jentjens</AuthorName>
+                  <AuthorInfo>
+                    <AuthorAvatar
+                      source={{
+                        uri:
+                          'https://avatars0.githubusercontent.com/u/1776118?s=400&u=6adcf808eca5fa3e5f864c90c4555f86d9a552a8&v=4',
+                      }}
+                    />
+                    <AuthorName>Mr. Jentjens</AuthorName>
+                  </AuthorInfo>
+                  <LikeIcon name="heart" size={35} />
                 </PostAuthor>
                 {/* * * Descricao * * */}
                 <PostCardGradient
@@ -156,7 +165,6 @@ const Feed: React.FC = () => {
                       <PostTitle>{post.title}</PostTitle>
                       <PostDescription>{post.short_desc}</PostDescription>
                     </PostTextContainer>
-                    <LikeIcon name="heart" size={35} />
                   </PostDataContainer>
                 </PostCardGradient>
               </PostCardBackgroundImage>

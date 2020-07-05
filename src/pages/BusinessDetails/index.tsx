@@ -88,7 +88,9 @@ const BusinessDetails: React.FC = () => {
         `tiers/business/${businessData.id}`,
       );
 
-      const { data: postsData } = await api.get(`/posts/${businessData.id}`);
+      const { data: postsData } = await api.get(
+        `/posts/business/${businessData.id}`,
+      );
 
       setBusiness(businessData);
       setTiers(tiersData);
@@ -137,8 +139,7 @@ const BusinessDetails: React.FC = () => {
                         navigate('Tier', {
                           id: tier.id,
                           business,
-                        })
-                      }
+                        })}
                     >
                       <TierTextBackground
                         style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -161,9 +162,8 @@ const BusinessDetails: React.FC = () => {
                   <ButtonPost
                     onPress={() =>
                       navigate('Posts', {
-                        id: business.id,
-                      })
-                    }
+                        id: post.id,
+                      })}
                   >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
