@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Image, ScrollView } from 'react-native';
+import { Image, ScrollView, View, Text } from 'react-native';
 import { Divider } from 'react-native-elements';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -24,6 +24,9 @@ import {
   MemberStatusView,
   MemberText,
   MemberStatusText,
+  TierStatusText,
+  TierSubscribedContainer,
+  TierSubscribedText,
   FoodsContainer,
   FoodList,
   Food,
@@ -34,6 +37,7 @@ import {
   FoodPricing,
   styles,
 } from './styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Business {
   id: string;
@@ -53,7 +57,8 @@ interface Tier {
 }
 
 const Orders: React.FC = () => {
-  const navigation = useNavigation();
+
+  const { navigate, goBack } = useNavigation();
 
   const [business, setBusinesses] = useState<Business[]>([]);
 
@@ -78,11 +83,21 @@ const Orders: React.FC = () => {
           size={30}
           color="#fff"
           onPress={() => navigation.navigate('Profile')}
-          style = {styles.opacityView}
+          style={styles.opacityView}
         />
       </Header>
       <ScrollView>
-        <SubscriptionDataContainer>
+        <TierSubscribedContainer>
+          <TierSubscribedText>Você ainda não tem assinaturas ativas</TierSubscribedText>
+          <View style={styles.headerOptionsView}>
+            <TouchableOpacity style={styles.headerSubCount} onPress={() =>
+                      navigate('DashboardStack')}>
+              <Text style={styles.headerInfoText}>Conheça restaurante da sua região</Text>
+            </TouchableOpacity>
+          </View>
+        </TierSubscribedContainer>
+
+        {/* <SubscriptionDataContainer>
           <SubscriptionText>Próxima Vantagem</SubscriptionText>
           <SubscriptionSubtitleText>
             <Icon name="home" size={20} />
@@ -112,7 +127,7 @@ const Orders: React.FC = () => {
               <MemberStatusText>Ouro</MemberStatusText>
             </MemberStatusView>
           </MemberContainer>
-        </AllDetailsContainer>
+        </AllDetailsContainer> */}
       </ScrollView>
     </Container>
   ) : (

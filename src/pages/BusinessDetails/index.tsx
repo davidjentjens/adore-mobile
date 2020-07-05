@@ -142,11 +142,11 @@ const BusinessDetails: React.FC = () => {
                 </TierStatusText>
                 <View style={styles.headerOptionsView}>
                   <View style={styles.headerSubCount}>
-                    <Text style={styles.headerInfoText}>Alterar Dados</Text>
+                    <Text style={styles.headerInfoText}>Vantagens</Text>
                   </View>
                   <View style={styles.headerCancel}>
                     <Text style={styles.headerInfoText}>
-                      Cancelar
+                      Alterar Dados
                     </Text>
                   </View>
                 </View>

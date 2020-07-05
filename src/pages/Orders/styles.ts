@@ -30,12 +30,78 @@ export const HeaderTitle = styled.Text`
 `;
 
 export const styles = StyleSheet.create({
+  headerTitle: {
+    color: '#a58328',
+    fontSize: 32,
+    fontFamily: 'Roboto-Bold',
+    marginLeft: 20,
+  },
+  headerSubTitle: {
+    color: '#fff',
+    fontSize: 25,
+    fontFamily: 'Roboto-Regular',
+    margin: 0,
+    marginLeft: 20,
+  },
+  headerInfoView: {
+    marginTop: 20,
+    flexDirection: 'row',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    justifyContent: 'space-between',
+  },
+  headerSubCount: {
+    margin: 0,
+
+
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#a58328',
+  },
+  headerSpecialty: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#2f2f2f',
+  },
+  headerInfoText: {
+    color: '#fff',
+    fontSize: 15,
+    fontFamily: 'Roboto-Medium',
+  },
+  headerOptionsView: {
+    marginTop: 20,
+    marginBottom: 20,
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+  },
+  headerCancel: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#742635',
+  },
   opacityView: {
     backgroundColor: '#2f2f2f',
     opacity: 0.8,
     padding: 5,
     borderRadius: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 
@@ -139,6 +205,31 @@ export const MemberStatusText = styled.Text`
   color: white;
 `;
 
+export const TierSubscribedContainer = styled.View`
+  margin: 20px;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+`;
+
+export const TierSubscribedText = styled.Text`
+  font-family: Roboto-Regular;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 20px
+  width: 80%;
+  color: #fff;
+`;
+
+export const TierStatusText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 30px;
+  width: 80%;
+  margin: 10px 20px 0px 20px;
+  color: #a58238;
+`;
 
 export const FoodsContainer = styled.View`
   flex: 1;
