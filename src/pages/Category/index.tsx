@@ -99,11 +99,6 @@ const Category: React.FC = () => {
                             Torne-se membro
                           </Text>
                         </View>
-                        <View style={styles.headerSpecialty}>
-                          <Text style={styles.headerInfoText}>
-                            A partir de 10,90
-                          </Text>
-                        </View>
                       </View>
                     </View>
                   </View>
