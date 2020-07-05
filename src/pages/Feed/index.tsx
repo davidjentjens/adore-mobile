@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Image } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import api from '../../services/api';
@@ -60,6 +60,8 @@ const Feed: React.FC = () => {
 
   const [posts, setPosts] = useState<Post[]>([]);
 
+  const isFocused = useIsFocused();
+
   useEffect(() => {
     const loadPosts = async (): Promise<void> => {
       const { data: postData } = await api.get<Post[]>('posts');
@@ -69,7 +71,7 @@ const Feed: React.FC = () => {
       console.log('getPosts');
     };
     loadPosts();
-  }, []);
+  }, [isFocused]);
 
   return (
     <Container>
@@ -100,7 +102,8 @@ const Feed: React.FC = () => {
               onPress={() =>
                 navigate('Posts', {
                   id: post.id,
-                })}
+                })
+              }
             >
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
@@ -109,7 +112,8 @@ const Feed: React.FC = () => {
                 >
                   <AuthorInfo
                     onPress={() =>
-                      navigate('BusinessDetails', { id: post.business.id })}
+                      navigate('BusinessDetails', { id: post.business.id })
+                    }
                   >
                     <AuthorAvatar
                       source={{
@@ -136,7 +140,8 @@ const Feed: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })}
+                      })
+                    }
                   >
                     <PostTextContainer>
                       <PostTitle>{post.title}</PostTitle>

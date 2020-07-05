@@ -1,8 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { View, ActivityIndicator, Text, ScrollView } from 'react-native';
 
-import { useNavigation, useRoute } from '@react-navigation/native';
-
+import {
+  useNavigation,
+  useRoute,
+  useIsFocused,
+} from '@react-navigation/native';
+import { State } from 'react-native-gesture-handler';
 import api from '../../services/api';
 
 import {
@@ -34,32 +38,42 @@ interface Post {
   short_desc: string;
   desc: string;
   image_url: string;
+  liked: boolean;
 }
 
 const Posts: React.FC = () => {
   // API
   const [post, setPost] = useState<Post>();
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState<boolean>();
 
   // Navigation
   const { navigate, goBack } = useNavigation();
   const route = useRoute();
   const routeParams = route.params as Params;
+  const isFocused = useIsFocused();
 
   useEffect(() => {
-    async function loadBusiness(): Promise<void> {
+    async function loadPost(): Promise<void> {
       const { data: postData } = await api.get(`/posts/${routeParams.id}`);
 
-      setIsLiked(postData.liked);
+      // setIsLiked(postData.liked);
+      // console.log('gotIsLiked', postData.liked);
       setPost(postData);
     }
-
-    loadBusiness();
-  }, [routeParams.id]);
+    loadPost();
+  }, [routeParams.id, isFocused]);
 
   const toggleLike = useCallback(async () => {
     await api.post(`likes`, { business_post_id: routeParams.id });
-  }, []);
+    setIsLiked(!isLiked);
+  }, [routeParams.id, isLiked]);
+
+  const likedButtonText = useMemo(
+    () => (isLiked ? 'Descurtir Publicação' : 'Curtir Publicação'),
+    [isLiked],
+  );
+
+  // useLayoutEffect(() => {}, [likedButtonText, toggleLike]);
 
   return post ? (
     <Container>
@@ -84,13 +98,11 @@ const Posts: React.FC = () => {
           <Text style={styles.longDescText}>{post.desc}</Text>
         </View>
         <ButtonLikePost
-          onPress={() =>
-            navigate('Posts', {
-              id: post.id,
-            })
-          }
+          onPress={() => {
+            toggleLike();
+          }}
         >
-          <Text style={styles.headerInfoText}>Curtir Publicação</Text>
+          <Text style={styles.headerInfoText}>{likedButtonText}</Text>
         </ButtonLikePost>
       </ScrollView>
     </Container>

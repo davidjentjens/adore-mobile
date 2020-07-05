@@ -243,7 +243,6 @@ export const ImagePost = styled(ImageBackground)`
   border-radius: 5px;
   overflow: hidden;
   background-color: red;
-
 `;
 
 export const TextPostContainer = styled.View`
@@ -276,7 +275,7 @@ export const ButtonPost = styled(TouchableOpacity)`
   margin: 12px 20px 0px 15px;
 `;
 
-export const ButtonLikePost = styled(TouchableOpacity)`
+export const ButtonLikePost = styled.TouchableOpacity`
   background-color: #a58238;
   margin: 20px;
   width: 90%;
