@@ -90,10 +90,10 @@ const Feed: React.FC = () => {
     <Container>
       <Header>
         {/* <HeaderText>Feed</HeaderText> */}
-          <Image
-            source={logoImg}
-            style={{ width: '35%', resizeMode: 'contain' }}
-          />
+        <Image
+          source={logoImg}
+          style={{ width: '35%', resizeMode: 'contain' }}
+        />
         <Icon
           name="user"
           size={30}
