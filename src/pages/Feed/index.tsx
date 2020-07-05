@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { SearchBar, Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 import {
@@ -77,37 +77,32 @@ interface Post {
   short_desc: string;
   desc: string;
   image_url: string;
-  business_id: string;
   business: Business;
 }
 
 const Feed: React.FC = () => {
   const { navigate } = useNavigation();
 
-  const [businesses, setBusinesses] = useState<Business[]>([]);
-  const [categories, setCategory] = useState<Category[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
 
-  const { signOut } = useAuth();
+  const [likeList, setLikeList] = useState(false);
 
   useEffect(() => {
     const loadPosts = async (): Promise<void> => {
       const { data: postData } = await api.get<Post[]>('posts');
-
-      // postData.forEach((element: Post) => {
-      //   api.get(`business/${element.business_id}`).then(response => {
-      //     // eslint-disable-next-line no-param-reassign
-      //     element.business = response.data;
-      //   });
-      // });
-
-      // console.log(postData);
+      // const { data: likeListData } = await api.get();
 
       setPosts(postData);
     };
 
     loadPosts();
   }, []);
+
+  // const toggleLike = useCallback(async (post_id: string) => {
+  //   await api.post(`likes`, { business_post_id: post_id });
+
+  //   // setIsFavorite(!isFavorite);
+  // }, []);
 
   return (
     <Container>
@@ -134,33 +129,43 @@ const Feed: React.FC = () => {
       <ScrollView>
         {posts.map(post => (
           <PostContainer key={post.id}>
-            <PostCard
-              onPress={() =>
-                navigate('Posts', {
-                  id: post.id,
-                })}
-            >
+            <PostCard>
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
                 <PostAuthor
                   colors={['rgba(10, 10, 10, 0.8)', 'rgba(10, 10, 10, 0)']}
                 >
-                  <AuthorInfo>
+                  <AuthorInfo
+                    onPress={() =>
+                      navigate('BusinessDetails', { id: post.business.id })
+                    }
+                  >
                     <AuthorAvatar
                       source={{
-                        uri:
-                          'https://avatars0.githubusercontent.com/u/1776118?s=400&u=6adcf808eca5fa3e5f864c90c4555f86d9a552a8&v=4',
+                        uri: post.business.logo_url
+                          ? post.business.logo_url
+                          : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
                       }}
                     />
-                    <AuthorName>Mr. Jentjens</AuthorName>
+                    <AuthorName>{post.business.name}</AuthorName>
                   </AuthorInfo>
-                  <LikeIcon name="heart" size={35} />
+                  <LikeIcon
+                    name="heart"
+                    size={35}
+                    // onPress={() => toggleLike(post.id)}
+                  />
                 </PostAuthor>
                 {/* * * Descricao * * */}
                 <PostCardGradient
                   colors={['rgba(10, 10, 10, 0)', 'rgba(5, 5, 5, 1)']}
                 >
-                  <PostDataContainer>
+                  <PostDataContainer
+                    onPress={() =>
+                      navigate('Posts', {
+                        id: post.id,
+                      })
+                    }
+                  >
                     <PostTextContainer>
                       <PostTitle>{post.title}</PostTitle>
                       <PostDescription>{post.short_desc}</PostDescription>

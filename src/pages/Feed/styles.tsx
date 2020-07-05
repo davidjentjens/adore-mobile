@@ -156,7 +156,7 @@ export const PostCardGradient = styled(LinearGradient)`
   align-items: flex-end;
 `;
 
-export const PostCard = styled(TouchableOpacity)`
+export const PostCard = styled.View`
   margin: 0px 20px 20px 20px;
   height: ${Math.round(Dimensions.get('window').width * 0.75)}px;
   color: #fff;
@@ -164,7 +164,7 @@ export const PostCard = styled(TouchableOpacity)`
   overflow: hidden;
 `;
 
-export const PostDataContainer = styled.View`
+export const PostDataContainer = styled.TouchableOpacity`
   width: 100%;
   padding: 0px 10px 10px 10px;
   display: flex;
@@ -213,7 +213,7 @@ export const PostAuthor = styled(LinearGradient)`
   padding: 10px 10px 0 10px;
 `;
 
-export const AuthorInfo = styled.View`
+export const AuthorInfo = styled.TouchableOpacity`
   width: 50%;
   display: flex;
   flex-direction: row;
