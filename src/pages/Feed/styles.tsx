@@ -157,7 +157,7 @@ export const PostCardGradient = styled(LinearGradient)`
   align-items: flex-end;
 `;
 
-export const PostCard = styled.View`
+export const PostCard = styled.TouchableOpacity`
   margin: 0px 20px 20px 20px;
   height: ${Math.round(Dimensions.get('window').width * 0.75)}px;
   color: #fff;

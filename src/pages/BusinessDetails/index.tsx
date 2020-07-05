@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -133,7 +133,7 @@ const BusinessDetails: React.FC = () => {
           <SectionContainer>
             <TierContainer>
               <SectionTitle>Planos</SectionTitle>
-              <TierSubscribedContainer>
+              {/* <TierSubscribedContainer>
                 <TierSubscribedText>Seu status de assinante</TierSubscribedText>
                 <TierStatusText>Membro</TierStatusText>
                 <View style={styles.headerOptionsView}>
@@ -154,9 +154,9 @@ style={styles.headerCancel} onPress={() =>
                     <Text style={styles.headerInfoText}>Alterar Dados</Text>
                   </TouchableOpacity>
                 </View>
-              </TierSubscribedContainer>
+              </TierSubscribedContainer> */}
 
-              {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <TierList style={{ width: Dimensions.get('window').width }}>
                   {tiers.map(tier => (
                     <TierCard
@@ -165,7 +165,8 @@ style={styles.headerCancel} onPress={() =>
                         navigate('Tier', {
                           id: tier.id,
                           business,
-                        })}
+                        })
+                      }
                     >
                       <TierTextBackground
                         style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -176,7 +177,7 @@ style={styles.headerCancel} onPress={() =>
                     </TierCard>
                   ))}
                 </TierList>
-              </ScrollView> */}
+              </ScrollView>
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
             {posts.map(post => (

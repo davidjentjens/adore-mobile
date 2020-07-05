@@ -1,26 +1,11 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
-import { SearchBar, Text, Divider } from 'react-native-elements';
-import Carousel from 'react-native-snap-carousel';
-import {
-  Dimensions,
-  TouchableOpacity,
-  Image,
-  ViewPagerAndroidComponent,
-} from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Image } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
-import { useWindowDimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { ConfigAPI } from '@babel/core';
-import Logo from '../../assets/logo-header.png';
 
 import api from '../../services/api';
-import { useAuth } from '../../hooks/auth';
-
-import Button from '../../components/Button';
-import { scrollInterpolator, animatedStyles } from '../../utils/animations';
 
 import logoImg from '../../assets/logo-feed-header.png';
 
@@ -32,18 +17,6 @@ import {
   AuthorInfo,
   Container,
   Header,
-  HeaderText,
-  SectionText,
-  SectionSubtitleText,
-  TopCardContainer,
-  TopCardList,
-  TopCard,
-  TopCardText,
-  FeatureCard,
-  FeatureText,
-  FeatureDataContainer,
-  FeatureCardBackgroundImage,
-  BusinessList,
   PostContainer,
   PostCard,
   PostDataContainer,
@@ -51,7 +24,6 @@ import {
   LikedIcon,
   PostTitle,
   PostDescription,
-  BusinessSubtitleText,
   PostCardBackgroundImage,
   PostCardGradient,
   styles,
@@ -99,12 +71,6 @@ const Feed: React.FC = () => {
     loadPosts();
   }, []);
 
-  const toggleLike = useCallback(async (post: Post) => {
-    await api.post(`likes`, { business_post_id: post.id });
-    // posts.push(post);
-    // setPosts(posts);
-  }, []);
-
   return (
     <Container>
       <Header>
@@ -130,7 +96,12 @@ const Feed: React.FC = () => {
       <ScrollView>
         {posts.map(post => (
           <PostContainer key={post.id}>
-            <PostCard>
+            <PostCard
+              onPress={() =>
+                navigate('Posts', {
+                  id: post.id,
+                })}
+            >
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
                 <PostAuthor
@@ -138,8 +109,7 @@ const Feed: React.FC = () => {
                 >
                   <AuthorInfo
                     onPress={() =>
-                      navigate('BusinessDetails', { id: post.business.id })
-                    }
+                      navigate('BusinessDetails', { id: post.business.id })}
                   >
                     <AuthorAvatar
                       source={{
@@ -152,19 +122,10 @@ const Feed: React.FC = () => {
                   </AuthorInfo>
                   {post.liked ? (
                     <>
-                      <LikedIcon
-                        name="favorite"
-                        style={{}}
-                        size={35}
-                        onPress={() => toggleLike(post)}
-                      />
+                      <LikedIcon name="favorite" style={{}} size={35} />
                     </>
                   ) : (
-                    <LikeIcon
-                      name="heart"
-                      size={35}
-                      onPress={() => toggleLike(post)}
-                    />
+                    <LikeIcon name="heart" size={35} />
                   )}
                 </PostAuthor>
                 {/* * * Descricao * * */}
@@ -175,8 +136,7 @@ const Feed: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })
-                    }
+                      })}
                   >
                     <PostTextContainer>
                       <PostTitle>{post.title}</PostTitle>

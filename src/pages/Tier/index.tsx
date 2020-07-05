@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   ScrollView,
@@ -15,6 +15,8 @@ import api from '../../services/api';
 import Button from '../../components/Button';
 import formatValue from '../../utils/formatValue';
 import getRankColor from '../../utils/getRankColor';
+
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -59,6 +61,8 @@ const Tier: React.FC = () => {
   const route = useRoute();
   const routeParams = route.params as Params;
 
+  const { user } = useAuth();
+
   useEffect(() => {
     async function loadTier(): Promise<void> {
       const { data: tierData } = await api.get(`/tiers/${routeParams.id}`);
@@ -77,6 +81,14 @@ const Tier: React.FC = () => {
 
     loadTier();
   }, [routeParams.business.id, routeParams.id]);
+
+  const subscribe = useCallback(() => {
+    console.log('Subscribed?', routeParams.business.id, routeParams.id);
+    api.post(`subscriptions`, {
+      business_id: routeParams.business.id,
+      tier_id: routeParams.id,
+    });
+  }, []);
 
   return tier ? (
     <Container>
@@ -130,12 +142,13 @@ const Tier: React.FC = () => {
           </View>
         </TierCard>
         <Button
-          onPress={() =>
+          onPress={() => {
+            subscribe();
             navigate('PaymentValidation', {
               tier,
               business: routeParams.business,
-            })
-          }
+            });
+          }}
         >
           {formatValue(tier.value)}/mês
         </Button>
@@ -153,7 +166,8 @@ const Tier: React.FC = () => {
                   navigate('Tier', {
                     id: item.id,
                     business: routeParams.business,
-                  })}
+                  })
+                }
               >
                 <TierTextBackground
                   style={{ backgroundColor: getRankColor(item.rank) }}
