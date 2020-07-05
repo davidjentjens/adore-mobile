@@ -10,6 +10,7 @@ import {
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import { Category, Business } from './index';
 
@@ -171,6 +172,14 @@ export const PostDataContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const LikedIcon = styled(MaterialIcon)`
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  width: 35px;
+  height: 35px;
 `;
 
 export const LikeIcon = styled(Icon)`

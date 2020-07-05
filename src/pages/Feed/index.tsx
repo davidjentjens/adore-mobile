@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { SearchBar, Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 import {
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { useWindowDimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -47,6 +48,7 @@ import {
   PostCard,
   PostDataContainer,
   PostTextContainer,
+  LikedIcon,
   PostTitle,
   PostDescription,
   BusinessSubtitleText,
@@ -78,6 +80,7 @@ interface Post {
   desc: string;
   image_url: string;
   business: Business;
+  liked: boolean;
 }
 
 const Feed: React.FC = () => {
@@ -85,24 +88,22 @@ const Feed: React.FC = () => {
 
   const [posts, setPosts] = useState<Post[]>([]);
 
-  const [likeList, setLikeList] = useState(false);
-
   useEffect(() => {
     const loadPosts = async (): Promise<void> => {
       const { data: postData } = await api.get<Post[]>('posts');
       // const { data: likeListData } = await api.get();
 
       setPosts(postData);
+      console.log('getPosts');
     };
-
     loadPosts();
   }, []);
 
-  // const toggleLike = useCallback(async (post_id: string) => {
-  //   await api.post(`likes`, { business_post_id: post_id });
-
-  //   // setIsFavorite(!isFavorite);
-  // }, []);
+  const toggleLike = useCallback(async (post: Post) => {
+    await api.post(`likes`, { business_post_id: post.id });
+    // posts.push(post);
+    // setPosts(posts);
+  }, []);
 
   return (
     <Container>
@@ -149,11 +150,22 @@ const Feed: React.FC = () => {
                     />
                     <AuthorName>{post.business.name}</AuthorName>
                   </AuthorInfo>
-                  <LikeIcon
-                    name="heart"
-                    size={35}
-                    // onPress={() => toggleLike(post.id)}
-                  />
+                  {post.liked ? (
+                    <>
+                      <LikedIcon
+                        name="favorite"
+                        style={{}}
+                        size={35}
+                        onPress={() => toggleLike(post)}
+                      />
+                    </>
+                  ) : (
+                    <LikeIcon
+                      name="heart"
+                      size={35}
+                      onPress={() => toggleLike(post)}
+                    />
+                  )}
                 </PostAuthor>
                 {/* * * Descricao * * */}
                 <PostCardGradient
