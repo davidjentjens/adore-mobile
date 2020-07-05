@@ -29,7 +29,7 @@ const TabRoutes: React.FC = () => (
   >
     <Tab.Screen
       options={{
-        tabBarIcon: ({ color }) => <Icon size={22} name="calendar" color={color} />,
+        tabBarIcon: ({ color }) => <Icon size={22} name="home" color={color} />,
         title: 'Feed',
       }}
       name="Feed"
