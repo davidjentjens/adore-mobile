@@ -44,10 +44,27 @@ const AppRoutes: React.FC = () => (
     <App.Screen
       name="Tier"
       component={Tier}
-      options={{
+      options={({ navigation }) => ({
+        headerLeft: () => (
+          <Icon
+            name="arrow-left"
+            size={24}
+            color="#FFB84D"
+            onPress={() => navigation.goBack()}
+          />
+        ),
         headerShown: false,
-        gestureEnabled: false,
-      }}
+        headerLeftContainerStyle: {
+          marginLeft: 24,
+        },
+        headerTitle: '',
+        headerStyle: {
+          backgroundColor: 'transparent',
+          elevation: 0,
+          borderWidth: 0,
+          shadowColor: 'transparent',
+        },
+      })}
     />
     <App.Screen
       name="PaymentValidation"

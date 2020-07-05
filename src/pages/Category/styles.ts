@@ -76,7 +76,7 @@ export const Business = styled.TouchableOpacity`
 
   background: #000;
   border-radius: 8px;
-  height: 110px;
+  height: 210px;
   overflow: hidden;
   margin-bottom: 25px;
 `;
@@ -102,7 +102,6 @@ export const BusinessTitle = styled.Text`
   font-size: 25px;
   line-height: 30px;
   padding: 20px 0px 5px 20px;
-
   color: #fff;
 `;
 export const BusinessDescription = styled.Text`
