@@ -55,6 +55,7 @@ export interface Business {
   location: string;
   description: string;
   image_url: string;
+  logo_url: string;
 }
 
 export interface Category {
@@ -148,7 +149,7 @@ const Feed: React.FC = () => {
                 </PostAuthor>
                 {/* * * Descricao * * */}
                 <PostCardGradient
-                  colors={['rgba(10, 10, z, 0)', 'rgba(5, 5, 5, 1)']}
+                  colors={['rgba(10, 10, 10, 0)', 'rgba(5, 5, 5, 1)']}
                 >
                   <PostDataContainer>
                     <PostTextContainer>
