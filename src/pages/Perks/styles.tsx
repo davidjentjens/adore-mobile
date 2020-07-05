@@ -47,7 +47,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'Roboto-Bold',
     marginLeft: 20,
     marginRight: 40,
-    marginTop: 20,
   },
   headerSubTitle: {
     color: '#fff',
@@ -56,7 +55,6 @@ export const styles = StyleSheet.create({
     margin: 0,
     marginLeft: 20,
     marginRight: 40,
-    marginBottom: 30,
   },
   headerInfoView: {
     marginTop: 5,
@@ -180,6 +178,8 @@ export const SectionTitle = styled.Text`
   font-size: 25px;
   color: white;
   margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 export const TierContainer = styled.View`
@@ -196,13 +196,13 @@ export const TierList = styled.View`
 `;
 
 export const TierCard = styled.TouchableOpacity`
-  width: 120px;
-  height: 110px;
-  margin: 10px 0px 0px 20px;
-  background: #2f2f2f;
+  margin-top: 15px;
+  min-height: 180px;
+  margin: 20px;
+  color: #fff;
   border-radius: 10px;
-  padding: 0px;
-  align-items: center;
+  overflow: hidden;
+  background: #2f2f2f;
 `;
 
 export const TierText = styled.Text`
@@ -221,210 +221,35 @@ export const TierTextBackground = styled.View`
   border-top-left-radius: 10px;
 `;
 
-export const PriceText = styled.Text`
-  color: #fff;
-  font-size: 25px;
-  margin-top: 20px;
-  font-family: Roboto-Bold;
-`;
-
-export const PostListContainer = styled.View`
-  padding: 0;
-  margin: 20px 40px 20px 20px;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 5px;
-`;
-
-export const ImagePost = styled(ImageBackground)`
-  width: 120px;
-  height: 120px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: red;
-
-`;
-
-export const TextPostContainer = styled.View`
-  margin: 0px 0px 0px 0px;
-  padding 0;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 70%;
-`;
-
-export const TitlePost = styled.Text`
-  font-family: Roboto-Medium;
-  font-size: 20px;
-  color: #a58238;
-  margin: 0px 30px 0px 15px;
-`;
-
-export const DescPost = styled.Text`
-  font-family: Roboto-Regular;
-  font-size: 14px;
-  color: #fff;
-  margin: 5px 50px 0px 15px;
-`;
-
-export const ButtonPost = styled(TouchableOpacity)`
-  background-color: #a58238;
-  padding: 8px;
-  width: 100%;
-  border-radius: 5px;
-  margin: 12px 20px 0px 15px;
-`;
-
-export const ButtonLikePost = styled(TouchableOpacity)`
-  background-color: #a58238;
+export const PerksContainer = styled.View`
   margin: 20px;
+  margin-top: 10px;
   width: 90%;
-  padding: 10px;
-  border-radius: 10px;
-  align-items: center;
-`;
-
-export const Food = styled.View`
-  display: flex;
   flex-direction: column;
-  background: #f0f0f5;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  align-items: flex-start;
+  background-color: #2f2f2f;
+  border-radius: 10px;
 `;
 
-export const FoodImageContainer = styled.View`
-  background: #ffb84d;
-  overflow: hidden;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-`;
-
-export const FoodContent = styled.View`
-  padding: 24px;
-`;
-
-export const FoodTitle = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-weight: 600;
+export const PerkTitleText = styled.Text`
+  font-family: Roboto-Bold;
+  padding: 20px 20px 0px 20px;
   font-size: 20px;
-  line-height: 32px;
-  color: #3d3d4d;
-`;
-
-export const FoodDescription = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 25px;
-  margin-top: 8px;
-  color: #3d3d4d;
-`;
-
-export const FoodPricing = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  color: #6c6c80;
-  margin-top: 8px;
-  font-weight: 600;
-`;
-
-export const Title = styled.Text`
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
-  color: #3d3d4d;
-`;
-
-export const AdditionalsContainer = styled.View`
-  padding: 0 24px;
-  margin-top: 16px;
-`;
-
-export const AdittionalItem = styled.View`
-  background: #f0f0f5;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 15px;
-  margin-top: 8px;
-`;
-
-export const AdittionalItemText = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  color: #6c6c80;
-`;
-
-export const AdittionalQuantity = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 105px;
-`;
-
-export const TotalContainer = styled.View`
-  padding: 0 24px;
-  margin-top: 20px;
-`;
-
-export const PriceButtonContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const TotalPrice = styled.Text`
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  color: #39b100;
-  margin-top: 16px;
-`;
-
-export const QuantityContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 105px;
-  background: #f0f0f5;
-  border-radius: 8px;
-  padding: 10px 15px;
-  margin-top: 25px;
-`;
-
-export const FinishOrderButton = styled.TouchableOpacity`
-  background: #39b100;
-  border-radius: 8px;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 26px;
-`;
-
-export const subscribersButton = styled.View`
-  width: 100px;
-  height: 30px;
-`;
-
-export const subscribersText = styled.Text`
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
   color: #fff;
-  flex: 1;
-  text-align: center;
+`;
+
+export const PerkDescText = styled.Text`
+  font-family: Roboto-Regular;
+  padding: 5px 20px 20px 20px;
+  font-size: 15px;
+  width: 80%;
+  color: #fff;
+`;
+
+export const TierStatusText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 30px;
+  width: 80%;
+  margin: 10px 20px 0px 20px;
+  color: #a58238;
 `;

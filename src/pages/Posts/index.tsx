@@ -12,6 +12,7 @@ import {
   HeaderSafeArea,
   HeaderBackButton,
   HeaderBackButtonIcon,
+  ButtonLikePost,
   styles,
 } from './styles';
 
@@ -76,6 +77,7 @@ const Posts: React.FC = () => {
         <View style={styles.longDescTextContainer}>
           <Text style={styles.longDescText}>{post.desc}</Text>
         </View>
+        <ButtonLikePost><Text style={styles.headerInfoText}>Curtir Publicação</Text></ButtonLikePost>
       </ScrollView>
     </Container>
   ) : (

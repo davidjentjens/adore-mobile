@@ -82,7 +82,7 @@ const Orders: React.FC = () => {
           name="user"
           size={30}
           color="#fff"
-          onPress={() => navigation.navigate('Profile')}
+          onPress={() => navigate('Profile')}
           style={styles.opacityView}
         />
       </Header>
