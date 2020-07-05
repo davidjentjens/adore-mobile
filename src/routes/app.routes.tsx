@@ -11,6 +11,7 @@ import Category from '../pages/Category';
 import Profile from '../pages/Profile';
 import Tier from '../pages/Tier';
 import PaymentValidation from '../pages/PaymentValidation';
+import Posts from '../pages/Posts';
 
 const App = createStackNavigator();
 
@@ -90,6 +91,33 @@ const AppRoutes: React.FC = () => (
         },
       })}
     />
+
+    <App.Screen
+      name="Posts"
+      component={Posts}
+      options={({ navigation }) => ({
+        headerLeft: () => (
+          <Icon
+            name="arrow-left"
+            size={24}
+            color="#FFB84D"
+            onPress={() => navigation.goBack()}
+          />
+        ),
+        headerShown: false,
+        headerLeftContainerStyle: {
+          marginLeft: 24,
+        },
+        headerTitle: '',
+        headerStyle: {
+          backgroundColor: 'transparent',
+          elevation: 0,
+          borderWidth: 0,
+          shadowColor: 'transparent',
+        },
+      })}
+    />
+
     <App.Screen
       name="Category"
       component={Category}

@@ -157,8 +157,14 @@ const BusinessDetails: React.FC = () => {
                 <ImagePost source={{ uri: post.image_url }} />
                 <TextPostContainer>
                   <TitlePost>{post.title}</TitlePost>
-                   <DescPost>{post.short_desc}</DescPost>
-                  <ButtonPost>
+                  <DescPost>{post.short_desc}</DescPost>
+                  <ButtonPost
+                    onPress={() =>
+                      navigate('Posts', {
+                        id: business.id,
+                      })
+                    }
+                  >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
                     >
