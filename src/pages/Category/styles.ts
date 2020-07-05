@@ -53,10 +53,44 @@ export const HeaderBackButtonIcon = styled(Icon)`
 `;
 
 export const styles = StyleSheet.create({
+  headerInfoView: {
+    marginTop: 10,
+    flexDirection: 'row',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    justifyContent: 'space-between',
+  },
+  headerSubCount: {
+    margin: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#a58328',
+  },
+  headerSpecialty: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#2f2f2f',
+  },
+  headerInfoText: {
+    color: '#fff',
+    fontSize: 15,
+    fontFamily: 'Roboto-Medium',
+  },
   opacityView: {
     backgroundColor: '#000',
     opacity: 0.8,
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
   },
 });
 
@@ -96,13 +130,13 @@ export const BusinessImageContainer = styled.View`
 
 export const BusinessContent = styled.View`
   flex: 1;
+
 `;
 export const BusinessTitle = styled.Text`
   font-family: 'Roboto-Bold';
-  font-size: 25px;
+  font-size: 28px;
   line-height: 30px;
-  padding: 20px 0px 5px 20px;
-  color: #fff;
+  color: #a58238;
 `;
 export const BusinessDescription = styled.Text`
   font-family: 'Roboto-Medium';
@@ -114,8 +148,18 @@ export const BusinessDescription = styled.Text`
   color: #fff;
 `;
 
+export const BusinessPriceContainer = styled.View`
+  margin: 20px;
+`;
+
+export const BusinessPriceView = styled.View`
+  background-color: #a58328;
+  width: 100%;
+  border-radius: 8px;
+`;
+
 export const BusinessPricing = styled.Text`
-  font-family: 'Poppins-Regular';
+  font-family: 'Roboto-Regular';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

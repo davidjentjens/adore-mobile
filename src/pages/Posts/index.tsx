@@ -65,7 +65,6 @@ const Posts: React.FC = () => {
               <HeaderBackButtonIcon name="chevron-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{post.title}</Text>
-            {/* <Text style={styles.headerSubTitle}>{business.location}</Text> */}
             <View style={styles.headerInfoView}>
               <Text style={styles.headerSubTitle}>{post.short_desc}</Text>
             </View>

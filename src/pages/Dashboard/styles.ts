@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     opacity: 0.8,
     padding: 5,
     borderRadius: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 

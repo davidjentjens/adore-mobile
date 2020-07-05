@@ -15,7 +15,8 @@ export const Container = styled.View`
 
 export const Header = styled(ImageBackground)`
   padding: 0;
-  height: 230px;
+  margin: 0;
+  flex: 1;
 `;
 
 export const HeaderGradient = styled(LinearGradient)`
@@ -26,7 +27,6 @@ export const HeaderGradient = styled(LinearGradient)`
 
 export const HeaderSafeArea = styled(SafeAreaView)`
   width: 100%;
-  height: 100%;
   align-items: flex-start;
 `;
 
@@ -46,6 +46,7 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     fontFamily: 'Roboto-Bold',
     marginLeft: 20,
+    marginRight: 40,
     marginTop: 20,
   },
   headerSubTitle: {
@@ -58,11 +59,10 @@ export const styles = StyleSheet.create({
   },
   headerInfoView: {
     marginTop: 5,
-    flexDirection: 'row',
+    flexDirection: 'column',
     width: '100%',
     margin: 0,
-    padding: 0,
-    justifyContent: 'space-between',
+    paddingBottom: 0,
   },
   headerSubCount: {
     margin: 0,
@@ -92,7 +92,7 @@ export const styles = StyleSheet.create({
   },
   longDescTextContainer: {
     margin: 20,
-    padding: 0,
+    paddingTop: 10,
   },
   longDescText: {
     color: '#fff',
