@@ -1,5 +1,11 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { Image, View, ActivityIndicator, Text, TouchableOpacity } from 'react-native';
+import {
+  Image,
+  View,
+  ActivityIndicator,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import { useNavigation, useRoute, DarkTheme } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -85,23 +91,21 @@ const Category: React.FC = () => {
                   source={{ uri: business.image_url }}
                 >
                   <View style={styles.opacityView}>
-                    <View style={{margin: 20}}>
-                    <BusinessTitle>{business.name}</BusinessTitle>
-                    <View style={styles.headerInfoView}>
-                      <View style={styles.headerSubCount}>
-                        <Text style={styles.headerInfoText}>Torne-se membro</Text>
-                      </View>
-                      <View style={styles.headerSpecialty}>
-                        <Text style={styles.headerInfoText}>
-                          A partir de 10,90
-                        </Text>
-                      </View>
+                    <View style={{ margin: 20 }}>
+                      <BusinessTitle>{business.name}</BusinessTitle>
+                      <View style={styles.headerInfoView}>
+                        <View style={styles.headerSubCount}>
+                          <Text style={styles.headerInfoText}>
+                            Torne-se membro
+                          </Text>
+                        </View>
+                        <View style={styles.headerSpecialty}>
+                          <Text style={styles.headerInfoText}>
+                            A partir de 10,90
+                          </Text>
+                        </View>
                       </View>
                     </View>
-                    <BusinessDescription>
-                      {business.formattedPrice}
-                    </BusinessDescription>
-                    <BusinessPricing>{business.formattedPrice}</BusinessPricing>
                   </View>
                 </BusinessCardBackgroundImage>
               </BusinessContent>

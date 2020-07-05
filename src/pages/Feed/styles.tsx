@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Dimensions,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
@@ -155,11 +156,12 @@ export const PostCardGradient = styled(LinearGradient)`
   align-items: flex-end;
 `;
 
-export const PostCard = styled(RectButton)`
+export const PostCard = styled(TouchableOpacity)`
   margin: 0px 20px 20px 20px;
   height: ${Math.round(Dimensions.get('window').width * 0.75)}px;
   color: #fff;
   border-radius: 10px;
+  overflow: hidden;
 `;
 
 export const PostDataContainer = styled.View`

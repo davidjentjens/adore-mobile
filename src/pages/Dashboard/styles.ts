@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { FlatList, ImageBackground, StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { Category, Business } from './index';
@@ -112,11 +112,12 @@ export const TopCard = styled.View`
 
 // #endregion
 
-export const FeatureCard = styled(RectButton)`
+export const FeatureCard = styled(TouchableOpacity)`
   height: 100%;
   color: #fff;
   border-radius: 10px;
   margin: 0px 8px;
+  overflow: hidden;
 `;
 
 export const FeatureCardBackgroundImage = styled(ImageBackground)`
@@ -171,11 +172,12 @@ export const BusinessCardBackgroundImage = styled(ImageBackground)`
   height: 100px;
 `;
 
-export const BusinessCard = styled(RectButton)`
+export const BusinessCard = styled(TouchableOpacity)`
   margin: 0px 20px 20px 20px;
   height: 80px;
   color: #fff;
   border-radius: 10px;
+  overflow: hidden;
 `;
 
 export const BusinessDataContainer = styled.View`
