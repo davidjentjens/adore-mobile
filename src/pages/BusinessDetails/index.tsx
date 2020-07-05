@@ -145,7 +145,12 @@ const BusinessDetails: React.FC = () => {
                   {tiers.map(tier => (
                     <TierCard
                       key={tier.id}
-                      onPress={() => navigate('Tier', { id: tier.id })}
+                      onPress={() =>
+                        navigate('Tier', {
+                          id: tier.id,
+                          business_name: business.name,
+                        })
+                      }
                     >
                       <TierTextBackground
                         style={{ backgroundColor: getRankColor(tier.rank) }}

@@ -1,20 +1,52 @@
 import React, { useRef, useCallback, useEffect, useState } from 'react';
-import { View, ScrollView, Text, ImageBackground } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  ImageBackground,
+  ActivityIndicator,
+} from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
+import api from '../../services/api';
 import Button from '../../components/Button';
 
 import { Container, Header, HeaderText, SectionText, TierCard } from './styles';
 
+interface Params {
+  id: string;
+  business_name: string;
+}
+
+interface Tier {
+  id: string;
+  name: string;
+  image_url: string;
+  rank: number;
+  value: string;
+  desc: string;
+}
+
 const Tier: React.FC = () => {
-  // const tier =
+  const [tier, setTier] = useState<Tier>();
 
   const { navigate, goBack } = useNavigation();
   const route = useRoute();
+  const routeParams = route.params as Params;
 
-  return (
+  useEffect(() => {
+    async function loadTier(): Promise<void> {
+      const { data: tierData } = await api.get(`/tiers/${routeParams.id}`);
+      console.log(tierData);
+      setTier(tierData);
+    }
+
+    loadTier();
+  }, [routeParams.id]);
+
+  return tier ? (
     <Container>
       <Header>
         <Icon
@@ -24,10 +56,10 @@ const Tier: React.FC = () => {
           onPress={() => goBack()}
           style={{ marginBottom: 10 }}
         />
-        <HeaderText>Cervejaria do X</HeaderText>
+        <HeaderText>{routeParams.business_name}</HeaderText>
       </Header>
       <ScrollView style={{ paddingLeft: 20, paddingRight: 20 }}>
-        <SectionText>Ouro</SectionText>
+        <SectionText>{tier.name}</SectionText>
         <TierCard>
           <View
             style={{
@@ -53,13 +85,7 @@ const Tier: React.FC = () => {
                 lineHeight: 20,
               }}
             >
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam.
+              {tier.desc}
             </Text>
           </View>
         </TierCard>
@@ -69,6 +95,17 @@ const Tier: React.FC = () => {
         <SectionText>Outros Planos</SectionText>
       </ScrollView>
     </Container>
+  ) : (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#1c1c1c',
+      }}
+    >
+      <ActivityIndicator size="large" color="#a58238" />
+    </View>
   );
 };
 
