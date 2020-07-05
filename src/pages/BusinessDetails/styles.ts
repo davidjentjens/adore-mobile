@@ -220,7 +220,7 @@ export const PostListContainer = styled.View`
   margin: 20px 40px 20px 20px;
   width: 100%;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   border-radius: 5px;
 `;
 
@@ -230,6 +230,7 @@ export const ImagePost = styled(ImageBackground)`
   border-radius: 5px;
   overflow: hidden;
   background-color: red;
+
 `;
 
 export const TextPostContainer = styled.View`
@@ -242,14 +243,14 @@ export const TextPostContainer = styled.View`
 
 export const TitlePost = styled.Text`
   font-family: Roboto-Medium;
-  font-size: 22px;
+  font-size: 20px;
   color: #a58238;
-  margin: 0px 15px 0px 15px;
+  margin: 0px 30px 0px 15px;
 `;
 
 export const DescPost = styled.Text`
   font-family: Roboto-Regular;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   margin: 5px 50px 0px 15px;
 `;
