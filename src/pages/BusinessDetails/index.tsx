@@ -72,9 +72,18 @@ interface Tier {
   value: number;
 }
 
+interface Post {
+  id: string;
+  title: string;
+  short_desc: string;
+  desc: string;
+  image_url: string;
+}
+
 const BusinessDetails: React.FC = () => {
   const [business, setBusiness] = useState<Business>();
   const [tiers, setTiers] = useState<Tier[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const { navigate, goBack } = useNavigation();
   const route = useRoute();
@@ -87,10 +96,15 @@ const BusinessDetails: React.FC = () => {
         `business/${routeParams.id}`,
       );
 
-      const { data: tiersData } = await api.get(`tiers/${businessData.id}`);
+      const { data: tiersData } = await api.get(
+        `tiers/business/${businessData.id}`,
+      );
+
+      const { data: postsData } = await api.get(`/posts/${businessData.id}`);
 
       setBusiness(businessData);
       setTiers(tiersData);
+      setPosts(postsData);
     }
 
     loadBusiness();
