@@ -5,7 +5,7 @@ import { Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Logo from '../../assets/logo-header.png';
 
@@ -119,9 +119,26 @@ const Dashboard: React.FC = () => {
                 >
                   <FeatureDataContainer>
                     <FeatureText>{business.name}</FeatureText>
-                    <BusinessSubtitleText>
-                      {business.description}
-                    </BusinessSubtitleText>
+                    <View
+                      style={{
+                        marginRight: 10,
+                        marginLeft: 20,
+                        marginBottom: 20,
+                      }}
+                    >
+                      <View style={styles.headerInfoView}>
+                        <View style={styles.headerSubCount}>
+                          <Text style={styles.headerInfoText}>
+                            Torne-se membro
+                          </Text>
+                        </View>
+                        <View style={styles.headerSpecialty}>
+                          <Text style={styles.headerInfoText}>
+                            A partir de 10,90
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
                   </FeatureDataContainer>
                 </BusinessCardGradient>
               </FeatureCardBackgroundImage>

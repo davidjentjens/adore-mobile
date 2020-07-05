@@ -11,6 +11,38 @@ export const Container = styled.View`
 `;
 
 export const styles = StyleSheet.create({
+  headerInfoView: {
+    marginTop: 10,
+    flexDirection: 'row',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    justifyContent: 'space-between',
+  },
+  headerSubCount: {
+    margin: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#a58328',
+  },
+  headerSpecialty: {
+    margin: 0,
+    marginRight: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 8,
+    backgroundColor: '#2f2f2f',
+  },
+  headerInfoText: {
+    color: '#fff',
+    fontSize: 15,
+    fontFamily: 'Roboto-Medium',
+  },
   searchBar: {
     backgroundColor: 'transparent',
     borderWidth: 0,

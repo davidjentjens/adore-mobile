@@ -88,14 +88,14 @@ const Category: React.FC = () => {
                     <View style={{margin: 20}}>
                     <BusinessTitle>{business.name}</BusinessTitle>
                     <View style={styles.headerInfoView}>
-                      <TouchableOpacity style={styles.headerSubCount}>
+                      <View style={styles.headerSubCount}>
                         <Text style={styles.headerInfoText}>Torne-se membro</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.headerSpecialty}>
+                      </View>
+                      <View style={styles.headerSpecialty}>
                         <Text style={styles.headerInfoText}>
                           A partir de 10,90
                         </Text>
-                      </TouchableOpacity>
+                      </View>
                       </View>
                     </View>
                     <BusinessDescription>
