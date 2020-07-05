@@ -29,6 +29,7 @@ interface Business {
   location: string;
   description: string;
   image_url: string;
+  zone: string;
 }
 
 interface Tier {
@@ -63,7 +64,7 @@ const PaymentValidation: React.FC = () => {
             <MemberInfoView>
               <MemberInfoText>{routeParams.business.name}</MemberInfoText>
               <MemberInfoSubtitleText>
-                {routeParams.business.location}
+                {routeParams.business.zone}
               </MemberInfoSubtitleText>
             </MemberInfoView>
             <MemberStatusView
@@ -74,7 +75,6 @@ const PaymentValidation: React.FC = () => {
             </MemberStatusView>
           </MemberContainer>
           <DescriptionInfoView>
-
             <DescriptionText>{routeParams.tier.desc}</DescriptionText>
           </DescriptionInfoView>
           <Button

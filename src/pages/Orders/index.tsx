@@ -1,41 +1,29 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { Image, ScrollView, View, Text } from 'react-native';
-import { Divider } from 'react-native-elements';
-
-import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useEffect, useState, useMemo } from 'react';
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import { getMonth, getYear, format } from 'date-fns';
+
+import { useNavigation, useIsFocused } from '@react-navigation/native';
+
 import api from '../../services/api';
-import formatValue from '../../utils/formatValue';
 
 import {
   Container,
+  AllDetailsContainer,
   Header,
   HeaderTitle,
-  SubscriptionDataContainer,
-  SubscriptionText,
-  SubscriptionSubtitleText,
-  SectionText,
-  SectionSubtitleText,
-  AllDetailsContainer,
   MemberContainer,
-  MemberInfoView,
+  SubscriptionDataContainer,
+  SubscriptionSubtitleText,
+  SubscriptionText,
   MemberInfoText,
   MemberInfoSubtitleText,
   MemberStatusView,
   MemberText,
-  MemberStatusText,
-  TierStatusText,
+  MemberInfoView,
   TierSubscribedContainer,
   TierSubscribedText,
-  FoodsContainer,
-  FoodList,
-  Food,
-  FoodImageContainer,
-  FoodContent,
-  FoodTitle,
-  FoodDescription,
-  FoodPricing,
   styles,
 } from './styles';
 
@@ -45,10 +33,13 @@ interface Business {
   location: string;
   description: string;
   image_url: string;
+  zone: string;
 }
 
 interface Subscriptions {
+  id: string;
   business: Business;
+  tier: Tier;
 }
 
 interface Tier {
@@ -64,33 +55,59 @@ interface Perk {
   title: string;
   desc: string;
   image_url: string;
-  day: number;
+  date: number;
 }
 
 const Orders: React.FC = () => {
-  const { navigate, goBack } = useNavigation();
+  const { navigate } = useNavigation();
 
   const [nextPerk, setNextPerk] = useState<Perk>();
   const [subscriptions, setSubs] = useState<Subscriptions[]>([]);
   const [business, setBusinesses] = useState<Business[]>([]);
 
-  const route = useRoute();
+  const inFocused = useIsFocused();
 
   useEffect(() => {
     const loadNextPerk = async (): Promise<void> => {
-      api.get('perks/next').then(response => {
-        setNextPerk(response.data);
-      });
+      api
+        .get('perks/next')
+        .then(response => {
+          setNextPerk(response.data);
+        })
+        .catch(() => {
+          console.log('  ');
+        });
     };
     const loadSubs = async (): Promise<void> => {
-      api.get('subscriptions').then(response => {
-        setSubs(response.data);
-      });
+      api
+        .get('subscriptions')
+        .then(response => {
+          setSubs(response.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     };
 
     loadNextPerk();
     loadSubs();
-  }, []);
+  }, [inFocused]);
+
+  const calculateDate = useMemo((): string => {
+    const currentDate = new Date();
+    const currentMonth = getMonth(currentDate);
+    const currentYear = getYear(currentDate);
+    const perkDate = new Date(
+      currentYear,
+      currentMonth,
+      nextPerk ? nextPerk.date : 1,
+      0,
+      0,
+      0,
+    );
+
+    return format(perkDate, 'dd/MM/yyyy');
+  }, [nextPerk]);
 
   return business ? (
     <Container>
@@ -110,11 +127,13 @@ const Orders: React.FC = () => {
             <SubscriptionText>Próxima Vantagem</SubscriptionText>
             <SubscriptionSubtitleText>
               <Icon name="shopping-bag" size={20} />
+              {'  '}
               {nextPerk.title}
             </SubscriptionSubtitleText>
             <SubscriptionSubtitleText>
               <Icon name="clock" size={20} />
-              {nextPerk.day}
+              {'  '}
+              {calculateDate}
             </SubscriptionSubtitleText>
           </SubscriptionDataContainer>
         ) : (
@@ -138,13 +157,22 @@ const Orders: React.FC = () => {
         {subscriptions ? (
           <AllDetailsContainer>
             {subscriptions.map(subscription => (
-              <MemberContainer>
+              <MemberContainer
+                onPress={() =>
+                  navigate('Perks', {
+                    tier: subscription.tier,
+                    subscription_id: subscription.id,
+                  })}
+                key={subscription.id}
+              >
                 <MemberInfoView>
                   <MemberInfoText>{subscription.business.name}</MemberInfoText>
-                  <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
+                  <MemberInfoSubtitleText>
+                    {subscription.business.zone}
+                  </MemberInfoSubtitleText>
                 </MemberInfoView>
                 <MemberStatusView>
-                  <MemberText>Membro</MemberText>
+                  <MemberText>{subscription.tier.name}</MemberText>
                 </MemberStatusView>
               </MemberContainer>
             ))}

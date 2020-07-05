@@ -54,7 +54,6 @@ export const styles = StyleSheet.create({
   headerSubCount: {
     margin: 0,
 
-
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
@@ -105,7 +104,6 @@ export const styles = StyleSheet.create({
   },
 });
 
-
 export const SubscriptionDataContainer = styled.View`
   background: #a58238;
 
@@ -150,7 +148,7 @@ export const AllDetailsContainer = styled.View`
   flex-direction: column;
 `;
 
-export const MemberContainer = styled.View`
+export const MemberContainer = styled.TouchableOpacity`
   padding-top: 5px;
   padding-bottom: 30px;
   flex-direction: row;

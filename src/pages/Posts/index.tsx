@@ -56,8 +56,7 @@ const Posts: React.FC = () => {
     async function loadPost(): Promise<void> {
       const { data: postData } = await api.get(`/posts/${routeParams.id}`);
 
-      // setIsLiked(postData.liked);
-      // console.log('gotIsLiked', postData.liked);
+      setIsLiked(postData.liked);
       setPost(postData);
     }
     loadPost();

@@ -15,7 +15,7 @@ export const Container = styled.View`
 
 export const Header = styled(ImageBackground)`
   padding: 0;
-  height: 230px;
+  height: 250px;
 `;
 
 export const HeaderGradient = styled(LinearGradient)`
@@ -273,8 +273,7 @@ export const ImagePost = styled(ImageBackground)`
   height: 120px;
   border-radius: 5px;
   overflow: hidden;
-  background-color: red;
-
+  background-color: #2f2f2f;
 `;
 
 export const TextPostContainer = styled.View`

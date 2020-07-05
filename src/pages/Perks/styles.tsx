@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
-import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Icon from 'react-native-vector-icons/Feather';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import Button from '../../components/Button';
 
 export const Container = styled.View`
@@ -13,10 +12,9 @@ export const Container = styled.View`
 
 // #region Header
 
-export const Header = styled(ImageBackground)`
+export const Header = styled.View`
   padding: 0;
   margin: 0;
-  flex: 1;
 `;
 
 export const HeaderGradient = styled(LinearGradient)`
@@ -195,7 +193,7 @@ export const TierList = styled.View`
   flex-direction: row;
 `;
 
-export const TierCard = styled.TouchableOpacity`
+export const TierCard = styled.View`
   margin-top: 15px;
   min-height: 180px;
   margin: 20px;
@@ -223,7 +221,7 @@ export const TierTextBackground = styled.View`
 
 export const PerksContainer = styled.View`
   margin: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 90%;
   flex-direction: column;
   align-items: flex-start;
@@ -240,10 +238,24 @@ export const PerkTitleText = styled.Text`
 
 export const PerkDescText = styled.Text`
   font-family: Roboto-Regular;
-  padding: 5px 20px 20px 20px;
+  padding: 20px 20px 0px 20px;
   font-size: 15px;
-  width: 80%;
+  width: 100%;
   color: #fff;
+`;
+
+export const PerkDateText = styled.Text`
+  font-family: Roboto-Bold;
+  padding: 20px 0px 0px 20px;
+  font-size: 20px;
+  color: #fff;
+`;
+
+export const PerkDateNumberText = styled.Text`
+  font-family: Roboto-Medium;
+  padding: 10px 0px 20px 20px;
+  font-size: 24px;
+  color: #a58238;
 `;
 
 export const TierStatusText = styled.Text`

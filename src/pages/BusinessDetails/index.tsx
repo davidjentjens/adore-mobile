@@ -44,7 +44,7 @@ import {
 } from './styles';
 
 interface Params {
-  id: number;
+  id: string;
 }
 
 interface Business {
@@ -53,10 +53,14 @@ interface Business {
   location: string;
   image_url: string;
   perks: [string];
+  tier: Tier;
+  zone: string;
 }
 
 interface Subscriptions {
+  id: string;
   business: Business;
+  tier: Tier;
 }
 
 interface Tier {
@@ -77,7 +81,7 @@ interface Post {
 
 const BusinessDetails: React.FC = () => {
   const [business, setBusiness] = useState<Business>();
-  const [subscriptions, setSubs] = useState<Subscriptions[]>([]);
+  const [subscriptions, setSubs] = useState<Subscriptions>();
   const [tiers, setTiers] = useState<Tier[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -102,13 +106,15 @@ const BusinessDetails: React.FC = () => {
       setBusiness(businessData);
       setTiers(tiersData);
       setPosts(postsData);
-
-
     }
 
     const loadSubs = async (): Promise<void> => {
-      api.get(`subscriptions/${routeParams.id}`).then(response => {
-        setSubs(response.data);
+      api.get(`subscriptions`).then(response => {
+        const responseAsSubscription = response.data as Subscriptions[];
+        const filteredResponse = responseAsSubscription.find(item => {
+          return item.business.id === routeParams.id;
+        });
+        setSubs(filteredResponse);
       });
     };
 
@@ -127,7 +133,7 @@ const BusinessDetails: React.FC = () => {
               <HeaderBackButtonIcon name="chevron-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{business.name}</Text>
-            {/* <Text style={styles.headerSubTitle}>{business.location}</Text> */}
+            <Text style={styles.headerSubTitle}>{business.zone}</Text>
             <View style={styles.headerInfoView}>
               <View style={styles.headerSubCount}>
                 <Text style={styles.headerInfoText}>35 membros</Text>
@@ -151,11 +157,16 @@ const BusinessDetails: React.FC = () => {
                   <TierSubscribedText>
                     Seu status de assinante
                   </TierSubscribedText>
-                  <TierStatusText>Membro</TierStatusText>
+                  <TierStatusText>{subscriptions.tier.name}</TierStatusText>
                   <View style={styles.headerOptionsView}>
                     <TouchableOpacity
                       style={styles.headerSubCount}
-                      onPress={() => navigate('Perks')}
+                      onPress={() =>
+                        navigate('Perks', {
+                          tier: subscriptions.tier,
+                          subscription_id: subscriptions.id,
+                        })
+                      }
                     >
                       <Text style={styles.headerInfoText}>Vantagens</Text>
                     </TouchableOpacity>
@@ -182,7 +193,8 @@ const BusinessDetails: React.FC = () => {
                           navigate('Tier', {
                             id: tier.id,
                             business,
-                          })}
+                          })
+                        }
                       >
                         <TierTextBackground
                           style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -198,7 +210,7 @@ const BusinessDetails: React.FC = () => {
             </TierContainer>
             <SectionTitle>Novidades</SectionTitle>
             {posts.map(post => (
-              <PostListContainer>
+              <PostListContainer key={post.id}>
                 <ImagePost source={{ uri: post.image_url }} />
                 <TextPostContainer>
                   <TitlePost>{post.title}</TitlePost>
@@ -207,8 +219,7 @@ const BusinessDetails: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })
-                    }
+                      })}
                   >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
