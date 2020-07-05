@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 
 import { Category, Business } from './index';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -39,7 +40,7 @@ export const HeaderSafeArea = styled(SafeAreaView)`
 export const HeaderBackButton = styled(Button)`
   background: transparent;
   padding: 0;
-  margin: 0 0 0 15px;
+  margin: 20px 0 0 15px;
 `;
 
 export const HeaderBackButtonIcon = styled(Icon)`
@@ -61,7 +62,7 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
   },
   headerInfoView: {
-    marginTop: 15,
+    marginTop: 20,
     flexDirection: 'row',
     width: '100%',
     margin: 0,
@@ -222,6 +223,52 @@ export const PriceText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
+export const PostListContainer = styled.View`
+  padding: 0;
+  margin: 20px 40px 20px 20px;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  border-radius: 5px;
+`;
+
+export const ImagePost = styled(ImageBackground)`
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: red;
+`;
+
+export const TextPostContainer = styled.View`
+  margin: 0px 0px 0px 0px;
+  padding 0;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 70%;
+`;
+
+export const TitlePost = styled.Text`
+  font-family: Roboto-Medium;
+  font-size: 22px;
+  color: #a58238;
+  margin: 0px 15px 0px 15px;
+`;
+
+export const DescPost = styled.Text`
+  font-family: Roboto-Regular;
+  font-size: 16px;
+  color: #fff;
+  margin: 5px 50px 0px 15px;
+`;
+
+export const ButtonPost = styled(TouchableOpacity)`
+  background-color: #a58238;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 12px 20px 0px 15px;
+`;
 
 export const Food = styled.View`
   display: flex;

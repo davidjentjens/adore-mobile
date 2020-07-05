@@ -43,6 +43,12 @@ import {
   PriceText,
   TierTextBackground,
   TierText,
+  PostListContainer,
+  ImagePost,
+  TextPostContainer,
+  TitlePost,
+  DescPost,
+  ButtonPost,
   subscribersButton,
   subscribersText,
   NavigationButton,
@@ -121,7 +127,7 @@ const BusinessDetails: React.FC = () => {
               <HeaderBackButtonIcon name="chevron-left" size={30} />
             </HeaderBackButton>
             <Text style={styles.headerTitle}>{business.name}</Text>
-            <Text style={styles.headerSubTitle}>{business.location}</Text>
+            {/* <Text style={styles.headerSubTitle}>{business.location}</Text> */}
             <View style={styles.headerInfoView}>
               <TouchableOpacity style={styles.headerSubCount}>
                 <Text style={styles.headerInfoText}>30 membros</Text>
@@ -163,6 +169,17 @@ const BusinessDetails: React.FC = () => {
                 </TierList>
               </ScrollView>
             </TierContainer>
+            <SectionTitle>Feed</SectionTitle>
+            <PostListContainer>
+              <ImagePost source={{ uri: business.image_url }} />
+              <TextPostContainer>
+                <TitlePost>{business.name}</TitlePost>
+                <DescPost>
+                  Confira nossa nova cerveja doce
+                </DescPost>
+                <ButtonPost><Text style={{color: 'white', fontFamily: 'Roboto-Medium'}}>Ver post completo</Text></ButtonPost>
+              </TextPostContainer>
+            </PostListContainer>
           </SectionContainer>
           {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
         </SafeAreaView>
