@@ -92,13 +92,19 @@ const Feed: React.FC = () => {
         {/* <HeaderText>Feed</HeaderText> */}
         <Image
           source={logoImg}
-          style={{ width: '35%', resizeMode: 'contain' }}
+          style={{
+            width: '35%',
+            resizeMode: 'contain',
+            padding: 0,
+            marginBottom: 0,
+          }}
         />
         <Icon
           name="user"
           size={30}
           color="#fff"
           onPress={() => navigate('Profile')}
+          style={styles.opacityView}
         />
       </Header>
       {/* * * FEED * * */}

@@ -76,7 +76,7 @@ export const Business = styled.TouchableOpacity`
 
   background: #000;
   border-radius: 8px;
-  height: 90px;
+  height: 110px;
   overflow: hidden;
   margin-bottom: 25px;
 `;
@@ -101,7 +101,7 @@ export const BusinessTitle = styled.Text`
   font-family: 'Roboto-Bold';
   font-size: 25px;
   line-height: 30px;
-  padding: 10px 0px 5px 20px;
+  padding: 20px 0px 5px 20px;
 
   color: #fff;
 `;

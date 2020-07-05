@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 interface Product {
   id: number;
@@ -28,6 +28,17 @@ export const HeaderTitle = styled.Text`
   font-style: normal;
   font-size: 32px;
 `;
+
+export const styles = StyleSheet.create({
+  opacityView: {
+    backgroundColor: '#2f2f2f',
+    opacity: 0.8,
+    padding: 5,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+});
+
 
 export const SubscriptionDataContainer = styled.View`
   background: #a58238;

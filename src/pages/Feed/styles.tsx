@@ -31,12 +31,19 @@ export const styles = StyleSheet.create({
     color: '#a58238',
     marginRight: 0,
   },
+  opacityView: {
+    backgroundColor: '#2f2f2f',
+    opacity: 0.8,
+    padding: 5,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
 });
 
 // #region Header
 
 export const Header = styled.View`
-  padding: 10px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -55,7 +62,7 @@ export const HeaderText = styled.Text`
 
 export const TopCardContainer = styled(LinearGradient)`
   margin: 0;
-  padding: 10px 0px 0px 20px;
+  padding: 0px 0px 0px 20px;
   flex-direction: row;
   align-items: center;
 `;
@@ -124,7 +131,7 @@ export const SectionSubtitleText = styled.Text`
 `;
 
 export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 10px 0px 50px 0px;
+  padding: 100px 0px 50px 0px;
   margin-top: 15px;
 `;
 

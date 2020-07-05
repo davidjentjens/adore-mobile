@@ -24,7 +24,15 @@ export const styles = StyleSheet.create({
     color: '#a58238',
     marginRight: 0,
   },
+  opacityView: {
+    backgroundColor: '#2f2f2f',
+    opacity: 0.8,
+    padding: 5,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
 });
+
 
 // #region Header
 

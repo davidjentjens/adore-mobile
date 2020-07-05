@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Image, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
@@ -32,33 +32,44 @@ import {
   FoodTitle,
   FoodDescription,
   FoodPricing,
+  styles,
 } from './styles';
 
-interface Food {
-  id: number;
+interface Business {
+  id: string;
   name: string;
+  location: string;
   description: string;
-  price: number;
-  formattedValue: number;
-  thumbnail_url: string;
+  image_url: string;
+}
+
+interface Tier {
+  id: string;
+  name: string;
+  image_url: string;
+  rank: number;
+  value: number;
+  desc: string;
 }
 
 const Orders: React.FC = () => {
   const navigation = useNavigation();
 
-  const [orders, setOrders] = useState<Food[]>([]);
+  const [business, setBusinesses] = useState<Business[]>([]);
+
+  const route = useRoute();
 
   useEffect(() => {
-    async function loadOrders(): Promise<void> {
-      const { data } = await api.get('orders');
+    const loadBusinesses = async (): Promise<void> => {
+      api.get('business').then(response => {
+        setBusinesses(response.data);
+      });
+    };
 
-      setOrders(data);
-    }
-
-    loadOrders();
+    loadBusinesses();
   }, []);
 
-  return orders ? (
+  return business ? (
     <Container>
       <Header>
         <HeaderTitle>Assinaturas</HeaderTitle>
@@ -67,6 +78,7 @@ const Orders: React.FC = () => {
           size={30}
           color="#fff"
           onPress={() => navigation.navigate('Profile')}
+          style = {styles.opacityView}
         />
       </Header>
       <ScrollView>
@@ -92,7 +104,7 @@ const Orders: React.FC = () => {
         <AllDetailsContainer>
           <MemberContainer>
             <MemberInfoView>
-              <MemberInfoText>Cafeteria Tranjan</MemberInfoText>
+              <MemberInfoText>Cervejaria Lacis</MemberInfoText>
               <MemberInfoSubtitleText>Botafogo</MemberInfoSubtitleText>
             </MemberInfoView>
             <MemberStatusView>

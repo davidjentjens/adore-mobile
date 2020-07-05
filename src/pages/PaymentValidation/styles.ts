@@ -42,7 +42,7 @@ export const HeaderText = styled.Text`
 export const HeaderSubText = styled.Text`
   color: #a58328;
   font-size: 25px;
-  font-family: Roboto-Bold;
+  font-family: Roboto-Regular;
   width: 100%;
 `;
 
@@ -57,7 +57,7 @@ export const AllDetailsContainer = styled.View`
 
 export const MemberContainer = styled.View`
   padding-top: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   flex-direction: row;
 `;
 
@@ -121,7 +121,7 @@ export const DescriptionInfoView = styled.View`
 export const DescriptionText = styled.Text`
   font-family: Roboto-Regular;
   font-size: 18px;
-  margin: 15px 20px 30px 20px;
+  margin: 20px 20px 20px 20px;
   color: white;
 `;
 

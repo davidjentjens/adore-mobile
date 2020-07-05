@@ -89,6 +89,7 @@ const Dashboard: React.FC = () => {
           size={30}
           color="#fff"
           onPress={() => navigate('Profile')}
+          style = {styles.opacityView}
         />
       </Header>
       <SectionSubtitleText>

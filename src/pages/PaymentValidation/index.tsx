@@ -4,6 +4,8 @@ import { ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Button from '../../components/Button';
 
+import getRankColor from '../../utils/getRankColor';
+
 import {
   Container,
   Header,
@@ -53,7 +55,7 @@ const PaymentValidation: React.FC = () => {
     <Container>
       <Header>
         <HeaderText>Parabéns!</HeaderText>
-        <HeaderSubText>Assinatura feira com sucesso!</HeaderSubText>
+        <HeaderSubText>Assinatura feita com sucesso!</HeaderSubText>
       </Header>
       <ScrollView>
         <AllDetailsContainer>
@@ -64,13 +66,15 @@ const PaymentValidation: React.FC = () => {
                 {routeParams.business.location}
               </MemberInfoSubtitleText>
             </MemberInfoView>
-            <MemberStatusView>
+            <MemberStatusView
+              style={{ backgroundColor: getRankColor(routeParams.tier.rank) }}
+            >
               <MemberText />
               <MemberStatusText>{routeParams.tier.name}</MemberStatusText>
             </MemberStatusView>
           </MemberContainer>
           <DescriptionInfoView>
-            <MemberInfoText>Descrição</MemberInfoText>
+
             <DescriptionText>{routeParams.tier.desc}</DescriptionText>
           </DescriptionInfoView>
           <Button

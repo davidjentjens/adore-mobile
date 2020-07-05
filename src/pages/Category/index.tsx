@@ -85,7 +85,7 @@ const Category: React.FC = () => {
                   <View style={styles.opacityView}>
                     <BusinessTitle>{business.name}</BusinessTitle>
                     <BusinessDescription>
-                      {business.location}
+                      {business.formattedPrice}
                     </BusinessDescription>
                     <BusinessPricing>{business.formattedPrice}</BusinessPricing>
                   </View>
