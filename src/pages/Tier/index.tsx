@@ -123,7 +123,7 @@ const Tier: React.FC = () => {
               source={{
                 uri: tier.image_url
                   ? tier.image_url
-                  : 'https://images.unsplash.com/photo-1449049607083-e29383d58423?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI2MDAzfQ&auto=format&fit=crop&w=500&q=80',
+                  : 'https://images.unsplash.com/photo-1454117096348-e4abbeba002c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
               }}
             />
           </View>

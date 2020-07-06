@@ -55,6 +55,8 @@ interface Business {
   perks: [string];
   tier: Tier;
   zone: string;
+  members: number;
+  subtitle: string;
 }
 
 interface Subscriptions {
@@ -136,13 +138,17 @@ const BusinessDetails: React.FC = () => {
             <Text style={styles.headerSubTitle}>{business.zone}</Text>
             <View style={styles.headerInfoView}>
               <View style={styles.headerSubCount}>
-                <Text style={styles.headerInfoText}>35 membros</Text>
-              </View>
-              <View style={styles.headerSpecialty}>
                 <Text style={styles.headerInfoText}>
-                  Especialista em Cervejas
+                  {business.members} membros
                 </Text>
               </View>
+              {business.subtitle ? (
+                <View style={styles.headerSpecialty}>
+                  <Text style={styles.headerInfoText}>{business.subtitle}</Text>
+                </View>
+              ) : (
+                <></>
+              )}
             </View>
           </HeaderSafeArea>
         </HeaderGradient>
@@ -165,8 +171,7 @@ const BusinessDetails: React.FC = () => {
                         navigate('Perks', {
                           tier: subscriptions.tier,
                           subscription_id: subscriptions.id,
-                        })
-                      }
+                        })}
                     >
                       <Text style={styles.headerInfoText}>Vantagens</Text>
                     </TouchableOpacity>
@@ -176,8 +181,7 @@ const BusinessDetails: React.FC = () => {
                         navigate('Profile', {
                           id: business.id,
                           business,
-                        })
-                      }
+                        })}
                     >
                       <Text style={styles.headerInfoText}>Alterar Dados</Text>
                     </TouchableOpacity>
@@ -193,8 +197,7 @@ const BusinessDetails: React.FC = () => {
                           navigate('Tier', {
                             id: tier.id,
                             business,
-                          })
-                        }
+                          })}
                       >
                         <TierTextBackground
                           style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -219,7 +222,8 @@ const BusinessDetails: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })}
+                      })
+                    }
                   >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}

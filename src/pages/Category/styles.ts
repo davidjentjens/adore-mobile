@@ -86,8 +86,8 @@ export const styles = StyleSheet.create({
     fontFamily: 'Roboto-Medium',
   },
   opacityView: {
-    backgroundColor: '#000',
-    opacity: 0.8,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    opacity: 1,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -130,7 +130,6 @@ export const BusinessImageContainer = styled.View`
 
 export const BusinessContent = styled.View`
   flex: 1;
-
 `;
 export const BusinessTitle = styled.Text`
   font-family: 'Roboto-Bold';
