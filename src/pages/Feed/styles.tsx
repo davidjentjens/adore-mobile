@@ -208,7 +208,7 @@ export const PostTitle = styled.Text`
 export const PostDescription = styled.Text`
   font-family: Roboto-Medium;
   font-size: 15px;
-  width: 60%;
+  width: 80%;
   color: white;
 `;
 
