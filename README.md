@@ -10,6 +10,7 @@
   <h1>
     Mega Hack 3
   </h1>
+  <p>O repositório oficial do mobile do aplicativo Adorê, desenvolvido durante o Mega Hack 3.0 da Shawee.</p>
 </p>
 
 ## Developed by
