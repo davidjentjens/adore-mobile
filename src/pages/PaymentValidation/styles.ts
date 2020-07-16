@@ -1,26 +1,9 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
   background: #1c1c1c;
 `;
-
-export const styles = StyleSheet.create({
-  searchBar: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderColor: 'transparent',
-    padding: 0,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  carouselContainer: {},
-  headerIcon: {
-    color: '#a58238',
-    marginRight: 0,
-  },
-});
 
 // #region Header
 
@@ -124,7 +107,3 @@ export const DescriptionText = styled.Text`
   margin: 20px 20px 20px 20px;
   color: white;
 `;
-
-// #region TopCards
-
-// #endregion

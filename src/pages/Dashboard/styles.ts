@@ -27,40 +27,10 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#a58328',
   },
-  headerSpecialty: {
-    margin: 0,
-    marginRight: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 8,
-    backgroundColor: '#2f2f2f',
-  },
   headerInfoText: {
     color: '#fff',
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
-  },
-  searchBar: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderColor: 'transparent',
-    padding: 0,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  carouselContainer: {},
-  headerIcon: {
-    color: '#a58238',
-    marginRight: 0,
-  },
-  opacityView: {
-    backgroundColor: '#2f2f2f',
-    opacity: 0.8,
-    padding: 5,
-    borderRadius: 10,
-    overflow: 'hidden',
   },
 });
 

@@ -1,36 +1,21 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import {
-  Image,
-  View,
-  ActivityIndicator,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { View, ActivityIndicator, Text } from 'react-native';
 import { useNavigation, useRoute, DarkTheme } from '@react-navigation/native';
 
-import Icon from 'react-native-vector-icons/Feather';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
-import formatValue from '../../utils/formatValue';
 
 import {
   Container,
   Header,
   HeaderTitle,
   HeaderBackButton,
-  HeaderSafeArea,
   HeaderBackButtonIcon,
   BusinessContainer,
   BusinessList,
   Business,
-  BusinessImageContainer,
   BusinessCardBackgroundImage,
   BusinessContent,
   BusinessTitle,
-  BusinessDescription,
-  BusinessPricing,
-  BusinessPriceContainer,
-  BusinessPriceView,
   styles,
 } from './styles';
 

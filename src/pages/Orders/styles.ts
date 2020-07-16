@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { FlatList, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 interface Product {
   id: number;
@@ -15,61 +16,41 @@ export const Container = styled.View`
   background: #1c1c1c;
 `;
 
+// #region Header
+
 export const Header = styled.View`
-  padding: 70px 20px 24px 20px;
+  padding: 70px 20px 10px 20px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 `;
 
-export const HeaderTitle = styled.Text`
+export const HeaderText = styled.Text`
   color: #a58328;
-  font-family: 'Roboto-Bold';
-  font-style: normal;
   font-size: 32px;
+  font-family: Roboto-Bold;
 `;
 
+export const ProfileIcon = styled(Icon)`
+  background-color: #2f2f2f;
+  opacity: 0.8;
+  padding: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+// #endregion
+
 export const styles = StyleSheet.create({
-  headerTitle: {
-    color: '#a58328',
-    fontSize: 32,
-    fontFamily: 'Roboto-Bold',
-    marginLeft: 20,
-  },
-  headerSubTitle: {
-    color: '#fff',
-    fontSize: 25,
-    fontFamily: 'Roboto-Regular',
-    margin: 0,
-    marginLeft: 20,
-  },
-  headerInfoView: {
-    marginTop: 20,
-    flexDirection: 'row',
-    width: '100%',
-    margin: 0,
-    padding: 0,
-    justifyContent: 'space-between',
-  },
   headerSubCount: {
     margin: 0,
-
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
     backgroundColor: '#a58328',
-  },
-  headerSpecialty: {
-    margin: 0,
-    marginRight: 20,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 8,
-    backgroundColor: '#2f2f2f',
   },
   headerInfoText: {
     color: '#fff',
@@ -84,23 +65,6 @@ export const styles = StyleSheet.create({
     width: '100%',
     margin: 0,
     padding: 0,
-  },
-  headerCancel: {
-    margin: 0,
-    marginRight: 20,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 8,
-    backgroundColor: '#742635',
-  },
-  opacityView: {
-    backgroundColor: '#2f2f2f',
-    opacity: 0.8,
-    padding: 5,
-    borderRadius: 10,
-    overflow: 'hidden',
   },
 });
 
@@ -124,22 +88,6 @@ export const SubscriptionSubtitleText = styled.Text`
   font-size: 19px;
   color: #fff;
   margin: 10px 0px 0px 20px;
-`;
-
-export const SectionText = styled.Text`
-  color: #fff;
-  font-size: 25px;
-  font-family: Roboto-Bold;
-  margin-left: 20px;
-  margin-top: 40px;
-`;
-
-export const SectionSubtitleText = styled.Text`
-  color: #fff;
-  font-size: 17px;
-  font-family: Roboto-Regular;
-  margin-left: 20px;
-  margin-top: 5px;
 `;
 
 export const AllDetailsContainer = styled.View`
@@ -198,12 +146,6 @@ export const MemberText = styled.Text`
   color: white;
 `;
 
-export const MemberStatusText = styled.Text`
-  font-family: Roboto-Bold;
-  font-size: 30px;
-  color: white;
-`;
-
 export const TierSubscribedContainer = styled.View`
   margin: 20px;
   width: 90%;
@@ -220,84 +162,4 @@ export const TierSubscribedText = styled.Text`
   margin-top: 20px
   width: 80%;
   color: #fff;
-`;
-
-export const TierStatusText = styled.Text`
-  font-family: Roboto-Bold;
-  font-size: 30px;
-  width: 80%;
-  margin: 10px 20px 0px 20px;
-  color: #a58238;
-`;
-
-export const FoodsContainer = styled.View`
-  flex: 1;
-  margin-top: -60px;
-`;
-
-export const FoodList = styled(FlatList as new () => FlatList<Product>)`
-  flex: 1;
-  padding: 0 20px;
-
-  margin-top: 16px;
-`;
-
-export const Food = styled.TouchableOpacity`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  background: #f0f0f5;
-  border-radius: 8px;
-
-  margin-bottom: 16px;
-`;
-
-export const FoodImageContainer = styled.View`
-  background: #ffb84d;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  padding: 16px;
-
-  height: 100%;
-`;
-
-export const FoodContent = styled.View`
-  flex: 1;
-
-  padding: 16px;
-`;
-export const FoodTitle = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
-
-  color: #3d3d4d;
-`;
-export const FoodDescription = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
-  line-height: 16px;
-
-  margin-top: 6px;
-
-  color: #3d3d4d;
-`;
-
-export const FoodPricing = styled.Text`
-  font-family: 'Poppins-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-
-  margin-top: 8px;
-
-  font-weight: 600;
-
-  color: #39b100;
 `;

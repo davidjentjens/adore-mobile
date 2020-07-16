@@ -61,7 +61,7 @@ const Tier: React.FC = () => {
   const route = useRoute();
   const routeParams = route.params as Params;
 
-  const { user } = useAuth();
+  const { signOut } = useAuth();
 
   useEffect(() => {
     async function loadTier(): Promise<void> {
@@ -83,12 +83,15 @@ const Tier: React.FC = () => {
   }, [routeParams.business.id, routeParams.id]);
 
   const subscribe = useCallback(() => {
-    console.log('Subscribed?', routeParams.business.id, routeParams.id);
-    api.post(`subscriptions`, {
-      business_id: routeParams.business.id,
-      tier_id: routeParams.id,
-    });
-  }, []);
+    try {
+      api.post(`subscriptions`, {
+        business_id: routeParams.business.id,
+        tier_id: routeParams.id,
+      });
+    } catch (err) {
+      signOut();
+    }
+  }, [routeParams.id, routeParams.business.id, signOut]);
 
   return tier ? (
     <Container>
@@ -166,7 +169,8 @@ const Tier: React.FC = () => {
                   navigate('Tier', {
                     id: item.id,
                     business: routeParams.business,
-                  })}
+                  })
+                }
               >
                 <TierTextBackground
                   style={{ backgroundColor: getRankColor(item.rank) }}

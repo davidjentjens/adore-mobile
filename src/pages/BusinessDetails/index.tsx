@@ -171,7 +171,8 @@ const BusinessDetails: React.FC = () => {
                         navigate('Perks', {
                           tier: subscriptions.tier,
                           subscription_id: subscriptions.id,
-                        })}
+                        })
+                      }
                     >
                       <Text style={styles.headerInfoText}>Vantagens</Text>
                     </TouchableOpacity>
@@ -181,7 +182,8 @@ const BusinessDetails: React.FC = () => {
                         navigate('Profile', {
                           id: business.id,
                           business,
-                        })}
+                        })
+                      }
                     >
                       <Text style={styles.headerInfoText}>Alterar Dados</Text>
                     </TouchableOpacity>
@@ -197,7 +199,8 @@ const BusinessDetails: React.FC = () => {
                           navigate('Tier', {
                             id: tier.id,
                             business,
-                          })}
+                          })
+                        }
                       >
                         <TierTextBackground
                           style={{ backgroundColor: getRankColor(tier.rank) }}
@@ -222,8 +225,7 @@ const BusinessDetails: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })
-                    }
+                      })}
                   >
                     <Text
                       style={{ color: 'white', fontFamily: 'Roboto-Medium' }}
@@ -235,14 +237,7 @@ const BusinessDetails: React.FC = () => {
               </PostListContainer>
             ))}
           </SectionContainer>
-          {/* <Button style={styles.buttonSub}>Tornar-se membro</Button> */}
         </SafeAreaView>
-        {/* <NavigationButton>
-          <ButtonText onPress={() => navigation.navigate('Tier')}>
-            Tornar-se membro
-          </ButtonText>
-          <ButtonPrice>R$ 32,90</ButtonPrice>
-        </NavigationButton> */}
       </ScrollView>
     </Container>
   ) : (

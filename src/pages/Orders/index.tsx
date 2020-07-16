@@ -12,8 +12,7 @@ import {
   Container,
   AllDetailsContainer,
   Header,
-  HeaderTitle,
-  MemberContainer,
+  HeaderText,
   SubscriptionDataContainer,
   SubscriptionSubtitleText,
   SubscriptionText,
@@ -22,8 +21,10 @@ import {
   MemberStatusView,
   MemberText,
   MemberInfoView,
+  MemberContainer,
   TierSubscribedContainer,
   TierSubscribedText,
+  ProfileIcon,
   styles,
 } from './styles';
 
@@ -112,13 +113,12 @@ const Orders: React.FC = () => {
   return business ? (
     <Container>
       <Header>
-        <HeaderTitle>Assinaturas</HeaderTitle>
-        <Icon
+        <HeaderText>Assinaturas</HeaderText>
+        <ProfileIcon
           name="user"
           size={30}
           color="#fff"
           onPress={() => navigate('Profile')}
-          style={styles.opacityView}
         />
       </Header>
       <ScrollView>
@@ -162,7 +162,8 @@ const Orders: React.FC = () => {
                   navigate('Perks', {
                     tier: subscription.tier,
                     subscription_id: subscription.id,
-                  })}
+                  })
+                }
                 key={subscription.id}
               >
                 <MemberInfoView>
