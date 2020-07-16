@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useReducer } from 'react';
+import React, { useCallback, useRef } from 'react';
 import {
   Image,
   View,
