@@ -53,6 +53,14 @@ const AuthProvider: React.FC = ({ children }) => {
         setData({ token: token[1], user: JSON.parse(user[1]) });
       }
 
+      try {
+        api.get('sessions/validate');
+      } catch (err) {
+        await AsyncStorage.multiRemove(['@GoBarber:token', '@GoBarber:user']);
+
+        setData({} as AuthState);
+      }
+
       setLoading(false);
     }
 

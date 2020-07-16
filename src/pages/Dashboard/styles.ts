@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components/native';
-import { FlatList, ImageBackground, StyleSheet } from 'react-native';
-import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
+import styled from 'styled-components/native';
+import { ImageBackground, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-
-import { Category, Business } from './index';
+import Icon from 'react-native-vector-icons/Feather';
 
 export const Container = styled.View`
   flex: 1;
@@ -65,11 +64,10 @@ export const styles = StyleSheet.create({
   },
 });
 
-
 // #region Header
 
 export const Header = styled.View`
-  padding: 70px 20px 0px 20px;
+  padding: 70px 20px 10px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -82,36 +80,17 @@ export const HeaderText = styled.Text`
   font-family: Roboto-Bold;
 `;
 
-// #endregion
-
-// #region TopCards
-
-export const TopCardContainer = styled(LinearGradient)`
-  margin: 0;
-  padding: 10px 0px 0px 20px;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const TopCardList = styled(FlatList as new () => FlatList<Category>)`
-  padding: 0px 0px 0px 10px;
-`;
-
-export const TopCardText = styled.Text`
-  color: #fff;
-`;
-
-export const TopCard = styled.View`
-  width: 68px;
-  height: 68px;
-  margin: 10px 15px 20px 0px;
-  background: #2f2f2f;
-  border-radius: 13px;
-  padding: 10px;
+export const ProfileIcon = styled(Icon)`
+  background-color: #2f2f2f;
+  opacity: 0.8;
+  padding: 5px;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 // #endregion
 
+// #region Feature
 export const FeatureCard = styled(TouchableOpacity)`
   height: 100%;
   color: #fff;
@@ -138,6 +117,8 @@ export const FeatureText = styled.Text`
   margin: 10px 0px 0px 20px;
 `;
 
+// #endregion
+
 // #region Business Feed
 
 export const SectionText = styled.Text`
@@ -155,11 +136,6 @@ export const SectionSubtitleText = styled.Text`
   margin-left: 20px;
   margin-top: 5px;
   margin-bottom: 20px;
-`;
-
-export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 10px 0px 50px 0px;
-  margin-top: 15px;
 `;
 
 export const BusinessContainer = styled.View`
@@ -190,13 +166,6 @@ export const BusinessText = styled.Text`
   font-size: 29px;
   color: white;
   margin: 10px 10px 20px 20px;
-`;
-
-export const BusinessSubtitleText = styled.Text`
-  font-family: Roboto-Regular;
-  font-size: 18px;
-  color: #a58328;
-  margin: 0px 10px 20px 20px;
 `;
 
 export const BusinessCardGradient = styled(LinearGradient)`

@@ -166,8 +166,7 @@ const Tier: React.FC = () => {
                   navigate('Tier', {
                     id: item.id,
                     business: routeParams.business,
-                  })
-                }
+                  })}
               >
                 <TierTextBackground
                   style={{ backgroundColor: getRankColor(item.rank) }}

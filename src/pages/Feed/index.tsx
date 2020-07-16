@@ -26,7 +26,8 @@ import {
   PostDescription,
   PostCardBackgroundImage,
   PostCardGradient,
-  styles,
+  ProfileIcon,
+  HeaderLogo,
 } from './styles';
 // import { styles } from '../BusinessDetails/styles';
 
@@ -68,7 +69,6 @@ const Feed: React.FC = () => {
       // const { data: likeListData } = await api.get();
 
       setPosts(postData);
-      console.log('getPosts');
     };
     loadPosts();
   }, [isFocused]);
@@ -76,22 +76,12 @@ const Feed: React.FC = () => {
   return (
     <Container>
       <Header>
-        {/* <HeaderText>Feed</HeaderText> */}
-        <Image
-          source={logoImg}
-          style={{
-            width: '35%',
-            resizeMode: 'contain',
-            padding: 0,
-            marginBottom: 0,
-          }}
-        />
-        <Icon
+        <HeaderLogo source={logoImg} />
+        <ProfileIcon
           name="user"
           size={30}
           color="#fff"
           onPress={() => navigate('Profile')}
-          style={styles.opacityView}
         />
       </Header>
       {/* * * FEED * * */}
@@ -102,8 +92,7 @@ const Feed: React.FC = () => {
               onPress={() =>
                 navigate('Posts', {
                   id: post.id,
-                })
-              }
+                })}
             >
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
@@ -112,8 +101,7 @@ const Feed: React.FC = () => {
                 >
                   <AuthorInfo
                     onPress={() =>
-                      navigate('BusinessDetails', { id: post.business.id })
-                    }
+                      navigate('BusinessDetails', { id: post.business.id })}
                   >
                     <AuthorAvatar
                       source={{
@@ -140,8 +128,7 @@ const Feed: React.FC = () => {
                     onPress={() =>
                       navigate('Posts', {
                         id: post.id,
-                      })
-                    }
+                      })}
                   >
                     <PostTextContainer>
                       <PostTitle>{post.title}</PostTitle>

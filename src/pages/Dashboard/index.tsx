@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { SearchBar, Text, Divider } from 'react-native-elements';
+import { Text, Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
-import { Dimensions, TouchableOpacity } from 'react-native';
+import { Dimensions } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
-import { useWindowDimensions, View } from 'react-native';
+import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import Logo from '../../assets/logo-header.png';
 
 import api from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
-import Button from '../../components/Button';
-import { scrollInterpolator, animatedStyles } from '../../utils/animations';
+import { animatedStyles } from '../../utils/animations';
 
 import {
   Container,
@@ -21,25 +19,19 @@ import {
   HeaderText,
   SectionText,
   SectionSubtitleText,
-  TopCardContainer,
-  TopCardList,
-  TopCard,
-  TopCardText,
   FeatureCard,
   FeatureText,
   FeatureDataContainer,
   FeatureCardBackgroundImage,
-  BusinessList,
   BusinessContainer,
   BusinessCard,
   BusinessDataContainer,
   BusinessText,
-  BusinessSubtitleText,
   BusinessCardBackgroundImage,
   BusinessCardGradient,
+  ProfileIcon,
   styles,
 } from './styles';
-// import { styles } from '../BusinessDetails/styles';
 
 export interface Business {
   id: string;
@@ -60,8 +52,6 @@ const Dashboard: React.FC = () => {
 
   const [businesses, setBusinesses] = useState<Business[]>([]);
   const [categories, setCategory] = useState<Category[]>([]);
-
-  const { signOut } = useAuth();
 
   useEffect(() => {
     const loadBusinesses = async (): Promise<void> => {
@@ -84,19 +74,18 @@ const Dashboard: React.FC = () => {
     <Container>
       <Header>
         <HeaderText>Destaques</HeaderText>
-        <Icon
+        <ProfileIcon
           name="user"
           size={30}
           color="#fff"
           onPress={() => navigate('Profile')}
-          style={styles.opacityView}
         />
       </Header>
-      <SectionSubtitleText>
-        As melhores marcas da sua região
-      </SectionSubtitleText>
       <ScrollView>
         {/** *******DESTAQUES******** */}
+        <SectionSubtitleText>
+          As melhores marcas da sua região
+        </SectionSubtitleText>
         <Carousel
           enableMomentum
           firstItem={1}
@@ -132,11 +121,6 @@ const Dashboard: React.FC = () => {
                             Torne-se membro
                           </Text>
                         </View>
-                        {/* <View style={styles.headerSpecialty}>
-                          <Text style={styles.headerInfoText}>
-                            A partir de 10,90
-                          </Text>
-                        </View> */}
                       </View>
                     </View>
                   </FeatureDataContainer>
@@ -155,7 +139,8 @@ const Dashboard: React.FC = () => {
           <BusinessContainer key={category.id}>
             <BusinessCard
               onPress={() =>
-                navigate('Category', { id: category.id, name: category.name })}
+                navigate('Category', { id: category.id, name: category.name })
+              }
             >
               <BusinessCardBackgroundImage source={{ uri: category.image_url }}>
                 <BusinessCardGradient

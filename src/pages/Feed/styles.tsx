@@ -1,141 +1,43 @@
 import styled from 'styled-components/native';
-import {
-  FlatList,
-  ImageBackground,
-  StyleSheet,
-  Dimensions,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { ImageBackground, Dimensions, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-
-import { Category, Business } from './index';
 
 export const Container = styled.View`
   flex: 1;
   background: #1c1c1c;
 `;
 
-export const styles = StyleSheet.create({
-  searchBar: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderColor: 'transparent',
-    padding: 0,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  carouselContainer: {},
-  headerIcon: {
-    color: '#a58238',
-    marginRight: 0,
-  },
-  opacityView: {
-    backgroundColor: '#2f2f2f',
-    opacity: 0.8,
-    padding: 5,
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-});
-
 // #region Header
 
 export const Header = styled.View`
-  padding: 20px 20px 0px 20px;
+  padding: 70px 20px 10px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const HeaderText = styled.Text`
-  color: #a58328;
-  font-size: 32px;
-  font-family: Roboto-Bold;
-`;
-
-// #endregion
-
-// #region TopCards
-
-export const TopCardContainer = styled(LinearGradient)`
-  margin: 0;
-  padding: 0px 0px 0px 20px;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const TopCardList = styled(FlatList as new () => FlatList<Category>)`
-  padding: 0px 0px 0px 10px;
-`;
-
-export const TopCardText = styled.Text`
-  color: #fff;
-`;
-
-export const TopCard = styled.View`
-  width: 68px;
-  height: 68px;
-  margin: 10px 15px 20px 0px;
-  background: #2f2f2f;
-  border-radius: 13px;
-  padding: 10px;
-`;
-
-// #endregion
-
-export const FeatureCard = styled(RectButton)`
-  height: 100%;
-  color: #fff;
+export const ProfileIcon = styled(Icon)`
+  background-color: #2f2f2f;
+  opacity: 0.8;
+  padding: 5px;
   border-radius: 10px;
-  margin: 0px 8px;
+  overflow: hidden;
 `;
 
-export const FeatureCardBackgroundImage = styled(ImageBackground)`
-  flex: 1;
-  width: 100%;
-  height: 200px;
-`;
-
-export const FeatureDataContainer = styled.View`
-  margin: 0;
+export const HeaderLogo = styled.Image`
+  width: 35%;
+  height: 100%;
+  resize-mode: contain;
   padding: 0;
+  margin-bottom: 0;
 `;
 
-export const FeatureText = styled.Text`
-  font-family: Roboto-Bold;
-  font-size: 29px;
-  color: white;
-  margin: 10px 0px 0px 20px;
-`;
+// #endregion
 
-// #region Business Feed
-
-export const SectionText = styled.Text`
-  color: #a58328;
-  font-size: 25px;
-  font-family: Roboto-Bold;
-  margin-left: 20px;
-  margin-top: 20px;
-`;
-
-export const SectionSubtitleText = styled.Text`
-  color: #fff;
-  font-size: 17px;
-  font-family: Roboto-Regular;
-  margin-left: 20px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-`;
-
-export const BusinessList = styled(FlatList as new () => FlatList<Business>)`
-  padding: 100px 0px 50px 0px;
-  margin-top: 15px;
-`;
+// #region Feed
 
 export const PostContainer = styled.View`
   padding: 10px 0px 0px 0px;
@@ -240,13 +142,6 @@ export const AuthorName = styled.Text`
   font-family: Roboto-Regular;
   font-size: 16px;
   margin-left: 10px;
-`;
-
-export const BusinessSubtitleText = styled.Text`
-  font-family: Roboto-Regular;
-  font-size: 18px;
-  color: #a58328;
-  margin: 0px 10px 20px 20px;
 `;
 
 // #endregion
