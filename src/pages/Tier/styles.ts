@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
 import { View } from 'react-native';
 
-import Button from '../../components/Button';
-
 export const Container = styled.View`
   flex: 1;
   background: #1c1c1c;
@@ -20,12 +18,6 @@ export const HeaderText = styled.Text`
   color: #a58328;
   font-size: 32px;
   font-family: Roboto-Bold;
-`;
-
-export const HeaderBackButton = styled(Button)`
-  background: transparent;
-  padding: 0;
-  margin: 20px 0 0 15px;
 `;
 
 export const SectionText = styled.Text`

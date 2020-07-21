@@ -3,8 +3,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Feather';
-import Dashboard from '../pages/Dashboard';
-import Orders from '../pages/Orders';
+import Discover from '../pages/Discover';
+import Subscriptions from '../pages/Subscriptions';
 import Feed from '../pages/Feed';
 
 const Tab = createBottomTabNavigator();
@@ -43,17 +43,17 @@ const TabRoutes: React.FC = () => (
         title: 'Descobrir',
       }}
       name="DashboardStack"
-      component={Dashboard}
+      component={Discover}
     />
     <Tab.Screen
-      name="Orders"
+      name="Subscriptions"
       options={{
         tabBarIcon: ({ color }) => (
           <Icon size={22} name="credit-card" color={color} />
         ),
         title: 'Assinaturas',
       }}
-      component={Orders}
+      component={Subscriptions}
     />
   </Tab.Navigator>
 );

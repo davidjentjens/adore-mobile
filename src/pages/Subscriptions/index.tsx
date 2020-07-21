@@ -59,7 +59,7 @@ interface Perk {
   date: number;
 }
 
-const Orders: React.FC = () => {
+const Subscriptions: React.FC = () => {
   const { navigate } = useNavigation();
 
   const [nextPerk, setNextPerk] = useState<Perk>();
@@ -162,8 +162,7 @@ const Orders: React.FC = () => {
                   navigate('Perks', {
                     tier: subscription.tier,
                     subscription_id: subscription.id,
-                  })
-                }
+                  })}
                 key={subscription.id}
               >
                 <MemberInfoView>
@@ -202,4 +201,4 @@ const Orders: React.FC = () => {
   );
 };
 
-export default Orders;
+export default Subscriptions;

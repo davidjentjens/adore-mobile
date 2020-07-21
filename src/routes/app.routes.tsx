@@ -4,28 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Feather';
 import TabRoutes from './tab.routes';
 
-import Home from '../pages/Home';
-import Dashboard from '../pages/Dashboard';
 import BusinessDetails from '../pages/BusinessDetails';
 import Category from '../pages/Category';
 import Profile from '../pages/Profile';
 import Tier from '../pages/Tier';
 import PaymentValidation from '../pages/PaymentValidation';
-import Posts from '../pages/Posts';
+import Post from '../pages/Post';
 import Perks from '../pages/Perks';
 
 const App = createStackNavigator();
 
 const AppRoutes: React.FC = () => (
   <App.Navigator initialRouteName="MainBottom">
-    {/* <App.Screen
-      options={{
-        cardStyle: { backgroundColor: '#C72828' },
-        headerShown: false,
-      }}
-      name="Home"
-      component={Home}
-    /> */}
     <App.Screen
       name="MainBottom"
       component={TabRoutes}
@@ -91,16 +81,7 @@ const AppRoutes: React.FC = () => (
         headerLeftContainerStyle: {
           marginLeft: 24,
         },
-        // headerRight: () => <Icon name="heart" size={24} color="#FFB84D" />,
-        // headerRightContainerStyle: {
-        //   marginRight: 24,
-        // },
         headerTitle: '',
-        // headerTitleStyle: {
-        //   color: '#fff',
-        //   fontFamily: 'Poppins-Regular',
-        //   fontSize: 16,
-        // },
         headerStyle: {
           backgroundColor: 'transparent',
           elevation: 0,
@@ -126,16 +107,7 @@ const AppRoutes: React.FC = () => (
         headerLeftContainerStyle: {
           marginLeft: 24,
         },
-        // headerRight: () => <Icon name="heart" size={24} color="#FFB84D" />,
-        // headerRightContainerStyle: {
-        //   marginRight: 24,
-        // },
         headerTitle: '',
-        // headerTitleStyle: {
-        //   color: '#fff',
-        //   fontFamily: 'Poppins-Regular',
-        //   fontSize: 16,
-        // },
         headerStyle: {
           backgroundColor: 'transparent',
           elevation: 0,
@@ -146,8 +118,8 @@ const AppRoutes: React.FC = () => (
     />
 
     <App.Screen
-      name="Posts"
-      component={Posts}
+      name="Post"
+      component={Post}
       options={({ navigation }) => ({
         headerLeft: () => (
           <Icon
@@ -187,16 +159,7 @@ const AppRoutes: React.FC = () => (
         headerLeftContainerStyle: {
           marginLeft: 24,
         },
-        // headerRight: () => <Icon name="heart" size={24} color="#FFB84D" />,
-        // headerRightContainerStyle: {
-        //   marginRight: 24,
-        // },
         headerTitle: '',
-        // headerTitleStyle: {
-        //   color: '#fff',
-        //   fontFamily: 'Poppins-Regular',
-        //   fontSize: 16,
-        // },
         headerStyle: {
           backgroundColor: 'transparent',
           elevation: 0,

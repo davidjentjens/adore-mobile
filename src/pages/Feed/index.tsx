@@ -97,10 +97,9 @@ const Feed: React.FC = () => {
           <PostContainer key={post.id}>
             <PostCard
               onPress={() =>
-                navigate('Posts', {
+                navigate('Post', {
                   id: post.id,
-                })
-              }
+                })}
             >
               <PostCardBackgroundImage source={{ uri: post.image_url }}>
                 {/* * * Autor * * */}
@@ -109,8 +108,7 @@ const Feed: React.FC = () => {
                 >
                   <AuthorInfo
                     onPress={() =>
-                      navigate('BusinessDetails', { id: post.business.id })
-                    }
+                      navigate('BusinessDetails', { id: post.business.id })}
                   >
                     <AuthorAvatar
                       source={{
@@ -135,10 +133,9 @@ const Feed: React.FC = () => {
                 >
                   <PostDataContainer
                     onPress={() =>
-                      navigate('Posts', {
+                      navigate('Post', {
                         id: post.id,
-                      })
-                    }
+                      })}
                   >
                     <PostTextContainer>
                       <PostTitle>{post.title}</PostTitle>

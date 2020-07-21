@@ -27,10 +27,8 @@ import Button from '../../components/Button';
 import {
   Container,
   Title,
-  BackButton,
   UserAvatarButton,
   UserAvatar,
-  SignOutButton,
   styles,
 } from './styles';
 
@@ -182,7 +180,6 @@ const Profile: React.FC = () => {
           style={{ marginBottom: 10 }}
         />
         <Text style={styles.headerText}>Perfil</Text>
-        {/* <Icon name="log-out" size={30} color="#cc3535" onPress={signOut} /> */}
       </View>
       <ScrollView keyboardShouldPersistTaps="handled">
         <Container>

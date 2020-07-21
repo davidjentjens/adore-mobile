@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -223,7 +223,7 @@ const BusinessDetails: React.FC = () => {
                   <DescPost>{post.short_desc}</DescPost>
                   <ButtonPost
                     onPress={() =>
-                      navigate('Posts', {
+                      navigate('Post', {
                         id: post.id,
                       })}
                   >

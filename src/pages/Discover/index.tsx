@@ -47,7 +47,7 @@ export interface Category {
   image_url: string;
 }
 
-const Dashboard: React.FC = () => {
+const Discover: React.FC = () => {
   const { navigate } = useNavigation();
 
   const [businesses, setBusinesses] = useState<Business[]>([]);
@@ -139,8 +139,7 @@ const Dashboard: React.FC = () => {
           <BusinessContainer key={category.id}>
             <BusinessCard
               onPress={() =>
-                navigate('Category', { id: category.id, name: category.name })
-              }
+                navigate('Category', { id: category.id, name: category.name })}
             >
               <BusinessCardBackgroundImage source={{ uri: category.image_url }}>
                 <BusinessCardGradient
@@ -159,4 +158,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Discover;

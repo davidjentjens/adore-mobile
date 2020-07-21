@@ -6,7 +6,7 @@ import {
   useRoute,
   useIsFocused,
 } from '@react-navigation/native';
-import { State } from 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import api from '../../services/api';
 
 import {
@@ -41,13 +41,13 @@ interface Post {
   liked: boolean;
 }
 
-const Posts: React.FC = () => {
+const Post: React.FC = () => {
   // API
   const [post, setPost] = useState<Post>();
   const [isLiked, setIsLiked] = useState<boolean>();
 
   // Navigation
-  const { navigate, goBack } = useNavigation();
+  const { goBack } = useNavigation();
   const route = useRoute();
   const routeParams = route.params as Params;
   const isFocused = useIsFocused();
@@ -71,8 +71,6 @@ const Posts: React.FC = () => {
     () => (isLiked ? 'Descurtir Publicação' : 'Curtir Publicação'),
     [isLiked],
   );
-
-  // useLayoutEffect(() => {}, [likedButtonText, toggleLike]);
 
   return post ? (
     <Container>
@@ -119,4 +117,4 @@ const Posts: React.FC = () => {
   );
 };
 
-export default Posts;
+export default Post;

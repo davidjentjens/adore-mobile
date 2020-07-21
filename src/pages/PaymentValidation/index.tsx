@@ -79,7 +79,7 @@ const PaymentValidation: React.FC = () => {
           </DescriptionInfoView>
           <Button
             onPress={() => {
-              navigate('Orders');
+              navigate('Subscriptions');
             }}
           >
             Gerenciar suas assinaturas
