@@ -4,8 +4,6 @@ import { View, StatusBar } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import './services/NotifyService';
-
 import AppProvider from './hooks/index';
 import Routes from './routes';
 

@@ -110,7 +110,6 @@
 		CC09FA76F90B42359EC20B68 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		CDE1E7F1EEFD45E9B9FC80D4 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		D0D2029C89B3E08AC2BD5B47 /* libPods-challenge11-challenge11Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-challenge11-challenge11Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D488048624C9C4B3005D9259 /* Adorê.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Adorê.entitlements"; path = "challenge11/Adorê.entitlements"; sourceTree = "<group>"; };
 		D49040C8208F481DB709A6BD /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D8C3C1E0EB794CD0B4D0CCD6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		D96EF2A2BD6E39FE7E26FE3E /* Pods-challenge11-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge11-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-challenge11-tvOS/Pods-challenge11-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,7 +180,6 @@
 		13B07FAE1A68108700A75B9A /* challenge11 */ = {
 			isa = PBXGroup;
 			children = (
-				D488048624C9C4B3005D9259 /* Adorê.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -396,7 +394,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = F8Q8C944BU;
+						DevelopmentTeam = 83KH3JF2CE;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -847,9 +845,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "challenge11/Adorê.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F8Q8C944BU;
+				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -876,9 +873,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "challenge11/Adorê.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F8Q8C944BU;
+				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = challenge11/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
