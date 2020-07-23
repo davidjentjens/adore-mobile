@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { View, ActivityIndicator, Text, ScrollView } from 'react-native';
+import PushNotification from 'react-native-push-notification';
 
 import {
   useNavigation,
@@ -65,6 +66,19 @@ const Post: React.FC = () => {
   const toggleLike = useCallback(async () => {
     await api.post(`likes`, { business_post_id: routeParams.id });
     setIsLiked(!isLiked);
+
+    PushNotification.localNotification({
+      /* iOS only properties */
+      alertAction: 'view', // (optional) default: view
+      category: !isLiked ? 'like' : 'unlike', // (optional) default: empty string
+      userInfo: {}, // (optional) default: {} (using null throws a JSON value '<null>' error)
+
+      /* iOS and Android properties */
+      title: !isLiked ? 'YOU LIKED A GOOD POST' : 'YOU UNLIKED A BAD POST', // (optional)
+      message: !isLiked ? 'you liked a post' : 'you unliked a post', // (required)
+      playSound: true, // (optional) default: true
+      soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+    });
   }, [routeParams.id, isLiked]);
 
   const likedButtonText = useMemo(
