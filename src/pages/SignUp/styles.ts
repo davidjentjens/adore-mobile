@@ -2,6 +2,8 @@ import styled from 'styled-components/native';
 import { Platform } from 'react-native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 
+import theme from '../../config/theme';
+
 export const Container = styled.View`
   flex: 1;
   align-items: center;
@@ -33,7 +35,7 @@ export const BackToSignInButton = styled.TouchableOpacity`
 `;
 
 export const BackToSignInButtonText = styled.Text`
-  color: #a58238;
+  color: ${theme.goldColor};
   font-size: 18px;
   font-family: 'Roboto-Regular';
   margin-left: 16px;

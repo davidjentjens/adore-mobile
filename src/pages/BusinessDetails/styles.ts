@@ -6,9 +6,11 @@ import Icon from 'react-native-vector-icons/Feather';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Button from '../../components/Button';
 
+import theme from '../../config/theme';
+
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -37,20 +39,20 @@ export const HeaderBackButton = styled(Button)`
 `;
 
 export const HeaderBackButtonIcon = styled(Icon)`
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 // #endregion
 
 export const styles = StyleSheet.create({
   headerTitle: {
-    color: '#a58328',
+    color: theme.goldColor,
     fontSize: 32,
     fontFamily: 'Roboto-Bold',
     marginLeft: 20,
   },
   headerSubTitle: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 25,
     fontFamily: 'Roboto-Regular',
     margin: 0,
@@ -73,7 +75,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#a58328',
+    backgroundColor: theme.goldColor,
   },
   headerSpecialty: {
     margin: 0,
@@ -83,10 +85,10 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#2f2f2f',
+    backgroundColor: theme.grayColor,
   },
   headerInfoText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
   },
@@ -106,7 +108,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#742635',
+    backgroundColor: theme.grayColor,
   },
   contentSafeArea: {
     flex: 1,
@@ -142,21 +144,21 @@ export const TierCard = styled.TouchableOpacity`
   width: 120px;
   height: 110px;
   margin: 10px 0px 0px 20px;
-  background: #2f2f2f;
+  background: ${theme.grayColor};
   border-radius: 10px;
   padding: 0px;
   align-items: center;
 `;
 
 export const TierText = styled.Text`
-  color: #fff;
+  color: ${theme.whiteColor};
   font-size: 20px;
   margin-top: 7px;
   font-family: Roboto-Medium;
 `;
 
 export const TierTextBackground = styled.View`
-  background: #a58238;
+  background: ${theme.goldColor};
   width: 100%;
   height: 40px;
   align-items: center;
@@ -165,7 +167,7 @@ export const TierTextBackground = styled.View`
 `;
 
 export const PriceText = styled.Text`
-  color: #fff;
+  color: ${theme.whiteColor};
   font-size: 25px;
   margin-top: 20px;
   font-family: Roboto-Bold;
@@ -176,7 +178,7 @@ export const TierSubscribedContainer = styled.View`
   width: 90%;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   border-radius: 10px;
   align-items: flex-start;
 `;
@@ -194,7 +196,7 @@ export const TierStatusText = styled.Text`
   font-size: 30px;
   width: 80%;
   margin: 10px 20px 0px 20px;
-  color: #a58238;
+  color: ${theme.goldColor};
 `;
 
 export const PostListContainer = styled.View`
@@ -211,7 +213,7 @@ export const ImagePost = styled(ImageBackground)`
   height: 120px;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #2f2f2f;
+  background-color: ${theme.darkGrayColor};
 `;
 
 export const TextPostContainer = styled.View`
@@ -225,19 +227,19 @@ export const TextPostContainer = styled.View`
 export const TitlePost = styled.Text`
   font-family: Roboto-Medium;
   font-size: 20px;
-  color: #a58238;
+  color: ${theme.goldColor};
   margin: 0px 30px 0px 15px;
 `;
 
 export const DescPost = styled.Text`
   font-family: Roboto-Regular;
   font-size: 14px;
-  color: #fff;
+  color: ${theme.whiteColor};
   margin: 5px 50px 0px 15px;
 `;
 
 export const ButtonPost = styled(TouchableOpacity)`
-  background-color: #a58238;
+  background-color: ${theme.goldColor};
   padding: 8px;
   width: 100%;
   border-radius: 5px;

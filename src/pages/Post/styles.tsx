@@ -5,9 +5,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 
+import theme from '../../config/theme';
+
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -36,12 +38,12 @@ export const HeaderBackButton = styled(Button)`
 `;
 
 export const HeaderBackButtonIcon = styled(Icon)`
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 export const styles = StyleSheet.create({
   headerTitle: {
-    color: '#a58328',
+    color: theme.goldColor,
     fontSize: 32,
     fontFamily: 'Roboto-Bold',
     marginLeft: 20,
@@ -49,7 +51,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   headerSubTitle: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 17,
     fontFamily: 'Roboto-Regular',
     margin: 0,
@@ -73,7 +75,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#a58328',
+    backgroundColor: theme.goldColor,
   },
   headerSpecialty: {
     margin: 0,
@@ -83,10 +85,10 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#2f2f2f',
+    backgroundColor: theme.grayColor,
   },
   headerInfoText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 20,
     fontFamily: 'Roboto-Medium',
   },
@@ -95,7 +97,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
   },
   longDescText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontFamily: 'Roboto-Regular',
     lineHeight: 20,
     fontSize: 14,
@@ -105,7 +107,7 @@ export const styles = StyleSheet.create({
 // #endregion
 
 export const ButtonLikePost = styled.TouchableOpacity`
-  background-color: #a58238;
+  background-color: ${theme.goldColor};
   margin: 20px;
   width: 90%;
   padding: 10px;

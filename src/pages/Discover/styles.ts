@@ -3,10 +3,11 @@ import { ImageBackground, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
+import theme from '../../config/theme';
 
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 export const styles = StyleSheet.create({
@@ -25,10 +26,10 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#a58328',
+    backgroundColor: theme.goldColor,
   },
   headerInfoText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
   },
@@ -45,13 +46,13 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 32px;
   font-family: Roboto-Bold;
 `;
 
 export const ProfileIcon = styled(Icon)`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   opacity: 0.8;
   padding: 5px;
   border-radius: 10px;
@@ -83,7 +84,7 @@ export const FeatureDataContainer = styled.View`
 export const FeatureText = styled.Text`
   font-family: Roboto-Bold;
   font-size: 29px;
-  color: white;
+  color: ${theme.whiteColor};
   margin: 10px 0px 0px 20px;
 `;
 
@@ -92,7 +93,7 @@ export const FeatureText = styled.Text`
 // #region Business Feed
 
 export const SectionText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 25px;
   font-family: Roboto-Bold;
   margin-left: 20px;
@@ -100,7 +101,7 @@ export const SectionText = styled.Text`
 `;
 
 export const SectionSubtitleText = styled.Text`
-  color: #fff;
+  color: ${theme.whiteColor};
   font-size: 17px;
   font-family: Roboto-Regular;
   margin-left: 20px;
@@ -121,7 +122,7 @@ export const BusinessCardBackgroundImage = styled(ImageBackground)`
 export const BusinessCard = styled(TouchableOpacity)`
   margin: 0px 20px 20px 20px;
   height: 80px;
-  color: #fff;
+  color: ${theme.whiteColor};
   border-radius: 10px;
   overflow: hidden;
 `;
@@ -134,7 +135,7 @@ export const BusinessDataContainer = styled.View`
 export const BusinessText = styled.Text`
   font-family: Roboto-Medium;
   font-size: 29px;
-  color: white;
+  color: ${theme.whiteColor};
   margin: 10px 10px 20px 20px;
 `;
 

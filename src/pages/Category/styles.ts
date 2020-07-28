@@ -9,6 +9,8 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 
+import theme from '../../config/theme';
+
 interface Business {
   id: number;
   name: string;
@@ -20,7 +22,7 @@ interface Business {
 
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -32,7 +34,7 @@ export const Header = styled.View`
 `;
 
 export const HeaderTitle = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-family: 'Roboto-Bold';
   font-style: normal;
   font-size: 32px;
@@ -45,7 +47,7 @@ export const HeaderBackButton = styled(Button)`
 `;
 
 export const HeaderBackButtonIcon = styled(Icon)`
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 // #endregion
@@ -66,7 +68,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#a58328',
+    backgroundColor: theme.goldColor,
   },
   headerSpecialty: {
     margin: 0,
@@ -76,10 +78,10 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#2f2f2f',
+    backgroundColor: theme.grayColor,
   },
   headerInfoText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
   },
@@ -105,7 +107,7 @@ export const Business = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #000;
+  background: ${theme.blackColor};
   border-radius: 8px;
   height: 210px;
   overflow: hidden;
@@ -126,5 +128,5 @@ export const BusinessTitle = styled.Text`
   font-family: 'Roboto-Bold';
   font-size: 28px;
   line-height: 30px;
-  color: #a58238;
+  color: ${theme.goldColor};
 `;

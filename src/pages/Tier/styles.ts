@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
 import { View } from 'react-native';
+import theme from '../../config/theme';
 
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 export const Header = styled.View`
@@ -15,7 +16,7 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 32px;
   font-family: Roboto-Bold;
 `;
@@ -33,7 +34,7 @@ export const TierCard = styled(View)`
   color: #fff;
   border-radius: 10px;
   overflow: hidden;
-  background: #2f2f2f;
+  background: ${theme.grayColor};
 `;
 
 export const TierList = styled.View`
@@ -45,7 +46,7 @@ export const OtherTiersCard = styled.TouchableOpacity`
   width: 120px;
   height: 110px;
   margin: 10px 0px 0px 20px;
-  background: #2f2f2f;
+  background: ${theme.grayColor};
   border-radius: 10px;
   padding: 0px;
   align-items: center;
@@ -59,7 +60,7 @@ export const TierText = styled.Text`
 `;
 
 export const TierTextBackground = styled.View`
-  background: #a58238;
+  background: ${theme.goldColor};
   width: 100%;
   height: 40px;
   align-items: center;

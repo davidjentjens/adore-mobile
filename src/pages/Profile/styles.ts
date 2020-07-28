@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import { Platform, StyleSheet } from 'react-native';
 
+import theme from '../../config/theme';
+
 export const styles = StyleSheet.create({
   headerContainer: {
     paddingTop: 70,
@@ -12,12 +14,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerText: {
-    color: '#a58328',
+    color: theme.goldColor,
     fontSize: 32,
     fontFamily: 'Roboto-Bold',
   },
   inputBackground: {
-    backgroundColor: '#2f2f2f',
+    backgroundColor: theme.grayColor,
   },
   sideBySideInputsContainer: {
     width: '100%',
@@ -40,12 +42,12 @@ export const Container = styled.View`
   justify-content: center;
   padding: 20px 20px ${Platform.OS === 'android' ? 60 : 40}px;
   margin: 0;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 export const Title = styled.Text`
   font-size: 20px;
-  color: #f4ede8;
+  color: ${theme.whiteColor};
   font-family: 'Roboto-Medium';
   margin: 24px 0 24px;
 `;
@@ -57,5 +59,5 @@ export const UserAvatar = styled.Image`
   height: 186px;
   border-radius: 98px;
   align-self: center;
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
 `;

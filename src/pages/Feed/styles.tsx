@@ -3,10 +3,11 @@ import { ImageBackground, Dimensions, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import theme from '../../config/theme';
 
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -20,7 +21,7 @@ export const Header = styled.View`
 `;
 
 export const ProfileIcon = styled(Icon)`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   opacity: 0.8;
   padding: 5px;
   border-radius: 10px;
@@ -77,7 +78,7 @@ export const PostDataContainer = styled.TouchableOpacity`
 `;
 
 export const LikedIcon = styled(MaterialIcon)`
-  color: #fff;
+  color: ${theme.whiteColor};
   margin: 0;
   padding: 0;
   width: 35px;
@@ -85,7 +86,7 @@ export const LikedIcon = styled(MaterialIcon)`
 `;
 
 export const LikeIcon = styled(Icon)`
-  color: #fff;
+  color: ${theme.whiteColor};
   margin: 0;
   padding: 0;
   width: 35px;
@@ -103,7 +104,7 @@ export const PostTextContainer = styled.View`
 export const PostTitle = styled.Text`
   font-family: Roboto-Bold;
   font-size: 25px;
-  color: #fff;
+  color: ${theme.whiteColor};
   padding-bottom: 5px;
 `;
 
@@ -111,7 +112,7 @@ export const PostDescription = styled.Text`
   font-family: Roboto-Medium;
   font-size: 15px;
   width: 80%;
-  color: white;
+  color: ${theme.whiteColor};
 `;
 
 export const PostAuthor = styled(LinearGradient)`
@@ -138,7 +139,7 @@ export const AuthorAvatar = styled(Image)`
 `;
 
 export const AuthorName = styled.Text`
-  color: #fff;
+  color: ${theme.whiteColor};
   font-family: Roboto-Regular;
   font-size: 16px;
   margin-left: 10px;

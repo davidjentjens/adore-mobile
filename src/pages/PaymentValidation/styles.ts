@@ -1,8 +1,10 @@
 import styled from 'styled-components/native';
 
+import theme from '../../config/theme';
+
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -16,14 +18,14 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 32px;
   font-family: Roboto-Bold;
   width: 100%;
 `;
 
 export const HeaderSubText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 25px;
   font-family: Roboto-Regular;
   width: 100%;
@@ -45,14 +47,14 @@ export const MemberContainer = styled.View`
 `;
 
 export const MemberInfoView = styled.View`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   width: 70%;
   height: 90px;
   border-radius: 9px;
 `;
 
 export const MemberStatusView = styled.View`
-  background-color: #a58238;
+  background-color: ${theme.goldColor};
   width: 30%;
   height: 90px;
   border-radius: 9px;
@@ -68,7 +70,7 @@ export const MemberInfoText = styled.Text`
   margin-right: 10px;
   font-family: Roboto-Bold;
   font-size: 22px;
-  color: white;
+  color: ${theme.whiteColor};
 `;
 
 export const MemberInfoSubtitleText = styled.Text`
@@ -77,26 +79,26 @@ export const MemberInfoSubtitleText = styled.Text`
   margin-right: 10px;
   font-family: Roboto-Regular;
   font-size: 20px;
-  color: #a58238;
+  color: ${theme.goldColor};
 `;
 
 export const MemberText = styled.Text`
   padding-top: 17px;
   font-family: Roboto-Regular;
   font-size: 20px;
-  color: white;
+  color: ${theme.whiteColor};
 `;
 
 export const MemberStatusText = styled.Text`
   font-family: Roboto-Bold;
   font-size: 20px;
-  color: white;
+  color: ${theme.whiteColor};
   width: 100%;
   text-align: center;
 `;
 
 export const DescriptionInfoView = styled.View`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   width: 100%;
   border-radius: 12px;
 `;
@@ -105,5 +107,5 @@ export const DescriptionText = styled.Text`
   font-family: Roboto-Regular;
   font-size: 18px;
   margin: 20px 20px 20px 20px;
-  color: white;
+  color: ${theme.whiteColor};
 `;

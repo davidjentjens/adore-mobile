@@ -5,9 +5,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 import Button from '../../components/Button';
 
+import theme from '../../config/theme';
+
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -35,19 +37,19 @@ export const HeaderBackButton = styled(Button)`
 `;
 
 export const HeaderBackButtonIcon = styled(Icon)`
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 export const styles = StyleSheet.create({
   headerTitle: {
-    color: '#a58328',
+    color: theme.goldColor,
     fontSize: 32,
     fontFamily: 'Roboto-Bold',
     marginLeft: 20,
     marginRight: 40,
   },
   headerSubTitle: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 17,
     fontFamily: 'Roboto-Regular',
     margin: 0,
@@ -69,10 +71,10 @@ export const TierCard = styled.View`
   margin-top: 15px;
   min-height: 180px;
   margin: 20px;
-  color: #fff;
+  color: ${theme.whiteColor};
   border-radius: 10px;
   overflow: hidden;
-  background: #2f2f2f;
+  background: ${theme.grayColor};
 `;
 
 export const PerksContainer = styled.View`
@@ -81,7 +83,7 @@ export const PerksContainer = styled.View`
   width: 90%;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   border-radius: 10px;
 `;
 
@@ -89,7 +91,7 @@ export const PerkTitleText = styled.Text`
   font-family: Roboto-Bold;
   padding: 20px 20px 0px 20px;
   font-size: 20px;
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 export const PerkDescText = styled.Text`
@@ -97,19 +99,19 @@ export const PerkDescText = styled.Text`
   padding: 20px 20px 0px 20px;
   font-size: 15px;
   width: 100%;
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 export const PerkDateText = styled.Text`
   font-family: Roboto-Bold;
   padding: 20px 0px 0px 20px;
   font-size: 20px;
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
 
 export const PerkDateNumberText = styled.Text`
   font-family: Roboto-Medium;
   padding: 10px 0px 20px 20px;
   font-size: 24px;
-  color: #a58238;
+  color: ${theme.goldColor};
 `;

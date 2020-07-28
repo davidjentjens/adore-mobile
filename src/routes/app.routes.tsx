@@ -40,7 +40,6 @@ const AppRoutes: React.FC = () => (
           <Icon
             name="arrow-left"
             size={24}
-            color="#FFB84D"
             onPress={() => navigation.goBack()}
           />
         ),
@@ -73,7 +72,6 @@ const AppRoutes: React.FC = () => (
           <Icon
             name="arrow-left"
             size={24}
-            color="#FFB84D"
             onPress={() => navigation.goBack()}
           />
         ),
@@ -99,7 +97,6 @@ const AppRoutes: React.FC = () => (
           <Icon
             name="arrow-left"
             size={24}
-            color="#FFB84D"
             onPress={() => navigation.goBack()}
           />
         ),
@@ -125,7 +122,6 @@ const AppRoutes: React.FC = () => (
           <Icon
             name="arrow-left"
             size={24}
-            color="#FFB84D"
             onPress={() => navigation.goBack()}
           />
         ),
@@ -151,7 +147,6 @@ const AppRoutes: React.FC = () => (
           <Icon
             name="arrow-left"
             size={24}
-            color="#FFB84D"
             onPress={() => navigation.goBack()}
           />
         ),

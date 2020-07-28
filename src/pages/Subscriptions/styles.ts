@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
-import { FlatList, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+
+import theme from '../../config/theme';
 
 interface Product {
   id: number;
@@ -13,7 +15,7 @@ interface Product {
 
 export const Container = styled.View`
   flex: 1;
-  background: #1c1c1c;
+  background: ${theme.darkGrayColor};
 `;
 
 // #region Header
@@ -27,13 +29,13 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: #a58328;
+  color: ${theme.goldColor};
   font-size: 32px;
   font-family: Roboto-Bold;
 `;
 
 export const ProfileIcon = styled(Icon)`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   opacity: 0.8;
   padding: 5px;
   border-radius: 10px;
@@ -50,10 +52,10 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#a58328',
+    backgroundColor: theme.goldColor,
   },
   headerInfoText: {
-    color: '#fff',
+    color: theme.whiteColor,
     fontSize: 15,
     fontFamily: 'Roboto-Medium',
   },
@@ -69,7 +71,7 @@ export const styles = StyleSheet.create({
 });
 
 export const SubscriptionDataContainer = styled.View`
-  background: #a58238;
+  background: ${theme.grayColor};
 
   margin: 10px 20px 0px 20px;
   padding-bottom: 20px;
@@ -86,7 +88,7 @@ export const SubscriptionText = styled.Text`
 export const SubscriptionSubtitleText = styled.Text`
   font-family: Roboto-Regular;
   font-size: 19px;
-  color: #fff;
+  color: ${theme.whiteColor};
   margin: 10px 0px 0px 20px;
 `;
 
@@ -103,14 +105,14 @@ export const MemberContainer = styled.TouchableOpacity`
 `;
 
 export const MemberInfoView = styled.View`
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   width: 70%;
   height: 90px;
   border-radius: 9px;
 `;
 
 export const MemberStatusView = styled.View`
-  background-color: #a58238;
+  background-color: ${theme.goldColor};
   width: 30%;
   height: 90px;
   border-radius: 9px;
@@ -135,7 +137,7 @@ export const MemberInfoSubtitleText = styled.Text`
   margin-right: 10px;
   font-family: Roboto-Regular;
   font-size: 20px;
-  color: #a58238;
+  color: ${theme.goldColor};
 `;
 
 export const MemberText = styled.Text`
@@ -143,7 +145,7 @@ export const MemberText = styled.Text`
   margin-left: 13px;
   font-family: Roboto-Regular;
   font-size: 20px;
-  color: white;
+  color: ${theme.whiteColor};
 `;
 
 export const TierSubscribedContainer = styled.View`
@@ -151,7 +153,7 @@ export const TierSubscribedContainer = styled.View`
   width: 90%;
   flex-direction: column;
   align-items: center;
-  background-color: #2f2f2f;
+  background-color: ${theme.grayColor};
   border-radius: 10px;
 `;
 
@@ -161,5 +163,5 @@ export const TierSubscribedText = styled.Text`
   text-align: center;
   margin-top: 20px
   width: 80%;
-  color: #fff;
+  color: ${theme.whiteColor};
 `;
