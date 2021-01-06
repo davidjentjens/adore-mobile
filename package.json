@@ -19,7 +19,7 @@
     "@types/react-native-snap-carousel": "^3.8.1",
     "@unform/core": "^2.1.3",
     "@unform/mobile": "^2.1.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-fns": "^2.14.0",
     "intl": "^1.2.5",
     "react": "16.11.0",
